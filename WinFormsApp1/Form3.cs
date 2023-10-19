@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
-    public partial class FormGiris : System.Windows.Forms.Form
+    public partial class FormDiyetisyenKayit : System.Windows.Forms.Form
     {
-        public FormGiris()
+        public FormDiyetisyenKayit()
         {
             InitializeComponent();
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            FormUye formUye= new FormUye();
-            formUye.Show();
-            this.Hide();
         }
     }
 }
