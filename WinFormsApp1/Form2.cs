@@ -14,7 +14,9 @@ namespace WinFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            FormDiyetisyenKayit diyetisyenKayit = new FormDiyetisyenKayit();
+            diyetisyenKayit.Show();
+            this.Hide();
         }
 
 
