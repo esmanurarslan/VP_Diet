@@ -41,5 +41,25 @@ namespace WinFormsApp1
             openFileDialog.ShowDialog(this);
             txtBSertifikalar.Text = openFileDialog.FileName;
         }
+
+        private void lblCity_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCity_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormDiyetisyenKayit_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblGender_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

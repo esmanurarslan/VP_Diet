@@ -19,9 +19,14 @@ namespace WinFormsApp1
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FormUye formUye= new FormUye();
+            FormUye formUye = new FormUye();
             formUye.Show();
             this.Hide();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

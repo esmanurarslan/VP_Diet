@@ -36,5 +36,37 @@ namespace WinFormsApp1
         {
 
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtGogus_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSehir_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click_1(object sender, EventArgs e)
+        {
+            FormGiris formGiris = new FormGiris();
+            formGiris.Show();
+            this.Hide();
+        }
     }
 }

@@ -38,10 +38,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(33, 38);
+            label1.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(10, 33);
             label1.Name = "label1";
-            label1.Size = new Size(355, 31);
+            label1.Size = new Size(422, 38);
             label1.TabIndex = 0;
             label1.Text = "Ne Olarak Üye Olmak İstersiniz?";
             label1.TextAlign = ContentAlignment.TopCenter;
@@ -56,7 +56,7 @@
             btnDiyetisyen.Location = new Point(72, 89);
             btnDiyetisyen.Margin = new Padding(0);
             btnDiyetisyen.Name = "btnDiyetisyen";
-            btnDiyetisyen.Size = new Size(116, 47);
+            btnDiyetisyen.Size = new Size(140, 47);
             btnDiyetisyen.TabIndex = 1;
             btnDiyetisyen.Text = "Diyetisyen";
             btnDiyetisyen.UseVisualStyleBackColor = false;
@@ -68,9 +68,9 @@
             panel1.Controls.Add(btnDanisan);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btnDiyetisyen);
-            panel1.Location = new Point(44, 39);
+            panel1.Location = new Point(39, 40);
             panel1.Name = "panel1";
-            panel1.Size = new Size(411, 178);
+            panel1.Size = new Size(435, 178);
             panel1.TabIndex = 3;
             // 
             // btnDanisan
@@ -94,6 +94,7 @@
             ClientSize = new Size(514, 262);
             Controls.Add(panel1);
             Name = "FormUye";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Yeni Üyelik ";
             Load += Form1_Load;
             panel1.ResumeLayout(false);
