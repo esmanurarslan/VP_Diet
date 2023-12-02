@@ -35,12 +35,7 @@ namespace WinFormsApp1
 
         }
 
-        private void txtBSertifikalar_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.ShowDialog(this);
-            txtBSertifikalar.Text = openFileDialog.FileName;
-        }
+
 
         private void lblCity_Click(object sender, EventArgs e)
         {

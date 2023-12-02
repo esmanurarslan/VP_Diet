@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            txtUniversite = new TextBox();
+            cmbEgitim = new ComboBox();
+            label1 = new Label();
             txtUlke = new TextBox();
             btnCancel = new Button();
             btnKayıtOl = new Button();
             txtBProf = new TextBox();
-            txtBEgitimDurumu = new TextBox();
             txtBCity = new TextBox();
             cmbBGender = new ComboBox();
             dateTPBirthDate = new DateTimePicker();
@@ -45,19 +47,19 @@
             txtBEposta = new TextBox();
             lblKayitOl = new Label();
             openFileDialog1 = new OpenFileDialog();
-            label1 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(246, 251, 249);
+            panel1.Controls.Add(txtUniversite);
+            panel1.Controls.Add(cmbEgitim);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(txtUlke);
             panel1.Controls.Add(btnCancel);
             panel1.Controls.Add(btnKayıtOl);
             panel1.Controls.Add(txtBProf);
-            panel1.Controls.Add(txtBEgitimDurumu);
             panel1.Controls.Add(txtBCity);
             panel1.Controls.Add(cmbBGender);
             panel1.Controls.Add(dateTPBirthDate);
@@ -73,6 +75,39 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(385, 659);
             panel1.TabIndex = 0;
+            // 
+            // txtUniversite
+            // 
+            txtUniversite.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            txtUniversite.Location = new Point(36, 422);
+            txtUniversite.Margin = new Padding(2);
+            txtUniversite.Name = "txtUniversite";
+            txtUniversite.PlaceholderText = "Üniversite Adı";
+            txtUniversite.Size = new Size(288, 30);
+            txtUniversite.TabIndex = 20;
+            // 
+            // cmbEgitim
+            // 
+            cmbEgitim.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbEgitim.ForeColor = SystemColors.WindowFrame;
+            cmbEgitim.FormattingEnabled = true;
+            cmbEgitim.Items.AddRange(new object[] { "Üniversite Öğrencisi", "Lisans", "Yüksek Lisans", "Doktora" });
+            cmbEgitim.Location = new Point(37, 380);
+            cmbEgitim.Name = "cmbEgitim";
+            cmbEgitim.Size = new Size(287, 31);
+            cmbEgitim.TabIndex = 19;
+            cmbEgitim.Text = "Eğitim Durumu";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 7.20000029F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(76, 640);
+            label1.Name = "label1";
+            label1.Size = new Size(306, 17);
+            label1.TabIndex = 18;
+            label1.Text = "*Kullanıcı adı olarak Ad-Soyad girilmesi mecburidir.";
+            label1.Click += label1_Click;
             // 
             // txtUlke
             // 
@@ -112,22 +147,12 @@
             // txtBProf
             // 
             txtBProf.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBProf.Location = new Point(36, 422);
+            txtBProf.Location = new Point(36, 470);
             txtBProf.Margin = new Padding(2);
             txtBProf.Name = "txtBProf";
             txtBProf.PlaceholderText = "Uzmanlık";
             txtBProf.Size = new Size(288, 30);
             txtBProf.TabIndex = 12;
-            // 
-            // txtBEgitimDurumu
-            // 
-            txtBEgitimDurumu.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBEgitimDurumu.Location = new Point(36, 380);
-            txtBEgitimDurumu.Margin = new Padding(2);
-            txtBEgitimDurumu.Name = "txtBEgitimDurumu";
-            txtBEgitimDurumu.PlaceholderText = "Eğitim Durumu";
-            txtBEgitimDurumu.Size = new Size(288, 30);
-            txtBEgitimDurumu.TabIndex = 11;
             // 
             // txtBCity
             // 
@@ -165,7 +190,7 @@
             // 
             lblGender.AutoSize = true;
             lblGender.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblGender.Location = new Point(178, 274);
+            lblGender.Location = new Point(201, 274);
             lblGender.Margin = new Padding(2, 0, 2, 0);
             lblGender.Name = "lblGender";
             lblGender.Size = new Size(62, 20);
@@ -241,17 +266,6 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 7.20000029F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(76, 640);
-            label1.Name = "label1";
-            label1.Size = new Size(306, 17);
-            label1.TabIndex = 18;
-            label1.Text = "*Kullanıcı adı olarak Ad-Soyad girilmesi mecburidir.";
-            label1.Click += label1_Click;
-            // 
             // FormDiyetisyenKayit
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -284,9 +298,10 @@
         private Button btnCancel;
         private Button btnKayıtOl;
         private TextBox txtBProf;
-        private TextBox txtBEgitimDurumu;
         private OpenFileDialog openFileDialog1;
         private TextBox txtUlke;
         private Label label1;
+        private ComboBox cmbEgitim;
+        private TextBox txtUniversite;
     }
 }
