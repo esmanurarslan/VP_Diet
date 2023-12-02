@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            txtUlke = new TextBox();
             btnCancel = new Button();
             btnKayıtOl = new Button();
-            txtBSertifikalar = new TextBox();
             txtBProf = new TextBox();
             txtBEgitimDurumu = new TextBox();
             txtBCity = new TextBox();
@@ -45,17 +45,17 @@
             txtBEposta = new TextBox();
             lblKayitOl = new Label();
             openFileDialog1 = new OpenFileDialog();
-            txtUlke = new TextBox();
+            label1 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(246, 251, 249);
+            panel1.Controls.Add(label1);
             panel1.Controls.Add(txtUlke);
             panel1.Controls.Add(btnCancel);
             panel1.Controls.Add(btnKayıtOl);
-            panel1.Controls.Add(txtBSertifikalar);
             panel1.Controls.Add(txtBProf);
             panel1.Controls.Add(txtBEgitimDurumu);
             panel1.Controls.Add(txtBCity);
@@ -69,15 +69,25 @@
             panel1.Controls.Add(txtBEposta);
             panel1.Controls.Add(lblKayitOl);
             panel1.Location = new Point(27, 11);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(385, 659);
             panel1.TabIndex = 0;
             // 
+            // txtUlke
+            // 
+            txtUlke.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txtUlke.Location = new Point(178, 338);
+            txtUlke.Margin = new Padding(2);
+            txtUlke.Name = "txtUlke";
+            txtUlke.PlaceholderText = "Ülke";
+            txtUlke.Size = new Size(146, 30);
+            txtUlke.TabIndex = 17;
+            // 
             // btnCancel
             // 
             btnCancel.Location = new Point(142, 588);
-            btnCancel.Margin = new Padding(2, 2, 2, 2);
+            btnCancel.Margin = new Padding(2);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(92, 29);
             btnCancel.TabIndex = 15;
@@ -91,7 +101,7 @@
             btnKayıtOl.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btnKayıtOl.ForeColor = Color.Transparent;
             btnKayıtOl.Location = new Point(92, 522);
-            btnKayıtOl.Margin = new Padding(2, 2, 2, 2);
+            btnKayıtOl.Margin = new Padding(2);
             btnKayıtOl.Name = "btnKayıtOl";
             btnKayıtOl.Size = new Size(177, 47);
             btnKayıtOl.TabIndex = 14;
@@ -99,22 +109,11 @@
             btnKayıtOl.UseVisualStyleBackColor = false;
             btnKayıtOl.Click += btnKayıtOl_Click;
             // 
-            // txtBSertifikalar
-            // 
-            txtBSertifikalar.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            txtBSertifikalar.Location = new Point(36, 464);
-            txtBSertifikalar.Margin = new Padding(2, 2, 2, 2);
-            txtBSertifikalar.Name = "txtBSertifikalar";
-            txtBSertifikalar.PlaceholderText = "Sertifikalar";
-            txtBSertifikalar.Size = new Size(288, 30);
-            txtBSertifikalar.TabIndex = 13;
-            txtBSertifikalar.Click += txtBSertifikalar_Click;
-            // 
             // txtBProf
             // 
             txtBProf.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txtBProf.Location = new Point(36, 422);
-            txtBProf.Margin = new Padding(2, 2, 2, 2);
+            txtBProf.Margin = new Padding(2);
             txtBProf.Name = "txtBProf";
             txtBProf.PlaceholderText = "Uzmanlık";
             txtBProf.Size = new Size(288, 30);
@@ -124,7 +123,7 @@
             // 
             txtBEgitimDurumu.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txtBEgitimDurumu.Location = new Point(36, 380);
-            txtBEgitimDurumu.Margin = new Padding(2, 2, 2, 2);
+            txtBEgitimDurumu.Margin = new Padding(2);
             txtBEgitimDurumu.Name = "txtBEgitimDurumu";
             txtBEgitimDurumu.PlaceholderText = "Eğitim Durumu";
             txtBEgitimDurumu.Size = new Size(288, 30);
@@ -134,7 +133,7 @@
             // 
             txtBCity.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
             txtBCity.Location = new Point(36, 338);
-            txtBCity.Margin = new Padding(2, 2, 2, 2);
+            txtBCity.Margin = new Padding(2);
             txtBCity.Name = "txtBCity";
             txtBCity.PlaceholderText = "Şehir";
             txtBCity.Size = new Size(138, 30);
@@ -146,7 +145,7 @@
             cmbBGender.FormattingEnabled = true;
             cmbBGender.Items.AddRange(new object[] { "Kadın", "Erkek" });
             cmbBGender.Location = new Point(201, 296);
-            cmbBGender.Margin = new Padding(2, 2, 2, 2);
+            cmbBGender.Margin = new Padding(2);
             cmbBGender.Name = "cmbBGender";
             cmbBGender.Size = new Size(123, 28);
             cmbBGender.TabIndex = 9;
@@ -155,7 +154,7 @@
             // 
             dateTPBirthDate.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             dateTPBirthDate.Location = new Point(40, 296);
-            dateTPBirthDate.Margin = new Padding(2, 2, 2, 2);
+            dateTPBirthDate.Margin = new Padding(2);
             dateTPBirthDate.Name = "dateTPBirthDate";
             dateTPBirthDate.Size = new Size(157, 27);
             dateTPBirthDate.TabIndex = 8;
@@ -189,7 +188,7 @@
             // 
             txtBParolaTekrar.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txtBParolaTekrar.Location = new Point(36, 231);
-            txtBParolaTekrar.Margin = new Padding(2, 2, 2, 2);
+            txtBParolaTekrar.Margin = new Padding(2);
             txtBParolaTekrar.Name = "txtBParolaTekrar";
             txtBParolaTekrar.PasswordChar = '*';
             txtBParolaTekrar.PlaceholderText = "Parola Tekrar";
@@ -200,7 +199,7 @@
             // 
             txtBParola.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txtBParola.Location = new Point(36, 184);
-            txtBParola.Margin = new Padding(2, 2, 2, 2);
+            txtBParola.Margin = new Padding(2);
             txtBParola.Name = "txtBParola";
             txtBParola.PasswordChar = '*';
             txtBParola.PlaceholderText = "Parola";
@@ -211,9 +210,9 @@
             // 
             txtBUser.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txtBUser.Location = new Point(36, 141);
-            txtBUser.Margin = new Padding(2, 2, 2, 2);
+            txtBUser.Margin = new Padding(2);
             txtBUser.Name = "txtBUser";
-            txtBUser.PlaceholderText = "Kullanıcı Adı";
+            txtBUser.PlaceholderText = "Kullanıcı Adı*";
             txtBUser.Size = new Size(288, 30);
             txtBUser.TabIndex = 2;
             // 
@@ -221,7 +220,7 @@
             // 
             txtBEposta.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             txtBEposta.Location = new Point(36, 99);
-            txtBEposta.Margin = new Padding(2, 2, 2, 2);
+            txtBEposta.Margin = new Padding(2);
             txtBEposta.Name = "txtBEposta";
             txtBEposta.PlaceholderText = "E-posta";
             txtBEposta.Size = new Size(288, 30);
@@ -242,15 +241,16 @@
             // 
             openFileDialog1.FileName = "openFileDialog1";
             // 
-            // txtUlke
+            // label1
             // 
-            txtUlke.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            txtUlke.Location = new Point(178, 338);
-            txtUlke.Margin = new Padding(2);
-            txtUlke.Name = "txtUlke";
-            txtUlke.PlaceholderText = "Ülke";
-            txtUlke.Size = new Size(146, 30);
-            txtUlke.TabIndex = 17;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 7.20000029F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(76, 640);
+            label1.Name = "label1";
+            label1.Size = new Size(306, 17);
+            label1.TabIndex = 18;
+            label1.Text = "*Kullanıcı adı olarak Ad-Soyad girilmesi mecburidir.";
+            label1.Click += label1_Click;
             // 
             // FormDiyetisyenKayit
             // 
@@ -259,7 +259,7 @@
             BackColor = Color.FromArgb(165, 215, 198);
             ClientSize = new Size(430, 680);
             Controls.Add(panel1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "FormDiyetisyenKayit";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Diyetisyen Üyelik";
@@ -283,10 +283,10 @@
         private ComboBox cmbBGender;
         private Button btnCancel;
         private Button btnKayıtOl;
-        private TextBox txtBSertifikalar;
         private TextBox txtBProf;
         private TextBox txtBEgitimDurumu;
         private OpenFileDialog openFileDialog1;
         private TextBox txtUlke;
+        private Label label1;
     }
 }
