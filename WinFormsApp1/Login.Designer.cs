@@ -30,12 +30,12 @@
         {
             panel1 = new Panel();
             label4 = new Label();
-            linkLabel2 = new LinkLabel();
-            linkLabel1 = new LinkLabel();
+            linkLabelUnuttum = new LinkLabel();
+            linkLabelUyeOl = new LinkLabel();
             btnGiris = new Button();
             label3 = new Label();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            txtParola = new TextBox();
+            txtKullaniciAdi = new TextBox();
             label1 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -44,12 +44,12 @@
             // 
             panel1.BackColor = Color.FromArgb(246, 251, 249);
             panel1.Controls.Add(label4);
-            panel1.Controls.Add(linkLabel2);
-            panel1.Controls.Add(linkLabel1);
+            panel1.Controls.Add(linkLabelUnuttum);
+            panel1.Controls.Add(linkLabelUyeOl);
             panel1.Controls.Add(btnGiris);
             panel1.Controls.Add(label3);
-            panel1.Controls.Add(textBox2);
-            panel1.Controls.Add(textBox1);
+            panel1.Controls.Add(txtParola);
+            panel1.Controls.Add(txtKullaniciAdi);
             panel1.Controls.Add(label1);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
@@ -67,29 +67,29 @@
             label4.TabIndex = 8;
             label4.Text = "Henüz bir hesabın yok mu?";
             // 
-            // linkLabel2
+            // linkLabelUnuttum
             // 
-            linkLabel2.AutoSize = true;
-            linkLabel2.LinkColor = Color.Black;
-            linkLabel2.Location = new Point(145, 194);
-            linkLabel2.Name = "linkLabel2";
-            linkLabel2.Size = new Size(117, 20);
-            linkLabel2.TabIndex = 7;
-            linkLabel2.TabStop = true;
-            linkLabel2.Text = "şifremi unuttum!";
+            linkLabelUnuttum.AutoSize = true;
+            linkLabelUnuttum.LinkColor = Color.Black;
+            linkLabelUnuttum.Location = new Point(145, 194);
+            linkLabelUnuttum.Name = "linkLabelUnuttum";
+            linkLabelUnuttum.Size = new Size(117, 20);
+            linkLabelUnuttum.TabIndex = 7;
+            linkLabelUnuttum.TabStop = true;
+            linkLabelUnuttum.Text = "şifremi unuttum!";
             // 
-            // linkLabel1
+            // linkLabelUyeOl
             // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            linkLabel1.LinkColor = Color.Black;
-            linkLabel1.Location = new Point(215, 243);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(58, 23);
-            linkLabel1.TabIndex = 6;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Üye ol";
-            linkLabel1.LinkClicked += linkLabel1_LinkClicked;
+            linkLabelUyeOl.AutoSize = true;
+            linkLabelUyeOl.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            linkLabelUyeOl.LinkColor = Color.Black;
+            linkLabelUyeOl.Location = new Point(215, 243);
+            linkLabelUyeOl.Name = "linkLabelUyeOl";
+            linkLabelUyeOl.Size = new Size(58, 23);
+            linkLabelUyeOl.TabIndex = 6;
+            linkLabelUyeOl.TabStop = true;
+            linkLabelUyeOl.Text = "Üye ol";
+            linkLabelUyeOl.LinkClicked += linkLabel1_LinkClicked;
             // 
             // btnGiris
             // 
@@ -102,6 +102,7 @@
             btnGiris.TabIndex = 5;
             btnGiris.Text = "Giriş";
             btnGiris.UseVisualStyleBackColor = false;
+            btnGiris.Click += btnGiris_Click;
             // 
             // label3
             // 
@@ -111,23 +112,24 @@
             label3.Size = new Size(0, 20);
             label3.TabIndex = 4;
             // 
-            // textBox2
+            // txtParola
             // 
-            textBox2.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox2.Location = new Point(14, 137);
-            textBox2.Name = "textBox2";
-            textBox2.PlaceholderText = "Parola";
-            textBox2.Size = new Size(288, 30);
-            textBox2.TabIndex = 2;
+            txtParola.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txtParola.Location = new Point(14, 137);
+            txtParola.Name = "txtParola";
+            txtParola.PasswordChar = '*';
+            txtParola.PlaceholderText = "Parola";
+            txtParola.Size = new Size(288, 30);
+            txtParola.TabIndex = 2;
             // 
-            // textBox1
+            // txtKullaniciAdi
             // 
-            textBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(14, 91);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Kullanıcı Adı";
-            textBox1.Size = new Size(288, 30);
-            textBox1.TabIndex = 1;
+            txtKullaniciAdi.Font = new Font("Segoe UI", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txtKullaniciAdi.Location = new Point(14, 91);
+            txtKullaniciAdi.Name = "txtKullaniciAdi";
+            txtKullaniciAdi.PlaceholderText = "Kullanıcı Adı";
+            txtKullaniciAdi.Size = new Size(288, 30);
+            txtKullaniciAdi.TabIndex = 1;
             // 
             // label1
             // 
@@ -158,12 +160,12 @@
 
         private Panel panel1;
         private Label label4;
-        private LinkLabel linkLabel2;
-        private LinkLabel linkLabel1;
+        private LinkLabel linkLabelUnuttum;
+        private LinkLabel linkLabelUyeOl;
         private Button btnGiris;
         private Label label3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox txtParola;
+        private TextBox txtKullaniciAdi;
         private Label label1;
     }
 }
