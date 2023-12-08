@@ -78,7 +78,6 @@
             lblEposta.Name = "lblEposta";
             lblEposta.Size = new Size(0, 38);
             lblEposta.TabIndex = 0;
-            lblEposta.Click += lblEposta_Click;
             // 
             // lblKullaniciAdi
             // 
@@ -161,7 +160,6 @@
             label10.Name = "label10";
             label10.Size = new Size(0, 32);
             label10.TabIndex = 9;
-            label10.Click += label10_Click;
             // 
             // label11
             // 
@@ -262,7 +260,6 @@
             txtMevcutKilo.PlaceholderText = "Kilo";
             txtMevcutKilo.Size = new Size(110, 44);
             txtMevcutKilo.TabIndex = 20;
-            txtMevcutKilo.TextChanged += textBox7_TextChanged;
             // 
             // txtHedefKilo
             // 
@@ -283,7 +280,6 @@
             txtBoy.PlaceholderText = "Boy";
             txtBoy.Size = new Size(110, 44);
             txtBoy.TabIndex = 22;
-            txtBoy.TextChanged += textBox9_TextChanged;
             // 
             // txtBel
             // 
@@ -314,7 +310,6 @@
             txtGogus.PlaceholderText = "Göğüs";
             txtGogus.Size = new Size(110, 44);
             txtGogus.TabIndex = 25;
-            txtGogus.TextChanged += txtGogus_TextChanged;
             // 
             // label1
             // 
@@ -387,7 +382,6 @@
             label14.Size = new Size(41, 30);
             label14.TabIndex = 31;
             label14.Text = "cm";
-            label14.Click += label14_Click;
             // 
             // btnKayit
             // 
@@ -401,6 +395,7 @@
             btnKayit.TabIndex = 32;
             btnKayit.Text = "Üye Ol";
             btnKayit.UseVisualStyleBackColor = false;
+            btnKayit.Click += btnKayit_Click;
             // 
             // panel1
             // 
@@ -477,7 +472,6 @@
             txtSehir.PlaceholderText = "Şehir";
             txtSehir.Size = new Size(228, 44);
             txtSehir.TabIndex = 36;
-            txtSehir.TextChanged += txtSehir_TextChanged;
             // 
             // label7
             // 
@@ -510,7 +504,6 @@
             label15.TabIndex = 33;
             label15.Text = "Danışan Üyelik Formu";
             label15.TextAlign = ContentAlignment.TopCenter;
-            label15.Click += label15_Click;
             // 
             // FormDanisanUye
             // 
