@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,34 +19,54 @@ namespace WinFormsApp1
         public DanisanPanel()
         {
             InitializeComponent();
+
         }
 
-        
-
-        private void grafikPanel_Paint(object sender, PaintEventArgs e)
+        /*private void DanisanPanel_Load(object sender, EventArgs e)
         {
-            /*Örnek veri seti (kilo ve zaman verileri)
-           // DateTime[] dates = { DateTime.Now.AddDays(-5), DateTime.Now.AddDays(-4), DateTime.Now.AddDays(-3), DateTime.Now.AddDays(-2), DateTime.Now.AddDays(-1), DateTime.Now };
-            double[] weights = { 70.5, 71.2, 69.8, 72.0, 70.7, 73.2 };
+            DrawLines();
+        }
 
-            // Chart kontrolüne verileri ekleme
-            for (int i = 0; i < dates.Length; i++)
+        private void DrawLines()
+        {
+            using (Graphics g = this.CreateGraphics())
             {
-                chart1.Series["Weight"].Points.AddXY(dates[i], weights[i]);
+                 using (Pen p = new Pen(Color.Black, 1))
+                 {
+                     // Burada label'ın üstündeki ve altındaki çizgileri çizebilirsiniz.
+                     // Örneğin, eğer label adı "label9" ise:
+                     int label9Top = label9.Top;
+                     int label9Bottom = label9.Bottom;
+
+                    g.DrawLine(p, new Point(0, label9Top), new Point(this.Width, label9Top));
+                     g.DrawLine(p, new Point(0, label9Bottom), new Point(this.Width, label9Bottom)); 
+
+                 }
+                
+            }
+        }
+        */
+
+            private void button1_Click(object sender, EventArgs e)
+            {
+                Guncelle frm = new Guncelle();
+                frm.Show();
             }
 
-            // Eksen başlıkları ve grafiğin başlığı
-            chart1.ChartAreas[0].AxisX.Title = "Tarih";
-            chart1.ChartAreas[0].AxisY.Title = "Kilo (kg)";
-            chart1.Titles.Add("Kilo Zaman Grafiği"); */
+
+            private void btnArama_Click(object sender, EventArgs e)
+            {
+                string aramaKelimesi = txtArama.Text;
+                // buraya girilen kullanıcı adını databaseden çeken ve diyetisyen gönderen kodu yazacağım
+
+            }
+
+
         }
 
-       
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Guncelle frm = new Guncelle();
-            frm.Show();
-        }
-    }
+ 
 }
+
+
+
+
