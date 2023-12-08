@@ -31,11 +31,11 @@ namespace WinFormsApp1
 
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
-            if (double.TryParse(textBox1.Text, out double kilo))
+            if (double.TryParse(txtKiloUpdate.Text, out double kilo))
             {
-                kiloListesi.Add(kilo);
-                textBox1.Clear();
-                MessageBox.Show("Güncelleme Başarılı", "Sonuç", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                /*kiloListesi.Add(kilo);
+                txtKiloUpdate.Clear();
+                MessageBox.Show("Güncelleme Başarılı", "Sonuç", MessageBoxButtons.OK, MessageBoxIcon.Information);*/
             }
 
             else
@@ -48,6 +48,14 @@ namespace WinFormsApp1
         private void btnIptal_Click(object sender, EventArgs e)
         {
             this.Close();
+            
+
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

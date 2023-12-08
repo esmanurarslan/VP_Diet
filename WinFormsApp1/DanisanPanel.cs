@@ -50,7 +50,13 @@ namespace WinFormsApp1
             private void button1_Click(object sender, EventArgs e)
             {
                 Guncelle frm = new Guncelle();
-                frm.Show();
+                this.Opacity = 0.5;
+            frm.FormClosed += (s, args) =>
+            {
+                // Guncelle formu kapatıldığında ana formun saydamlığını 1.0 olarak ayarla
+                this.Opacity = 1.0;
+            };
+            frm.Show();
             }
 
 
