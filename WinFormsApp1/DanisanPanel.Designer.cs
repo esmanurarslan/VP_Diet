@@ -31,23 +31,33 @@ namespace WinFormsApp1
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanisanPanel));
             leftPanel = new Panel();
+            rateLbl = new LinkLabel();
+            diyetisyenMailLbl = new LinkLabel();
+            label12 = new Label();
+            diyetisyenLbl = new Label();
+            label11 = new Label();
+            label10 = new Label();
             label9 = new Label();
             kullanıcıAdLbl = new Label();
             label8 = new Label();
-            circularPictureBox1 = new CircularPictureBox();
             button1 = new Button();
             btnGüncelle = new Button();
             rightPanel = new Panel();
             btnArama = new Button();
             txtArama = new TextBox();
             middlePanel1 = new Panel();
-            panel3 = new Panel();
-            panel2 = new Panel();
-            panel1 = new Panel();
+            grafikPanel4 = new Panel();
+            grafikPanel3 = new Panel();
+            grafikPanel2 = new Panel();
             label2 = new Label();
             label1 = new Label();
-            grafikPanel = new Panel();
+            grafikPanel1 = new Panel();
             humanBodyPanel = new Panel();
+            kiloLbl = new Label();
+            boyLbl = new Label();
+            belLbl = new Label();
+            kalcaLbl = new Label();
+            gogusLbl = new Label();
             pictureBox1 = new PictureBox();
             label7 = new Label();
             label6 = new Label();
@@ -56,19 +66,7 @@ namespace WinFormsApp1
             label3 = new Label();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            label10 = new Label();
-            label11 = new Label();
-            diyetisyenLbl = new Label();
-            kiloLbl = new Label();
-            boyLbl = new Label();
-            belLbl = new Label();
-            kalcaLbl = new Label();
-            gogusLbl = new Label();
-            label12 = new Label();
-            diyetisyenMailLbl = new LinkLabel();
-            rateLbl = new LinkLabel();
             leftPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)circularPictureBox1).BeginInit();
             rightPanel.SuspendLayout();
             middlePanel1.SuspendLayout();
             humanBodyPanel.SuspendLayout();
@@ -87,13 +85,72 @@ namespace WinFormsApp1
             leftPanel.Controls.Add(label9);
             leftPanel.Controls.Add(kullanıcıAdLbl);
             leftPanel.Controls.Add(label8);
-            leftPanel.Controls.Add(circularPictureBox1);
             leftPanel.Controls.Add(button1);
             leftPanel.Controls.Add(btnGüncelle);
             leftPanel.Location = new Point(0, 1);
             leftPanel.Name = "leftPanel";
             leftPanel.Size = new Size(260, 640);
             leftPanel.TabIndex = 0;
+            // 
+            // rateLbl
+            // 
+            rateLbl.AutoSize = true;
+            rateLbl.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
+            rateLbl.LinkColor = Color.FromArgb(70, 125, 106);
+            rateLbl.Location = new Point(111, 341);
+            rateLbl.Name = "rateLbl";
+            rateLbl.Size = new Size(146, 17);
+            rateLbl.TabIndex = 24;
+            rateLbl.TabStop = true;
+            rateLbl.Text = "Diyetisyeni Değerlendir!";
+            // 
+            // diyetisyenMailLbl
+            // 
+            diyetisyenMailLbl.AutoSize = true;
+            diyetisyenMailLbl.LinkColor = Color.Black;
+            diyetisyenMailLbl.Location = new Point(24, 308);
+            diyetisyenMailLbl.Name = "diyetisyenMailLbl";
+            diyetisyenMailLbl.Size = new Size(188, 20);
+            diyetisyenMailLbl.TabIndex = 23;
+            diyetisyenMailLbl.TabStop = true;
+            diyetisyenMailLbl.Text = "diyetisyenmail@gmail.com";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.Location = new Point(24, 261);
+            label12.Name = "label12";
+            label12.Size = new Size(93, 23);
+            label12.TabIndex = 22;
+            label12.Text = "Diyetisyen";
+            // 
+            // diyetisyenLbl
+            // 
+            diyetisyenLbl.AutoSize = true;
+            diyetisyenLbl.Location = new Point(24, 284);
+            diyetisyenLbl.Name = "diyetisyenLbl";
+            diyetisyenLbl.Size = new Size(113, 20);
+            diyetisyenLbl.TabIndex = 21;
+            diyetisyenLbl.Text = "diyetisyen@123";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(12, 224);
+            label11.Name = "label11";
+            label11.Size = new Size(231, 20);
+            label11.TabIndex = 19;
+            label11.Text = "-------------------------------------";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(12, 184);
+            label10.Name = "label10";
+            label10.Size = new Size(231, 20);
+            label10.TabIndex = 18;
+            label10.Text = "-------------------------------------";
             // 
             // label9
             // 
@@ -122,16 +179,6 @@ namespace WinFormsApp1
             label8.Size = new Size(111, 23);
             label8.TabIndex = 3;
             label8.Text = "Kullanıcı Adı";
-            // 
-            // circularPictureBox1
-            // 
-            circularPictureBox1.Image = (Image)resources.GetObject("circularPictureBox1.Image");
-            circularPictureBox1.Location = new Point(24, 25);
-            circularPictureBox1.Name = "circularPictureBox1";
-            circularPictureBox1.Size = new Size(86, 84);
-            circularPictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            circularPictureBox1.TabIndex = 16;
-            circularPictureBox1.TabStop = false;
             // 
             // button1
             // 
@@ -190,41 +237,41 @@ namespace WinFormsApp1
             // middlePanel1
             // 
             middlePanel1.BackColor = Color.FromArgb(233, 233, 233);
-            middlePanel1.Controls.Add(panel3);
-            middlePanel1.Controls.Add(panel2);
-            middlePanel1.Controls.Add(panel1);
+            middlePanel1.Controls.Add(grafikPanel4);
+            middlePanel1.Controls.Add(grafikPanel3);
+            middlePanel1.Controls.Add(grafikPanel2);
             middlePanel1.Controls.Add(label2);
             middlePanel1.Controls.Add(label1);
-            middlePanel1.Controls.Add(grafikPanel);
+            middlePanel1.Controls.Add(grafikPanel1);
             middlePanel1.Controls.Add(humanBodyPanel);
             middlePanel1.Location = new Point(275, 26);
             middlePanel1.Name = "middlePanel1";
             middlePanel1.Size = new Size(555, 589);
             middlePanel1.TabIndex = 2;
             // 
-            // panel3
+            // grafikPanel4
             // 
-            panel3.BackColor = Color.White;
-            panel3.Location = new Point(195, 445);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(342, 120);
-            panel3.TabIndex = 10;
+            grafikPanel4.BackColor = Color.White;
+            grafikPanel4.Location = new Point(195, 445);
+            grafikPanel4.Name = "grafikPanel4";
+            grafikPanel4.Size = new Size(342, 120);
+            grafikPanel4.TabIndex = 10;
             // 
-            // panel2
+            // grafikPanel3
             // 
-            panel2.BackColor = Color.White;
-            panel2.Location = new Point(195, 319);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(342, 120);
-            panel2.TabIndex = 9;
+            grafikPanel3.BackColor = Color.White;
+            grafikPanel3.Location = new Point(195, 319);
+            grafikPanel3.Name = "grafikPanel3";
+            grafikPanel3.Size = new Size(342, 120);
+            grafikPanel3.TabIndex = 9;
             // 
-            // panel1
+            // grafikPanel2
             // 
-            panel1.BackColor = Color.White;
-            panel1.Location = new Point(195, 193);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(342, 120);
-            panel1.TabIndex = 8;
+            grafikPanel2.BackColor = Color.White;
+            grafikPanel2.Location = new Point(195, 193);
+            grafikPanel2.Name = "grafikPanel2";
+            grafikPanel2.Size = new Size(342, 120);
+            grafikPanel2.TabIndex = 8;
             // 
             // label2
             // 
@@ -246,13 +293,13 @@ namespace WinFormsApp1
             label1.TabIndex = 4;
             label1.Text = "Gelişimim";
             // 
-            // grafikPanel
+            // grafikPanel1
             // 
-            grafikPanel.BackColor = Color.White;
-            grafikPanel.Location = new Point(195, 67);
-            grafikPanel.Name = "grafikPanel";
-            grafikPanel.Size = new Size(342, 120);
-            grafikPanel.TabIndex = 1;
+            grafikPanel1.BackColor = Color.White;
+            grafikPanel1.Location = new Point(195, 67);
+            grafikPanel1.Name = "grafikPanel1";
+            grafikPanel1.Size = new Size(342, 120);
+            grafikPanel1.TabIndex = 1;
             // 
             // humanBodyPanel
             // 
@@ -272,6 +319,51 @@ namespace WinFormsApp1
             humanBodyPanel.Name = "humanBodyPanel";
             humanBodyPanel.Size = new Size(166, 460);
             humanBodyPanel.TabIndex = 0;
+            // 
+            // kiloLbl
+            // 
+            kiloLbl.AutoSize = true;
+            kiloLbl.Location = new Point(13, 269);
+            kiloLbl.Name = "kiloLbl";
+            kiloLbl.Size = new Size(45, 20);
+            kiloLbl.TabIndex = 22;
+            kiloLbl.Text = "55 kg";
+            // 
+            // boyLbl
+            // 
+            boyLbl.AutoSize = true;
+            boyLbl.Location = new Point(90, 269);
+            boyLbl.Name = "boyLbl";
+            boyLbl.Size = new Size(61, 20);
+            boyLbl.TabIndex = 23;
+            boyLbl.Text = "163 cm ";
+            // 
+            // belLbl
+            // 
+            belLbl.AutoSize = true;
+            belLbl.Location = new Point(13, 338);
+            belLbl.Name = "belLbl";
+            belLbl.Size = new Size(49, 20);
+            belLbl.TabIndex = 24;
+            belLbl.Text = "60 cm";
+            // 
+            // kalcaLbl
+            // 
+            kalcaLbl.AutoSize = true;
+            kalcaLbl.Location = new Point(90, 338);
+            kalcaLbl.Name = "kalcaLbl";
+            kalcaLbl.Size = new Size(49, 20);
+            kalcaLbl.TabIndex = 25;
+            kalcaLbl.Text = "88 cm";
+            // 
+            // gogusLbl
+            // 
+            gogusLbl.AutoSize = true;
+            gogusLbl.Location = new Point(13, 412);
+            gogusLbl.Name = "gogusLbl";
+            gogusLbl.Size = new Size(49, 20);
+            gogusLbl.TabIndex = 26;
+            gogusLbl.Text = "70 cm";
             // 
             // pictureBox1
             // 
@@ -328,111 +420,6 @@ namespace WinFormsApp1
             label3.TabIndex = 3;
             label3.Text = "Kilo";
             // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(12, 184);
-            label10.Name = "label10";
-            label10.Size = new Size(231, 20);
-            label10.TabIndex = 18;
-            label10.Text = "-------------------------------------";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(12, 224);
-            label11.Name = "label11";
-            label11.Size = new Size(231, 20);
-            label11.TabIndex = 19;
-            label11.Text = "-------------------------------------";
-            // 
-            // diyetisyenLbl
-            // 
-            diyetisyenLbl.AutoSize = true;
-            diyetisyenLbl.Location = new Point(24, 284);
-            diyetisyenLbl.Name = "diyetisyenLbl";
-            diyetisyenLbl.Size = new Size(113, 20);
-            diyetisyenLbl.TabIndex = 21;
-            diyetisyenLbl.Text = "diyetisyen@123";
-            // 
-            // kiloLbl
-            // 
-            kiloLbl.AutoSize = true;
-            kiloLbl.Location = new Point(13, 269);
-            kiloLbl.Name = "kiloLbl";
-            kiloLbl.Size = new Size(45, 20);
-            kiloLbl.TabIndex = 22;
-            kiloLbl.Text = "55 kg";
-            // 
-            // boyLbl
-            // 
-            boyLbl.AutoSize = true;
-            boyLbl.Location = new Point(90, 269);
-            boyLbl.Name = "boyLbl";
-            boyLbl.Size = new Size(61, 20);
-            boyLbl.TabIndex = 23;
-            boyLbl.Text = "163 cm ";
-            // 
-            // belLbl
-            // 
-            belLbl.AutoSize = true;
-            belLbl.Location = new Point(13, 338);
-            belLbl.Name = "belLbl";
-            belLbl.Size = new Size(49, 20);
-            belLbl.TabIndex = 24;
-            belLbl.Text = "60 cm";
-            // 
-            // kalcaLbl
-            // 
-            kalcaLbl.AutoSize = true;
-            kalcaLbl.Location = new Point(90, 338);
-            kalcaLbl.Name = "kalcaLbl";
-            kalcaLbl.Size = new Size(49, 20);
-            kalcaLbl.TabIndex = 25;
-            kalcaLbl.Text = "88 cm";
-            // 
-            // gogusLbl
-            // 
-            gogusLbl.AutoSize = true;
-            gogusLbl.Location = new Point(13, 412);
-            gogusLbl.Name = "gogusLbl";
-            gogusLbl.Size = new Size(49, 20);
-            gogusLbl.TabIndex = 26;
-            gogusLbl.Text = "70 cm";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label12.Location = new Point(24, 261);
-            label12.Name = "label12";
-            label12.Size = new Size(93, 23);
-            label12.TabIndex = 22;
-            label12.Text = "Diyetisyen";
-            // 
-            // diyetisyenMailLbl
-            // 
-            diyetisyenMailLbl.AutoSize = true;
-            diyetisyenMailLbl.LinkColor = Color.Black;
-            diyetisyenMailLbl.Location = new Point(24, 308);
-            diyetisyenMailLbl.Name = "diyetisyenMailLbl";
-            diyetisyenMailLbl.Size = new Size(188, 20);
-            diyetisyenMailLbl.TabIndex = 23;
-            diyetisyenMailLbl.TabStop = true;
-            diyetisyenMailLbl.Text = "diyetisyenmail@gmail.com";
-            // 
-            // rateLbl
-            // 
-            rateLbl.AutoSize = true;
-            rateLbl.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
-            rateLbl.LinkColor = Color.FromArgb(70, 125, 106);
-            rateLbl.Location = new Point(111, 341);
-            rateLbl.Name = "rateLbl";
-            rateLbl.Size = new Size(146, 17);
-            rateLbl.TabIndex = 24;
-            rateLbl.TabStop = true;
-            rateLbl.Text = "Diyetisyeni Değerlendir!";
-            // 
             // DanisanPanel
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -447,7 +434,6 @@ namespace WinFormsApp1
             Text = "DanisanPanel";
             leftPanel.ResumeLayout(false);
             leftPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)circularPictureBox1).EndInit();
             rightPanel.ResumeLayout(false);
             rightPanel.PerformLayout();
             middlePanel1.ResumeLayout(false);
@@ -467,13 +453,13 @@ namespace WinFormsApp1
         private Panel middlePanel1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Panel humanBodyPanel;
-        private Panel grafikPanel;
+        private Panel grafikPanel1;
         private Label label2;
         private Label label1;
         private Button btnGüncelle;
-        private Panel panel3;
-        private Panel panel2;
-        private Panel panel1;
+        private Panel grafikPanel4;
+        private Panel grafikPanel3;
+        private Panel grafikPanel2;
         private Label label7;
         private Label label6;
         private Label label5;
