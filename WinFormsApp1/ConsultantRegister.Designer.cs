@@ -44,7 +44,6 @@
             txtKullaniciAdi = new TextBox();
             txtParola = new TextBox();
             txtParolaTekrar = new TextBox();
-            txtDogumTarihi = new TextBox();
             cmbCinsiyet = new ComboBox();
             txtMevcutKilo = new TextBox();
             txtHedefKilo = new TextBox();
@@ -60,6 +59,7 @@
             label14 = new Label();
             btnKayit = new Button();
             panel1 = new Panel();
+            dateBirthDate = new DateTimePicker();
             label16 = new Label();
             txtSehir = new TextBox();
             label7 = new Label();
@@ -214,14 +214,6 @@
             txtParolaTekrar.Size = new Size(288, 30);
             txtParolaTekrar.TabIndex = 16;
             // 
-            // txtDogumTarihi
-            // 
-            txtDogumTarihi.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDogumTarihi.Location = new Point(36, 296);
-            txtDogumTarihi.Name = "txtDogumTarihi";
-            txtDogumTarihi.Size = new Size(146, 27);
-            txtDogumTarihi.TabIndex = 17;
-            // 
             // cmbCinsiyet
             // 
             cmbCinsiyet.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -368,6 +360,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(246, 251, 249);
+            panel1.Controls.Add(dateBirthDate);
             panel1.Controls.Add(label16);
             panel1.Controls.Add(txtSehir);
             panel1.Controls.Add(label7);
@@ -398,7 +391,6 @@
             panel1.Controls.Add(label12);
             panel1.Controls.Add(cmbCinsiyet);
             panel1.Controls.Add(label11);
-            panel1.Controls.Add(txtDogumTarihi);
             panel1.Controls.Add(label10);
             panel1.Controls.Add(label8);
             panel1.Controls.Add(label9);
@@ -408,6 +400,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(385, 659);
             panel1.TabIndex = 33;
+            // 
+            // dateBirthDate
+            // 
+            dateBirthDate.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dateBirthDate.Location = new Point(36, 295);
+            dateBirthDate.Margin = new Padding(2);
+            dateBirthDate.Name = "dateBirthDate";
+            dateBirthDate.Size = new Size(157, 27);
+            dateBirthDate.TabIndex = 39;
+            dateBirthDate.Value = new DateTime(2023, 11, 30, 0, 0, 0, 0);
             // 
             // label16
             // 
@@ -439,7 +441,7 @@
             // btnCancel
             // 
             btnCancel.Location = new Point(135, 586);
-            btnCancel.Margin = new Padding(2, 2, 2, 2);
+            btnCancel.Margin = new Padding(2);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(92, 29);
             btnCancel.TabIndex = 34;
@@ -491,7 +493,6 @@
         private TextBox txtKullaniciAdi;
         private TextBox txtParola;
         private TextBox txtParolaTekrar;
-        private TextBox txtDogumTarihi;
         private ComboBox cmbCinsiyet;
         private TextBox txtMevcutKilo;
         private TextBox txtHedefKilo;
@@ -512,5 +513,6 @@
         private Label label16;
         private TextBox txtSehir;
         private Label label7;
+        private DateTimePicker dateBirthDate;
     }
 }

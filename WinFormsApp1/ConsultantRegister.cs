@@ -31,64 +31,115 @@ namespace WinFormsApp1
         }
 
         private void btnKayit_Click(object sender, EventArgs e)
-        {/*
-            baglanti.Open();
-            // Diğer kontrollerinizi ekleyin (örneğin, boş kontrolü)
-            SqlCommand checkUsernameCommand = new SqlCommand("SELECT COUNT(*) FROM TblUsers WHERE username = @p16", baglanti);
-            checkUsernameCommand.Parameters.AddWithValue("@p16", txtKullaniciAdi.Text);
-            int existingUserCount = (int)checkUsernameCommand.ExecuteNonQuery();
-
-            if (existingUserCount > 0)
+        {// Kullanıcı adı ve şifre kontrolü
+            if (txtParola.Text != txtParolaTekrar.Text)
             {
-                MessageBox.Show("Bu kullanıcı adı zaten var. Lütfen başka bir kullanıcı adı seçin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Şifreler eşleşmiyor.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else {
-                if (txtParola.Text != txtParolaTekrar.Text)
+
+            // Veritabanı bağlantısı
+            using (SqlConnection connection = new SqlConnection("Data Source = localhost; Initial Catalog = VP_diet; Integrated Security = True"))
+            {
+                connection.Open();
+
+                // Kullanıcı adının zaten kullanılıp kullanılmadığını kontrol etme
+                string checkUserNameQuery = "SELECT COUNT(*) FROM Users WHERE userName = @UserName";
+                using (SqlCommand command = new SqlCommand(checkUserNameQuery, connection))
                 {
-                    MessageBox.Show("Parolalar eşleşmiyor.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    command.Parameters.AddWithValue("@UserName", txtKullaniciAdi.Text);
+                    int existingUserCount = (int)command.ExecuteScalar();
+
+                    if (existingUserCount > 0)
+                    {
+                        MessageBox.Show("Bu kullanıcı adı zaten kullanılıyor. Lütfen başka bir kullanıcı adı seçin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
-                else
+
+                // E-posta adresinin zaten kullanılıp kullanılmadığını kontrol etme (Diyetisyen tablosunda)
+                string checkEmailQuery = "SELECT COUNT(*) FROM Dietitian WHERE email = @Email";
+                using (SqlCommand command = new SqlCommand(checkEmailQuery, connection))
                 {
-                    
-                    SqlCommand komut = new SqlCommand("insert into TblUsers(username,password,email,userType) values(@p1,@p2,@p3,@p4)", baglanti);
-                    komut.Parameters.AddWithValue("@p1", txtKullaniciAdi.Text);
-                    komut.Parameters.AddWithValue("@p2", txtParola.Text);
-                    komut.Parameters.AddWithValue("@p3", txtMail.Text);
-                    komut.Parameters.AddWithValue("@p4", 3);
-                    komut.ExecuteNonQuery();
+                    command.Parameters.AddWithValue("@Email", txtMail.Text);
+                    int existingEmailCount = (int)command.ExecuteScalar();
 
-                    SqlCommand komut2 = new SqlCommand("insert into TblConsultant(username,birthDate,gender,city,country,currentWeight,targetWeight,height,waist,hip,chest,registerDate) values(@p5,@p6,@p7,@p8,@p9,@p10,@p11,@p12,@p13,@p14,@p15,@p16)", baglanti);
-                    komut2.Parameters.AddWithValue("@p5", txtKullaniciAdi.Text);
-                    komut2.Parameters.AddWithValue("@p6", txtDogumTarihi.Text);
-                    komut2.Parameters.AddWithValue("@p7", cmbCinsiyet.SelectedItem.ToString());
-                    komut2.Parameters.AddWithValue("@p8", txtSehir.Text);
-                    komut2.Parameters.AddWithValue("@p9", txtUlke.Text);
-                    komut2.Parameters.AddWithValue("@p10", Convert.ToInt32(txtMevcutKilo.Text));
-                    komut2.Parameters.AddWithValue("@p11", Convert.ToInt32(txtHedefKilo.Text));
-                    komut2.Parameters.AddWithValue("@p12", Convert.ToInt32(txtBoy.Text));
-                    komut2.Parameters.AddWithValue("@p13", Convert.ToInt32(txtBel.Text));
-                    komut2.Parameters.AddWithValue("@p14", Convert.ToInt32(txtKalca.Text));
-                    komut2.Parameters.AddWithValue("@p15", Convert.ToInt32(txtGogus.Text));
-                    komut2.Parameters.AddWithValue("@p16", DateTime.Now);
-                    komut2.ExecuteNonQuery();
+                    if (existingEmailCount > 0)
+                    {
+                        MessageBox.Show("Bu e-posta adresi zaten kullanılmış. Lütfen başka bir e-posta adresi kullanın.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
 
-                    MessageBox.Show("Kayıt Başarıyla yapıldı", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    FormGiris formGiris = new FormGiris();
-                    this.Hide();
-                    formGiris.ShowDialog(); // Eğer modal bir pencere olarak açılmasını istiyorsanız ShowDialog() kullanabilirsiniz.
-                    this.Close();
+                // Users tablosuna kullanıcı ekleme
+                string insertUserQuery = "INSERT INTO Users (userName, password, userType, registerDate) VALUES (@UserName, @Password, 3, @RegisterDate)";
+                using (SqlCommand command = new SqlCommand(insertUserQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@UserName", txtKullaniciAdi.Text);
+                    command.Parameters.AddWithValue("@Password", txtParola.Text);
+                    command.Parameters.AddWithValue("@RegisterDate", DateTime.Now);
+                    command.ExecuteNonQuery();
+                }
 
-                    baglanti.Close();
+                // Dietitian tablosuna diyetisyen ekleme
+                string insertDietitianQuery = "INSERT INTO Consultant (consultantId,email,birthDate, gender, city,firstWeight,targetWeight,height,waist,hip,chest) " +
+                                             "VALUES (@ConsultantId,@Email, @BirthDate, @Gender, @City,@FirstWeight,@TargetWeight,@Height,@Waist,@Hip,@Chest )";
+                using (SqlCommand command = new SqlCommand(insertDietitianQuery, connection))
+                {
+                    // Burada uygun parametre değerlerini ekleyin
+                    command.Parameters.AddWithValue("@ConsultantId", GetLastUserId(connection).ToString());
+                    command.Parameters.AddWithValue("@Email", txtMail.Text);
+                    command.Parameters.AddWithValue("@BirthDate", dateBirthDate.Value);
+                    command.Parameters.AddWithValue("@Gender", cmbCinsiyet.SelectedItem.ToString());
+                    command.Parameters.AddWithValue("@City", txtSehir.Text);
+                    command.Parameters.AddWithValue("@FirstWeight", float.Parse(txtMevcutKilo.Text));
+                    command.Parameters.AddWithValue("@TargetWeight", float.Parse(txtHedefKilo.Text));
+                    command.Parameters.AddWithValue("@Height", int.Parse(txtBoy.Text));
+                    command.Parameters.AddWithValue("@Waist", int.Parse(txtBel.Text));
+                    command.Parameters.AddWithValue("@Hip", int.Parse(txtKalca.Text));
+                    command.Parameters.AddWithValue("@Chest", int.Parse(txtGogus.Text));
 
-            */
+                    command.ExecuteNonQuery();
+                }
 
+                MessageBox.Show("Kayıt başarıyla tamamlandı.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            ClearForm();
 
         }
+        private int GetLastUserId(SqlConnection connection)
+        {
+            // Users tablosundaki son eklenen kullanıcının Id'sini getirme
+            string getLastUserIdQuery = "SELECT MAX(Id) FROM Users";
+            using (SqlCommand command = new SqlCommand(getLastUserIdQuery, connection))
+            {
+                return (int)command.ExecuteScalar();
+            }
+        }
+        private void ClearForm()
+        {
+            // Tüm TextBox ve ComboBox kontrol elemanlarını temizle
+            foreach (Control control in Controls)
+            {
+                if (control is TextBox)
+                {
+                    ((TextBox)control).Clear();
+                }
+                else if (control is ComboBox)
+                {
+                    ((ComboBox)control).SelectedIndex = -1;
+                }
+            }
+
+            // Tarih seçici kontrolünü bugünkü tarihe ayarla
+            dateBirthDate.Value = DateTime.Today;
+        }
+
 
     }
+
 }
+
 
 
 
