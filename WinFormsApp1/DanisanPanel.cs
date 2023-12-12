@@ -47,30 +47,30 @@ namespace WinFormsApp1
         }
         */
 
-            private void button1_Click(object sender, EventArgs e)
-            {
-                Guncelle frm = new Guncelle();
-                this.Opacity = 0.5;
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Guncelle frm = new Guncelle();
+            this.Opacity = 0.5;
             frm.FormClosed += (s, args) =>
             {
                 // Guncelle formu kapatıldığında ana formun saydamlığını 1.0 olarak ayarla
                 this.Opacity = 1.0;
             };
             frm.Show();
-            }
+        }
 
 
-            private void btnArama_Click(object sender, EventArgs e)
-            {
-                string aramaKelimesi = txtArama.Text;
-                // buraya girilen kullanıcı adını databaseden çeken ve diyetisyen gönderen kodu yazacağım
-
-            }
-
+        private void btnArama_Click(object sender, EventArgs e)
+        {
+            string aramaKelimesi = txtArama.Text;
+            // buraya girilen kullanıcı adını databaseden çeken ve diyetisyen gönderen kodu yazacağım
 
         }
 
- 
+
+    }
+
+
 }
 
 
