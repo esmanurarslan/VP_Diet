@@ -12,11 +12,13 @@ namespace WinFormsApp1
 {
     public partial class Guncelle : Form
     {
+        public int Id;
 
-        private List<double> kiloListesi = new List<double>();
-        public Guncelle()
+        
+        public Guncelle(int id)
         {
             InitializeComponent();
+            this.Id = id;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -55,6 +57,7 @@ namespace WinFormsApp1
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            this.Close();
 
         }
     }

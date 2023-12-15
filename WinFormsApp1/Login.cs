@@ -17,7 +17,7 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-        //SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -33,33 +33,34 @@ namespace WinFormsApp1
 
         private void btnGiris_Click(object sender, EventArgs e)
         {
-           /* if (string.IsNullOrEmpty(txtKullaniciAdi.Text) || string.IsNullOrEmpty(txtParola.Text))
+            if (string.IsNullOrEmpty(txtKullaniciAdi.Text) || string.IsNullOrEmpty(txtParola.Text))
             {
                 MessageBox.Show("Kullanıcı adı ve parola boş bırakılamaz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
                 baglanti.Open();
-                SqlCommand komut = new SqlCommand("Select * From TblUsers where username=@p1 and password=@p2", baglanti);
+                SqlCommand komut = new SqlCommand("Select * From Users where username=@p1 and password=@p2", baglanti);
                 komut.Parameters.AddWithValue("@p1", txtKullaniciAdi.Text);
                 komut.Parameters.AddWithValue("@p2", txtParola.Text);
                 SqlDataReader dataReader = komut.ExecuteReader();
                 if (dataReader.Read())
                 {
                     int userType = Convert.ToInt32(dataReader["userType"]);
-
+               
                     switch (userType)
                     {
                         case 1:
-                            FormAdmin formAdmin = new FormAdmin();
+                            AdminPanel formAdmin = new AdminPanel(); //new AdminPanel(id)
                             formAdmin.Show();
                             break;
                         case 2:
-                            DiyetisyenPanel Diyetisyen = new DiyetisyenPanel();
+                            DiyetisyenPanel Diyetisyen = new DiyetisyenPanel(); //new DiyetisyenPanel(id);
                             Diyetisyen.Show();
                             break;
                         case 3:
-                            DanisanPanel Danisan = new DanisanPanel();
+                            int id = Convert.ToInt32(dataReader["Id"]);
+                            DanisanPanel Danisan = new DanisanPanel(id);                   
                             Danisan.Show();
                             break;
                         default:
@@ -75,7 +76,7 @@ namespace WinFormsApp1
                 }
             }
             baglanti.Close();
-           */
+           
 
         }
     }
