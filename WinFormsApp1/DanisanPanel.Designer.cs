@@ -31,6 +31,7 @@ namespace WinFormsApp1
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanisanPanel));
             leftPanel = new Panel();
+            circularPictureBox1 = new CircularPictureBox();
             lblMail = new Label();
             lblGun = new Label();
             rateLbl = new LinkLabel();
@@ -55,11 +56,10 @@ namespace WinFormsApp1
             label1 = new Label();
             grafikPanel1 = new Panel();
             humanBodyPanel = new Panel();
-            kiloLbl = new Label();
-            boyLbl = new Label();
-            belLbl = new Label();
-            kalcaLbl = new Label();
-            gogusLbl = new Label();
+            lblBoy = new Label();
+            lblBel = new Label();
+            lblKalca = new Label();
+            lblGogus = new Label();
             pictureBox1 = new PictureBox();
             label7 = new Label();
             label6 = new Label();
@@ -69,6 +69,7 @@ namespace WinFormsApp1
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             leftPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)circularPictureBox1).BeginInit();
             rightPanel.SuspendLayout();
             middlePanel1.SuspendLayout();
             humanBodyPanel.SuspendLayout();
@@ -78,6 +79,7 @@ namespace WinFormsApp1
             // leftPanel
             // 
             leftPanel.BackColor = Color.FromArgb(216, 232, 227);
+            leftPanel.Controls.Add(circularPictureBox1);
             leftPanel.Controls.Add(lblMail);
             leftPanel.Controls.Add(lblGun);
             leftPanel.Controls.Add(rateLbl);
@@ -95,14 +97,26 @@ namespace WinFormsApp1
             leftPanel.Name = "leftPanel";
             leftPanel.Size = new Size(260, 640);
             leftPanel.TabIndex = 0;
+            leftPanel.Paint += leftPanel_Paint;
+            // 
+            // circularPictureBox1
+            // 
+            circularPictureBox1.Image = (Image)resources.GetObject("circularPictureBox1.Image");
+            circularPictureBox1.Location = new Point(12, 42);
+            circularPictureBox1.Name = "circularPictureBox1";
+            circularPictureBox1.Size = new Size(65, 62);
+            circularPictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            circularPictureBox1.TabIndex = 27;
+            circularPictureBox1.TabStop = false;
             // 
             // lblMail
             // 
             lblMail.AutoSize = true;
             lblMail.Location = new Point(12, 164);
             lblMail.Name = "lblMail";
-            lblMail.Size = new Size(0, 20);
+            lblMail.Size = new Size(17, 20);
             lblMail.TabIndex = 26;
+            lblMail.Text = "a";
             // 
             // lblGun
             // 
@@ -186,16 +200,17 @@ namespace WinFormsApp1
             // lblKullaniciAdi
             // 
             lblKullaniciAdi.AutoSize = true;
-            lblKullaniciAdi.Location = new Point(24, 147);
+            lblKullaniciAdi.Location = new Point(12, 144);
             lblKullaniciAdi.Name = "lblKullaniciAdi";
-            lblKullaniciAdi.Size = new Size(0, 20);
+            lblKullaniciAdi.Size = new Size(17, 20);
             lblKullaniciAdi.TabIndex = 5;
+            lblKullaniciAdi.Text = "a";
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(12, 110);
+            label8.Location = new Point(12, 121);
             label8.Name = "label8";
             label8.Size = new Size(111, 23);
             label8.TabIndex = 3;
@@ -326,11 +341,10 @@ namespace WinFormsApp1
             // humanBodyPanel
             // 
             humanBodyPanel.BackColor = Color.White;
-            humanBodyPanel.Controls.Add(kiloLbl);
-            humanBodyPanel.Controls.Add(boyLbl);
-            humanBodyPanel.Controls.Add(belLbl);
-            humanBodyPanel.Controls.Add(kalcaLbl);
-            humanBodyPanel.Controls.Add(gogusLbl);
+            humanBodyPanel.Controls.Add(lblBoy);
+            humanBodyPanel.Controls.Add(lblBel);
+            humanBodyPanel.Controls.Add(lblKalca);
+            humanBodyPanel.Controls.Add(lblGogus);
             humanBodyPanel.Controls.Add(pictureBox1);
             humanBodyPanel.Controls.Add(label7);
             humanBodyPanel.Controls.Add(label6);
@@ -342,50 +356,42 @@ namespace WinFormsApp1
             humanBodyPanel.Size = new Size(166, 460);
             humanBodyPanel.TabIndex = 0;
             // 
-            // kiloLbl
+            // lblBoy
             // 
-            kiloLbl.AutoSize = true;
-            kiloLbl.Location = new Point(13, 269);
-            kiloLbl.Name = "kiloLbl";
-            kiloLbl.Size = new Size(45, 20);
-            kiloLbl.TabIndex = 22;
-            kiloLbl.Text = "55 kg";
+            lblBoy.AutoSize = true;
+            lblBoy.Location = new Point(90, 269);
+            lblBoy.Name = "lblBoy";
+            lblBoy.Size = new Size(61, 20);
+            lblBoy.TabIndex = 23;
+            lblBoy.Text = "163 cm ";
             // 
-            // boyLbl
+            // lblBel
             // 
-            boyLbl.AutoSize = true;
-            boyLbl.Location = new Point(90, 269);
-            boyLbl.Name = "boyLbl";
-            boyLbl.Size = new Size(61, 20);
-            boyLbl.TabIndex = 23;
-            boyLbl.Text = "163 cm ";
+            lblBel.AutoSize = true;
+            lblBel.Location = new Point(13, 338);
+            lblBel.Name = "lblBel";
+            lblBel.Size = new Size(49, 20);
+            lblBel.TabIndex = 24;
+            lblBel.Text = "60 cm";
+            lblBel.Click += belLbl_Click;
             // 
-            // belLbl
+            // lblKalca
             // 
-            belLbl.AutoSize = true;
-            belLbl.Location = new Point(13, 338);
-            belLbl.Name = "belLbl";
-            belLbl.Size = new Size(49, 20);
-            belLbl.TabIndex = 24;
-            belLbl.Text = "60 cm";
+            lblKalca.AutoSize = true;
+            lblKalca.Location = new Point(90, 338);
+            lblKalca.Name = "lblKalca";
+            lblKalca.Size = new Size(49, 20);
+            lblKalca.TabIndex = 25;
+            lblKalca.Text = "88 cm";
             // 
-            // kalcaLbl
+            // lblGogus
             // 
-            kalcaLbl.AutoSize = true;
-            kalcaLbl.Location = new Point(90, 338);
-            kalcaLbl.Name = "kalcaLbl";
-            kalcaLbl.Size = new Size(49, 20);
-            kalcaLbl.TabIndex = 25;
-            kalcaLbl.Text = "88 cm";
-            // 
-            // gogusLbl
-            // 
-            gogusLbl.AutoSize = true;
-            gogusLbl.Location = new Point(13, 412);
-            gogusLbl.Name = "gogusLbl";
-            gogusLbl.Size = new Size(49, 20);
-            gogusLbl.TabIndex = 26;
-            gogusLbl.Text = "70 cm";
+            lblGogus.AutoSize = true;
+            lblGogus.Location = new Point(13, 412);
+            lblGogus.Name = "lblGogus";
+            lblGogus.Size = new Size(49, 20);
+            lblGogus.TabIndex = 26;
+            lblGogus.Text = "70 cm";
             // 
             // pictureBox1
             // 
@@ -454,9 +460,9 @@ namespace WinFormsApp1
             Name = "DanisanPanel";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DanisanPanel";
-            Load += DanisanPanel_Load;
             leftPanel.ResumeLayout(false);
             leftPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)circularPictureBox1).EndInit();
             rightPanel.ResumeLayout(false);
             rightPanel.PerformLayout();
             middlePanel1.ResumeLayout(false);
@@ -502,14 +508,16 @@ namespace WinFormsApp1
         private Label diyetisyenLbl;
         private Label label11;
         private Label label10;
-        private Label kiloLbl;
-        private Label boyLbl;
-        private Label belLbl;
-        private Label kalcaLbl;
-        private Label gogusLbl;
+        private Label lblKilo;
+        private Label lblBoy;
+        private Label lblBel;
+        private Label lblKalca;
+        private Label lblGogus;
         private LinkLabel diyetisyenMailLbl;
         private LinkLabel rateLbl;
         private Label lblMail;
         private Label lblGun;
+
+        public Label LblKilo { get => lblKilo; set => lblKilo = value; }
     }
 }

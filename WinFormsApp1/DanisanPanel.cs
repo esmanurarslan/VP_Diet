@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,7 +22,7 @@ namespace WinFormsApp1
     public partial class DanisanPanel : Form
     {
         public int Id;
-
+        private Panel myPanel;
 
 
         public DanisanPanel(int id)
@@ -29,6 +30,8 @@ namespace WinFormsApp1
             InitializeComponent();
             //this.Id = id;
             LoadConsultantData(this.Id = id);
+            dietitianPanel();
+            myPanel.Visible = false;
         }
 
         /*private void DanisanPanel_Load(object sender, EventArgs e)
@@ -56,7 +59,7 @@ namespace WinFormsApp1
         }
         */
 
-        SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
+        SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
 
         private void LoadConsultantData(int id)
         {
@@ -76,7 +79,7 @@ namespace WinFormsApp1
                             string email = dataReader["email"].ToString();
                             lblMail.Text = email;
                             string boy = dataReader["height"].ToString();
-                            boyLbl.Text = boy;
+                            lblBoy.Text = boy;
                         }
                     }
                 }
@@ -102,6 +105,8 @@ namespace WinFormsApp1
                         }
                     }
                 }
+
+              
             }
 
             baglanti.Close();
@@ -123,14 +128,70 @@ namespace WinFormsApp1
         private void btnArama_Click(object sender, EventArgs e)
         {
             string aramaKelimesi = txtArama.Text;
+
+            SearchDietitian(aramaKelimesi);
             // buraya girilen kullanıcı adını databaseden çeken ve diyetisyen gönderen kodu yazacağım
 
         }
 
-        private void DanisanPanel_Load(object sender, EventArgs e)
+        private void dietitianPanel()
         {
+            Panel myPanel = new Panel();
+
+            myPanel.Location = new System.Drawing.Point(10,60);
+            myPanel.Size = new System.Drawing.Size(241,84);
+            myPanel.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
+
+
+            Button myButton = new Button();
+            myButton.Text = "İletişime Geç!";
+            myButton.Location = new System.Drawing.Point(180,60);
+
+
+            myPanel.Controls.Add(myButton);
+            myButton.Click += MyButton_Click;
+
+            this.Controls.Add(myPanel);
 
         }
+
+        //İletişime Geç butona click edildiğinde olacaklar
+        private void MyButton_Click(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SearchDietitian(string nameSurname)
+        {
+            // Veritabanı sorgusu
+            string query = "SELECT * FROM Dietitians WHERE dietitianId =@id";
+
+            SqlCommand command = new SqlCommand(query, baglanti);
+            command.Parameters.AddWithValue("@nameSurname", nameSurname);
+
+            baglanti.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.Read())
+            {
+
+                myPanel.Visible = true;
+                
+                
+            }
+            else
+            {
+
+                MessageBox.Show("Diyetisyen bulunamadı!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                   
+            }
+
+            reader.Close();
+            baglanti.Close();
+        }
+
+    
 
         private void btnParola_Click(object sender, EventArgs e)
         {
@@ -142,6 +203,16 @@ namespace WinFormsApp1
                 this.Opacity = 1.0;
             };
             frm.Show();
+        }
+
+        private void leftPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void belLbl_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
