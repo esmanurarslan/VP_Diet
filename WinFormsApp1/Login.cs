@@ -12,6 +12,7 @@ using System.Windows.Forms;
 //Şevval's Database
 //Data Source = LAPTOP - 9HENLSU2; Initial Catalog = VP_diet; Integrated Security = True; Encrypt = True; Trust Server Certificate=True
 
+//esma db                     Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True
 namespace WinFormsApp1
 {
     public partial class FormGiris : System.Windows.Forms.Form
@@ -20,7 +21,7 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-        SqlConnection baglanti = new SqlConnection(@"Data Source = LAPTOP - 9HENLSU2; Initial Catalog = VP_diet; Integrated Security = True; Encrypt = True; TrustServerCertificate=True");
+        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

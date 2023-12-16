@@ -14,6 +14,7 @@ using System.Windows.Forms;
 
 // Şevval's database
 //Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;Trust Server Certificate=True
+//esma db   Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True
 
 
 namespace WinFormsApp1
@@ -29,6 +30,9 @@ namespace WinFormsApp1
             InitializeComponent();
             //this.Id = id;
             LoadConsultantData(this.Id = id);
+            // UpdateCompleted olayına abone ol
+            UpdateKg updateKgForm = new UpdateKg(Id);
+            updateKgForm.UpdateCompleted += UpdateKgForm_UpdateCompleted;
         }
 
         /*private void DanisanPanel_Load(object sender, EventArgs e)
@@ -56,8 +60,12 @@ namespace WinFormsApp1
         }
         */
 
-        SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;Trust Server Certificate=True");
-
+        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+        private void UpdateKgForm_UpdateCompleted(object sender, EventArgs e)
+        {
+            // Güncelleme tamamlandığında yapılacak işlemler
+            LoadConsultantData(Id); // veya başka güncelleme işlemleri
+        }
         private void LoadConsultantData(int id)
         {
             using (baglanti) // connectionString'i uygun şekilde değiştirin
@@ -77,6 +85,11 @@ namespace WinFormsApp1
                             lblMail.Text = email;
                             string boy = dataReader["height"].ToString();
                             boyLbl.Text = boy;
+                            int boy1 = Convert.ToInt32(dataReader["height"]);
+                            string target = dataReader["targetWeight"].ToString();
+                            lblTarget.Text = target;
+
+
                         }
                     }
                 }
@@ -91,7 +104,7 @@ namespace WinFormsApp1
                         if (dataReader2.Read())
                         {
                             string kullaniciAdi = dataReader2["userName"].ToString();
-                            lblKullaniciAdi.Text = kullaniciAdi;
+                            lblUser.Text = kullaniciAdi;
                             DateTime registerDate = Convert.ToDateTime(dataReader2["registerDate"]);
 
                             // Gün sayısını hesaplayarak label'a atama yapın
@@ -99,6 +112,38 @@ namespace WinFormsApp1
                             int gunSayisi = (int)difference.TotalDays;
 
                             lblGun.Text = gunSayisi.ToString();
+                        }
+                    }
+                }
+
+
+                using (SqlCommand komut3 = new SqlCommand("SELECT TOP 1 * FROM UpdateTbl WHERE userId = @id ORDER BY updateTime DESC", baglanti))
+                {
+                    komut3.Parameters.AddWithValue("@id", id);
+
+                    using (SqlDataReader dataReader3 = komut3.ExecuteReader())
+                    {
+                        if (dataReader3.Read())
+                        {
+                            string newWeight = dataReader3["newWeight"].ToString();
+                            kiloLbl.Text = newWeight;
+
+                            string newWaist = dataReader3["newWaist"].ToString();
+                            belLbl.Text = newWaist;
+
+                            string newHip = dataReader3["newHip"].ToString();
+                            kalcaLbl.Text = newHip;
+
+                            string newChest = dataReader3["newChest"].ToString();
+                            gogusLbl.Text = newChest;
+
+                            double kilo = Convert.ToDouble(dataReader3["newWeight"]);
+                            //double boy1 = Convert.ToDouble(dataReader3["height"]);
+                            //double vki = kilo / ((boy1 / 100) * (boy1 / 100)); // Formül: VKI = kilo / (boy * boy)
+
+                            //lblVki.Text = vki.ToString("F2");
+
+
                         }
                     }
                 }
@@ -114,9 +159,12 @@ namespace WinFormsApp1
             frm.FormClosed += (s, args) =>
             {
                 // Guncelle formu kapatıldığında ana formun saydamlığını 1.0 olarak ayarla
+                //this.Update();
                 this.Opacity = 1.0;
+
             };
             frm.Show();
+
         }
 
 
@@ -142,6 +190,23 @@ namespace WinFormsApp1
                 this.Opacity = 1.0;
             };
             frm.Show();
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void leftPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DanisanPanel form = new DanisanPanel(Id);
+            form.Show();
+            this.Close();
         }
     }
 

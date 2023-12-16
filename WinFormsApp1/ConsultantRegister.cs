@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 //Şevval's Database
 //Data Source = LAPTOP - 9HENLSU2; Initial Catalog = VP_diet; Integrated Security = True; Encrypt = True; Trust Server Certificate=True
-
+//esma  Data Source = localhost; Initial Catalog = VP_diet; Integrated Security = True 
 namespace WinFormsApp1
 {
     public partial class FormDanisanUye : System.Windows.Forms.Form
@@ -20,7 +20,7 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-        SqlConnection baglanti = new SqlConnection(@"Data Source = LAPTOP - 9HENLSU2; Initial Catalog = VP_diet; Integrated Security = True; Encrypt = True; TrustServerCertificate=True");
+        SqlConnection baglanti = new SqlConnection(@"Data Source = localhost; Initial Catalog = VP_diet; Integrated Security = True");
 
 
         private void btnCancel_Click_1(object sender, EventArgs e)
@@ -82,9 +82,9 @@ namespace WinFormsApp1
                 }
 
                 // Dietitian tablosuna diyetisyen ekleme
-                string insertDietitianQuery = "INSERT INTO Consultant (consultantId,email,birthDate, gender, city,firstWeight,targetWeight,height,waist,hip,chest) " +
+                string insertConsultantQuery = "INSERT INTO Consultant (consultantId,email,birthDate, gender, city,firstWeight,targetWeight,height,waist,hip,chest) " +
                                              "VALUES (@ConsultantId,@Email, @BirthDate, @Gender, @City,@FirstWeight,@TargetWeight,@Height,@Waist,@Hip,@Chest )";
-                using (SqlCommand command = new SqlCommand(insertDietitianQuery, connection))
+                using (SqlCommand command = new SqlCommand(insertConsultantQuery, connection))
                 {
                     // Burada uygun parametre değerlerini ekleyin
                     command.Parameters.AddWithValue("@ConsultantId", GetLastUserId(connection).ToString());
@@ -101,6 +101,22 @@ namespace WinFormsApp1
 
                     command.ExecuteNonQuery();
                 }
+
+                string insertUpdateKgQuary= "INSERT INTO UpdateTbl (userId,newWeight,newWaist,newHip,newChest,updateTime) " +
+                                             "VALUES (@userId,@newWeight,@newWaist,@newHip,@newChest,@updateTime)";
+
+                using (SqlCommand command= new SqlCommand(insertUpdateKgQuary, connection))
+                {
+                    command.Parameters.AddWithValue("@userId", GetLastUserId(connection).ToString());
+                    command.Parameters.AddWithValue("@newWeight", float.Parse(txtMevcutKilo.Text));
+                    command.Parameters.AddWithValue("@newWaist", int.Parse(txtBel.Text));
+                    command.Parameters.AddWithValue("@newHip", int.Parse(txtKalca.Text));
+                    command.Parameters.AddWithValue("@newChest", int.Parse(txtGogus.Text));
+                    command.Parameters.AddWithValue("@updateTime", DateTime.Now);
+
+                    command.ExecuteNonQuery();
+                }
+
 
                 MessageBox.Show("Kayıt başarıyla tamamlandı.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
