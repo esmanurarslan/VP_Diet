@@ -265,6 +265,13 @@ namespace WinFormsApp1
             form.Show();
             this.Close();
         }
+
+        private void btnSayfaYenile_Click(object sender, EventArgs e)
+        {
+            DanisanPanel form=new DanisanPanel(Id);
+            form.Show();
+            this.Close();
+        }
     }
 
 

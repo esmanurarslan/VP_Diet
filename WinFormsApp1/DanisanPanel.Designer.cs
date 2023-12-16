@@ -31,6 +31,14 @@ namespace WinFormsApp1
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanisanPanel));
             leftPanel = new Panel();
+            label17 = new Label();
+            label15 = new Label();
+            label13 = new Label();
+            label10 = new Label();
+            lblTarget = new Label();
+            label8 = new Label();
+            lblMail = new Label();
+            lblUser = new Label();
             lblGun = new Label();
             btnSayfaYenile = new Button();
             label14 = new Label();
@@ -68,14 +76,6 @@ namespace WinFormsApp1
             label3 = new Label();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            lblUser = new Label();
-            lblMail = new Label();
-            label8 = new Label();
-            label10 = new Label();
-            lblTarget = new Label();
-            label13 = new Label();
-            label15 = new Label();
-            label17 = new Label();
             leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)circularPictureBox1).BeginInit();
             rightPanel.SuspendLayout();
@@ -113,6 +113,78 @@ namespace WinFormsApp1
             leftPanel.TabIndex = 0;
             leftPanel.Paint += leftPanel_Paint;
             // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(12, 330);
+            label17.Name = "label17";
+            label17.Size = new Size(231, 20);
+            label17.TabIndex = 45;
+            label17.Text = "-------------------------------------";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(12, 282);
+            label15.Name = "label15";
+            label15.Size = new Size(231, 20);
+            label15.TabIndex = 44;
+            label15.Text = "-------------------------------------";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(12, 238);
+            label13.Name = "label13";
+            label13.Size = new Size(231, 20);
+            label13.TabIndex = 43;
+            label13.Text = "-------------------------------------";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(44, 218);
+            label10.Name = "label10";
+            label10.Size = new Size(73, 20);
+            label10.TabIndex = 42;
+            label10.Text = "Hedefiniz";
+            // 
+            // lblTarget
+            // 
+            lblTarget.AutoSize = true;
+            lblTarget.Location = new Point(139, 218);
+            lblTarget.Name = "lblTarget";
+            lblTarget.Size = new Size(16, 20);
+            lblTarget.TabIndex = 41;
+            lblTarget.Text = "x";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(12, 192);
+            label8.Name = "label8";
+            label8.Size = new Size(231, 20);
+            label8.TabIndex = 40;
+            label8.Text = "-------------------------------------";
+            // 
+            // lblMail
+            // 
+            lblMail.AutoSize = true;
+            lblMail.Location = new Point(24, 69);
+            lblMail.Name = "lblMail";
+            lblMail.Size = new Size(22, 20);
+            lblMail.TabIndex = 39;
+            lblMail.Text = "M";
+            // 
+            // lblUser
+            // 
+            lblUser.AutoSize = true;
+            lblUser.Location = new Point(24, 42);
+            lblUser.Name = "lblUser";
+            lblUser.Size = new Size(19, 20);
+            lblUser.TabIndex = 38;
+            lblUser.Text = "U";
+            // 
             // lblGun
             // 
             lblGun.AutoSize = true;
@@ -133,6 +205,7 @@ namespace WinFormsApp1
             btnSayfaYenile.TabIndex = 36;
             btnSayfaYenile.Text = "Sayfa Yenile";
             btnSayfaYenile.UseVisualStyleBackColor = false;
+            btnSayfaYenile.Click += btnSayfaYenile_Click;
             // 
             // label14
             // 
@@ -458,78 +531,6 @@ namespace WinFormsApp1
             label3.Size = new Size(35, 20);
             label3.TabIndex = 3;
             label3.Text = "Kilo";
-            // 
-            // lblUser
-            // 
-            lblUser.AutoSize = true;
-            lblUser.Location = new Point(24, 42);
-            lblUser.Name = "lblUser";
-            lblUser.Size = new Size(19, 20);
-            lblUser.TabIndex = 38;
-            lblUser.Text = "U";
-            // 
-            // lblMail
-            // 
-            lblMail.AutoSize = true;
-            lblMail.Location = new Point(24, 69);
-            lblMail.Name = "lblMail";
-            lblMail.Size = new Size(22, 20);
-            lblMail.TabIndex = 39;
-            lblMail.Text = "M";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(12, 192);
-            label8.Name = "label8";
-            label8.Size = new Size(231, 20);
-            label8.TabIndex = 40;
-            label8.Text = "-------------------------------------";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Location = new Point(44, 218);
-            label10.Name = "label10";
-            label10.Size = new Size(73, 20);
-            label10.TabIndex = 42;
-            label10.Text = "Hedefiniz";
-            // 
-            // lblTarget
-            // 
-            lblTarget.AutoSize = true;
-            lblTarget.Location = new Point(139, 218);
-            lblTarget.Name = "lblTarget";
-            lblTarget.Size = new Size(16, 20);
-            lblTarget.TabIndex = 41;
-            lblTarget.Text = "x";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(12, 238);
-            label13.Name = "label13";
-            label13.Size = new Size(231, 20);
-            label13.TabIndex = 43;
-            label13.Text = "-------------------------------------";
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new Point(12, 282);
-            label15.Name = "label15";
-            label15.Size = new Size(231, 20);
-            label15.TabIndex = 44;
-            label15.Text = "-------------------------------------";
-            // 
-            // label17
-            // 
-            label17.AutoSize = true;
-            label17.Location = new Point(12, 330);
-            label17.Name = "label17";
-            label17.Size = new Size(231, 20);
-            label17.TabIndex = 45;
-            label17.Text = "-------------------------------------";
             // 
             // DanisanPanel
             // 
