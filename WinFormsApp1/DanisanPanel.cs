@@ -85,7 +85,7 @@ namespace WinFormsApp1
                             string email = dataReader["email"].ToString();
                             lblMail.Text = email;
                             string boy = dataReader["height"].ToString();
-                            boyLbl.Text = boy;
+                            lblBoy.Text = boy;
                             int boy1 = Convert.ToInt32(dataReader["height"]);
                             string target = dataReader["targetWeight"].ToString();
                             lblTarget.Text = target;
@@ -130,13 +130,13 @@ namespace WinFormsApp1
                             kiloLbl.Text = newWeight;
 
                             string newWaist = dataReader3["newWaist"].ToString();
-                            belLbl.Text = newWaist;
+                            lblBel.Text = newWaist;
 
                             string newHip = dataReader3["newHip"].ToString();
-                            kalcaLbl.Text = newHip;
+                            lblKalca.Text = newHip;
 
                             string newChest = dataReader3["newChest"].ToString();
-                            gogusLbl.Text = newChest;
+                            lblGogus.Text = newChest;
 
                             double kilo = Convert.ToDouble(dataReader3["newWeight"]);
                             //double boy1 = Convert.ToDouble(dataReader3["height"]);
@@ -182,14 +182,14 @@ namespace WinFormsApp1
         {
             Panel myPanel = new Panel();
 
-            myPanel.Location = new System.Drawing.Point(10,60);
-            myPanel.Size = new System.Drawing.Size(241,84);
+            myPanel.Location = new System.Drawing.Point(10, 60);
+            myPanel.Size = new System.Drawing.Size(241, 84);
             myPanel.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
 
 
             Button myButton = new Button();
             myButton.Text = "İletişime Geç!";
-            myButton.Location = new System.Drawing.Point(180,60);
+            myButton.Location = new System.Drawing.Point(180, 60);
 
 
             myPanel.Controls.Add(myButton);
@@ -220,22 +220,22 @@ namespace WinFormsApp1
             {
 
                 myPanel.Visible = true;
-                
-                
+
+
             }
             else
             {
 
                 MessageBox.Show("Diyetisyen bulunamadı!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                   
+
             }
 
             reader.Close();
             baglanti.Close();
         }
 
-    
+
 
         private void btnParola_Click(object sender, EventArgs e)
         {
