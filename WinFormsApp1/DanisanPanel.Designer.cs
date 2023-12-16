@@ -41,8 +41,6 @@ namespace WinFormsApp1
             lblUser = new Label();
             lblGun = new Label();
             btnSayfaYenile = new Button();
-            label14 = new Label();
-            label16 = new Label();
             rateLbl = new LinkLabel();
             diyetisyenMailLbl = new LinkLabel();
             label12 = new Label();
@@ -97,8 +95,6 @@ namespace WinFormsApp1
             leftPanel.Controls.Add(lblUser);
             leftPanel.Controls.Add(lblGun);
             leftPanel.Controls.Add(btnSayfaYenile);
-            leftPanel.Controls.Add(label14);
-            leftPanel.Controls.Add(label16);
             leftPanel.Controls.Add(rateLbl);
             leftPanel.Controls.Add(diyetisyenMailLbl);
             leftPanel.Controls.Add(label12);
@@ -206,20 +202,6 @@ namespace WinFormsApp1
             btnSayfaYenile.Text = "Sayfa Yenile";
             btnSayfaYenile.UseVisualStyleBackColor = false;
             btnSayfaYenile.Click += btnSayfaYenile_Click;
-            // 
-            // label14
-            // 
-            label14.Location = new Point(0, 0);
-            label14.Name = "label14";
-            label14.Size = new Size(100, 23);
-            label14.TabIndex = 33;
-            // 
-            // label16
-            // 
-            label16.Location = new Point(0, 0);
-            label16.Name = "label16";
-            label16.Size = new Size(100, 23);
-            label16.TabIndex = 34;
             // 
             // rateLbl
             // 
@@ -599,12 +581,6 @@ namespace WinFormsApp1
         private Button btnSayfaYenile;
         private LinkLabel diyetisyenMailLbl;
         private LinkLabel rateLbl;
-
-
-
-
-        private Label label14;
-        private Label label16;
 
         private Label kilolbl;
         private Label lblGun;

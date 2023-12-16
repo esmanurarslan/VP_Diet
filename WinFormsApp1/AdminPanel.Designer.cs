@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            label18 = new Label();
-            label9 = new Label();
-            label19 = new Label();
-            label10 = new Label();
-            label20 = new Label();
-            label11 = new Label();
-            label21 = new Label();
-            label12 = new Label();
+            lblConMonth = new Label();
+            lblDietMonth = new Label();
+            lblConWeek = new Label();
+            lblDietWeek = new Label();
+            lblConDay = new Label();
+            lblDietDay = new Label();
+            lblConTotal = new Label();
+            lblDietTotal = new Label();
             label22 = new Label();
             label13 = new Label();
             label23 = new Label();
@@ -49,10 +49,10 @@
             label17 = new Label();
             panel4 = new Panel();
             panel3 = new Panel();
-            label8 = new Label();
-            label7 = new Label();
-            label6 = new Label();
-            label5 = new Label();
+            lblUserMonth = new Label();
+            lblUserWeek = new Label();
+            lblUserToday = new Label();
+            lblTotalUser = new Label();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
@@ -60,13 +60,13 @@
             lblKName = new Label();
             panel2 = new Panel();
             panel5 = new Panel();
-            panel6 = new Panel();
-            label27 = new Label();
-            label28 = new Label();
             panel7 = new Panel();
-            panel8 = new Panel();
-            btnDeleteUser = new CustomButton();
             lblNameSurname = new Label();
+            btnDeleteUser = new CustomButton();
+            panel8 = new Panel();
+            label28 = new Label();
+            label27 = new Label();
+            panel6 = new Panel();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
             panel7.SuspendLayout();
@@ -75,14 +75,14 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(216, 232, 227);
-            panel1.Controls.Add(label18);
-            panel1.Controls.Add(label9);
-            panel1.Controls.Add(label19);
-            panel1.Controls.Add(label10);
-            panel1.Controls.Add(label20);
-            panel1.Controls.Add(label11);
-            panel1.Controls.Add(label21);
-            panel1.Controls.Add(label12);
+            panel1.Controls.Add(lblConMonth);
+            panel1.Controls.Add(lblDietMonth);
+            panel1.Controls.Add(lblConWeek);
+            panel1.Controls.Add(lblDietWeek);
+            panel1.Controls.Add(lblConDay);
+            panel1.Controls.Add(lblDietDay);
+            panel1.Controls.Add(lblConTotal);
+            panel1.Controls.Add(lblDietTotal);
             panel1.Controls.Add(label22);
             panel1.Controls.Add(label13);
             panel1.Controls.Add(label23);
@@ -95,10 +95,10 @@
             panel1.Controls.Add(label17);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(panel3);
-            panel1.Controls.Add(label8);
-            panel1.Controls.Add(label7);
-            panel1.Controls.Add(label6);
-            panel1.Controls.Add(label5);
+            panel1.Controls.Add(lblUserMonth);
+            panel1.Controls.Add(lblUserWeek);
+            panel1.Controls.Add(lblUserToday);
+            panel1.Controls.Add(lblTotalUser);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
@@ -106,98 +106,108 @@
             panel1.Controls.Add(lblKName);
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(2, 2, 2, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(556, 1029);
+            panel1.Size = new Size(342, 643);
             panel1.TabIndex = 0;
             // 
-            // label18
+            // lblConMonth
             // 
-            label18.AutoSize = true;
-            label18.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label18.Location = new Point(426, 881);
-            label18.Name = "label18";
-            label18.Size = new Size(28, 32);
-            label18.TabIndex = 18;
-            label18.Text = "0";
+            lblConMonth.AutoSize = true;
+            lblConMonth.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblConMonth.Location = new Point(262, 551);
+            lblConMonth.Margin = new Padding(2, 0, 2, 0);
+            lblConMonth.Name = "lblConMonth";
+            lblConMonth.Size = new Size(18, 20);
+            lblConMonth.TabIndex = 18;
+            lblConMonth.Text = "0";
             // 
-            // label9
+            // lblDietMonth
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(426, 582);
-            label9.Name = "label9";
-            label9.Size = new Size(28, 32);
-            label9.TabIndex = 18;
-            label9.Text = "0";
+            lblDietMonth.AutoSize = true;
+            lblDietMonth.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblDietMonth.Location = new Point(262, 364);
+            lblDietMonth.Margin = new Padding(2, 0, 2, 0);
+            lblDietMonth.Name = "lblDietMonth";
+            lblDietMonth.Size = new Size(18, 20);
+            lblDietMonth.TabIndex = 18;
+            lblDietMonth.Text = "0";
             // 
-            // label19
+            // lblConWeek
             // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label19.Location = new Point(426, 833);
-            label19.Name = "label19";
-            label19.Size = new Size(28, 32);
-            label19.TabIndex = 17;
-            label19.Text = "0";
+            lblConWeek.AutoSize = true;
+            lblConWeek.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblConWeek.Location = new Point(262, 521);
+            lblConWeek.Margin = new Padding(2, 0, 2, 0);
+            lblConWeek.Name = "lblConWeek";
+            lblConWeek.Size = new Size(18, 20);
+            lblConWeek.TabIndex = 17;
+            lblConWeek.Text = "0";
             // 
-            // label10
+            // lblDietWeek
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.Location = new Point(426, 534);
-            label10.Name = "label10";
-            label10.Size = new Size(28, 32);
-            label10.TabIndex = 17;
-            label10.Text = "0";
+            lblDietWeek.AutoSize = true;
+            lblDietWeek.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblDietWeek.Location = new Point(262, 334);
+            lblDietWeek.Margin = new Padding(2, 0, 2, 0);
+            lblDietWeek.Name = "lblDietWeek";
+            lblDietWeek.Size = new Size(18, 20);
+            lblDietWeek.TabIndex = 17;
+            lblDietWeek.Text = "0";
             // 
-            // label20
+            // lblConDay
             // 
-            label20.AutoSize = true;
-            label20.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label20.Location = new Point(426, 783);
-            label20.Name = "label20";
-            label20.Size = new Size(28, 32);
-            label20.TabIndex = 16;
-            label20.Text = "0";
+            lblConDay.AutoSize = true;
+            lblConDay.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblConDay.Location = new Point(262, 489);
+            lblConDay.Margin = new Padding(2, 0, 2, 0);
+            lblConDay.Name = "lblConDay";
+            lblConDay.Size = new Size(18, 20);
+            lblConDay.TabIndex = 16;
+            lblConDay.Text = "0";
             // 
-            // label11
+            // lblDietDay
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.Location = new Point(426, 484);
-            label11.Name = "label11";
-            label11.Size = new Size(28, 32);
-            label11.TabIndex = 16;
-            label11.Text = "0";
+            lblDietDay.AutoSize = true;
+            lblDietDay.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblDietDay.Location = new Point(262, 302);
+            lblDietDay.Margin = new Padding(2, 0, 2, 0);
+            lblDietDay.Name = "lblDietDay";
+            lblDietDay.Size = new Size(18, 20);
+            lblDietDay.TabIndex = 16;
+            lblDietDay.Text = "0";
             // 
-            // label21
+            // lblConTotal
             // 
-            label21.AutoSize = true;
-            label21.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label21.Location = new Point(426, 730);
-            label21.Name = "label21";
-            label21.Size = new Size(28, 32);
-            label21.TabIndex = 15;
-            label21.Text = "0";
+            lblConTotal.AutoSize = true;
+            lblConTotal.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblConTotal.Location = new Point(262, 456);
+            lblConTotal.Margin = new Padding(2, 0, 2, 0);
+            lblConTotal.Name = "lblConTotal";
+            lblConTotal.Size = new Size(18, 20);
+            lblConTotal.TabIndex = 15;
+            lblConTotal.Text = "0";
             // 
-            // label12
+            // lblDietTotal
             // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label12.Location = new Point(426, 431);
-            label12.Name = "label12";
-            label12.Size = new Size(28, 32);
-            label12.TabIndex = 15;
-            label12.Text = "0";
+            lblDietTotal.AutoSize = true;
+            lblDietTotal.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblDietTotal.Location = new Point(262, 269);
+            lblDietTotal.Margin = new Padding(2, 0, 2, 0);
+            lblDietTotal.Name = "lblDietTotal";
+            lblDietTotal.Size = new Size(18, 20);
+            lblDietTotal.TabIndex = 15;
+            lblDietTotal.Text = "0";
             // 
             // label22
             // 
             label22.AutoSize = true;
             label22.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label22.ForeColor = SystemColors.ControlDarkDark;
-            label22.Location = new Point(57, 883);
+            label22.Location = new Point(35, 552);
+            label22.Margin = new Padding(2, 0, 2, 0);
             label22.Name = "label22";
-            label22.Size = new Size(304, 30);
+            label22.Size = new Size(195, 19);
             label22.TabIndex = 14;
             label22.Text = "Bu Ay Kaydolan Danışan Sayısı";
             // 
@@ -206,9 +216,10 @@
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label13.ForeColor = SystemColors.ControlDarkDark;
-            label13.Location = new Point(57, 584);
+            label13.Location = new Point(35, 365);
+            label13.Margin = new Padding(2, 0, 2, 0);
             label13.Name = "label13";
-            label13.Size = new Size(328, 30);
+            label13.Size = new Size(209, 19);
             label13.TabIndex = 14;
             label13.Text = "Bu Ay Kaydolan Diyetisyen Sayısı";
             // 
@@ -217,9 +228,10 @@
             label23.AutoSize = true;
             label23.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label23.ForeColor = SystemColors.ControlDarkDark;
-            label23.Location = new Point(57, 835);
+            label23.Location = new Point(35, 522);
+            label23.Margin = new Padding(2, 0, 2, 0);
             label23.Name = "label23";
-            label23.Size = new Size(331, 30);
+            label23.Size = new Size(212, 19);
             label23.TabIndex = 13;
             label23.Text = "Bu Hafta Kaydolan Danışan Sayısı";
             // 
@@ -228,9 +240,10 @@
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label14.ForeColor = SystemColors.ControlDarkDark;
-            label14.Location = new Point(57, 536);
+            label14.Location = new Point(35, 335);
+            label14.Margin = new Padding(2, 0, 2, 0);
             label14.Name = "label14";
-            label14.Size = new Size(355, 30);
+            label14.Size = new Size(226, 19);
             label14.TabIndex = 13;
             label14.Text = "Bu Hafta Kaydolan Diyetisyen Sayısı";
             // 
@@ -239,9 +252,10 @@
             label24.AutoSize = true;
             label24.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label24.ForeColor = SystemColors.ControlDarkDark;
-            label24.Location = new Point(57, 785);
+            label24.Location = new Point(35, 491);
+            label24.Margin = new Padding(2, 0, 2, 0);
             label24.Name = "label24";
-            label24.Size = new Size(318, 30);
+            label24.Size = new Size(205, 19);
             label24.TabIndex = 12;
             label24.Text = "Bu Gün Kaydolan Danışan Sayısı";
             // 
@@ -250,9 +264,10 @@
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label15.ForeColor = SystemColors.ControlDarkDark;
-            label15.Location = new Point(57, 486);
+            label15.Location = new Point(35, 304);
+            label15.Margin = new Padding(2, 0, 2, 0);
             label15.Name = "label15";
-            label15.Size = new Size(342, 30);
+            label15.Size = new Size(219, 19);
             label15.TabIndex = 12;
             label15.Text = "Bu Gün Kaydolan Diyetisyen Sayısı";
             // 
@@ -261,9 +276,10 @@
             label25.AutoSize = true;
             label25.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label25.ForeColor = SystemColors.ControlDarkDark;
-            label25.Location = new Point(57, 732);
+            label25.Location = new Point(35, 458);
+            label25.Margin = new Padding(2, 0, 2, 0);
             label25.Name = "label25";
-            label25.Size = new Size(224, 30);
+            label25.Size = new Size(143, 19);
             label25.TabIndex = 11;
             label25.Text = "Toplam Danışan Sayısı";
             // 
@@ -272,9 +288,10 @@
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label16.ForeColor = SystemColors.ControlDarkDark;
-            label16.Location = new Point(57, 433);
+            label16.Location = new Point(35, 271);
+            label16.Margin = new Padding(2, 0, 2, 0);
             label16.Name = "label16";
-            label16.Size = new Size(248, 30);
+            label16.Size = new Size(157, 19);
             label16.TabIndex = 11;
             label16.Text = "Toplam Diyetisyen Sayısı";
             // 
@@ -282,9 +299,10 @@
             // 
             label26.AutoSize = true;
             label26.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label26.Location = new Point(51, 674);
+            label26.Location = new Point(31, 421);
+            label26.Margin = new Padding(2, 0, 2, 0);
             label26.Name = "label26";
-            label26.Size = new Size(153, 37);
+            label26.Size = new Size(94, 23);
             label26.TabIndex = 9;
             label26.Text = "Danışanlar";
             // 
@@ -292,76 +310,84 @@
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label17.Location = new Point(51, 375);
+            label17.Location = new Point(31, 234);
+            label17.Margin = new Padding(2, 0, 2, 0);
             label17.Name = "label17";
-            label17.Size = new Size(186, 37);
+            label17.Size = new Size(114, 23);
             label17.TabIndex = 9;
             label17.Text = "Diyetisyenler";
             // 
             // panel4
             // 
             panel4.BackColor = Color.Black;
-            panel4.Location = new Point(51, 651);
+            panel4.Location = new Point(31, 407);
+            panel4.Margin = new Padding(2, 2, 2, 2);
             panel4.Name = "panel4";
-            panel4.Size = new Size(464, 2);
+            panel4.Size = new Size(286, 1);
             panel4.TabIndex = 10;
             // 
             // panel3
             // 
             panel3.BackColor = Color.Black;
-            panel3.Location = new Point(51, 352);
+            panel3.Location = new Point(31, 220);
+            panel3.Margin = new Padding(2, 2, 2, 2);
             panel3.Name = "panel3";
-            panel3.Size = new Size(464, 2);
+            panel3.Size = new Size(286, 1);
             panel3.TabIndex = 10;
             // 
-            // label8
+            // lblUserMonth
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(426, 293);
-            label8.Name = "label8";
-            label8.Size = new Size(28, 32);
-            label8.TabIndex = 8;
-            label8.Text = "0";
+            lblUserMonth.AutoSize = true;
+            lblUserMonth.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblUserMonth.Location = new Point(262, 183);
+            lblUserMonth.Margin = new Padding(2, 0, 2, 0);
+            lblUserMonth.Name = "lblUserMonth";
+            lblUserMonth.Size = new Size(18, 20);
+            lblUserMonth.TabIndex = 8;
+            lblUserMonth.Text = "0";
             // 
-            // label7
+            // lblUserWeek
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(426, 245);
-            label7.Name = "label7";
-            label7.Size = new Size(28, 32);
-            label7.TabIndex = 7;
-            label7.Text = "0";
+            lblUserWeek.AutoSize = true;
+            lblUserWeek.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblUserWeek.Location = new Point(262, 153);
+            lblUserWeek.Margin = new Padding(2, 0, 2, 0);
+            lblUserWeek.Name = "lblUserWeek";
+            lblUserWeek.Size = new Size(18, 20);
+            lblUserWeek.TabIndex = 7;
+            lblUserWeek.Text = "0";
             // 
-            // label6
+            // lblUserToday
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(426, 195);
-            label6.Name = "label6";
-            label6.Size = new Size(28, 32);
-            label6.TabIndex = 6;
-            label6.Text = "0";
+            lblUserToday.AutoSize = true;
+            lblUserToday.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblUserToday.Location = new Point(262, 122);
+            lblUserToday.Margin = new Padding(2, 0, 2, 0);
+            lblUserToday.Name = "lblUserToday";
+            lblUserToday.Size = new Size(18, 20);
+            lblUserToday.TabIndex = 6;
+            lblUserToday.Text = "0";
             // 
-            // label5
+            // lblTotalUser
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(426, 142);
-            label5.Name = "label5";
-            label5.Size = new Size(28, 32);
-            label5.TabIndex = 5;
-            label5.Text = "0";
+            lblTotalUser.AutoSize = true;
+            lblTotalUser.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTotalUser.Location = new Point(262, 89);
+            lblTotalUser.Margin = new Padding(2, 0, 2, 0);
+            lblTotalUser.Name = "lblTotalUser";
+            lblTotalUser.Size = new Size(18, 20);
+            lblTotalUser.TabIndex = 5;
+            lblTotalUser.Text = "0";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = SystemColors.ControlDarkDark;
-            label4.Location = new Point(51, 295);
+            label4.Location = new Point(31, 184);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(307, 30);
+            label4.Size = new Size(195, 19);
             label4.TabIndex = 4;
             label4.Text = "Bu Ay Kaydolan Kullanıcı Sayısı";
             // 
@@ -370,9 +396,10 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = SystemColors.ControlDarkDark;
-            label3.Location = new Point(51, 247);
+            label3.Location = new Point(31, 154);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(334, 30);
+            label3.Size = new Size(212, 19);
             label3.TabIndex = 3;
             label3.Text = "Bu Hafta Kaydolan Kullanıcı Sayısı";
             // 
@@ -381,9 +408,10 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = SystemColors.ControlDarkDark;
-            label2.Location = new Point(51, 197);
+            label2.Location = new Point(31, 123);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(321, 30);
+            label2.Size = new Size(205, 19);
             label2.TabIndex = 2;
             label2.Text = "Bu Gün Kaydolan Kullanıcı Sayısı";
             // 
@@ -392,9 +420,10 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(51, 144);
+            label1.Location = new Point(31, 90);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(227, 30);
+            label1.Size = new Size(143, 19);
             label1.TabIndex = 1;
             label1.Text = "Toplam Kullanıcı Sayısı";
             // 
@@ -402,18 +431,20 @@
             // 
             lblKName.AutoSize = true;
             lblKName.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            lblKName.Location = new Point(45, 86);
+            lblKName.Location = new Point(28, 54);
+            lblKName.Margin = new Padding(2, 0, 2, 0);
             lblKName.Name = "lblKName";
-            lblKName.Size = new Size(161, 37);
+            lblKName.Size = new Size(99, 23);
             lblKName.TabIndex = 0;
             lblKName.Text = "Kullanıcılar";
             // 
             // panel2
             // 
             panel2.BackColor = Color.Black;
-            panel2.Location = new Point(45, 63);
+            panel2.Location = new Point(28, 39);
+            panel2.Margin = new Padding(2, 2, 2, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(464, 2);
+            panel2.Size = new Size(286, 1);
             panel2.TabIndex = 0;
             // 
             // panel5
@@ -423,38 +454,11 @@
             panel5.Controls.Add(label28);
             panel5.Controls.Add(label27);
             panel5.Controls.Add(panel6);
-            panel5.Location = new Point(630, 43);
+            panel5.Location = new Point(388, 27);
+            panel5.Margin = new Padding(2, 2, 2, 2);
             panel5.Name = "panel5";
-            panel5.Size = new Size(1009, 935);
+            panel5.Size = new Size(621, 584);
             panel5.TabIndex = 1;
-            // 
-            // panel6
-            // 
-            panel6.BackColor = Color.Black;
-            panel6.Location = new Point(503, 43);
-            panel6.Name = "panel6";
-            panel6.Size = new Size(2, 847);
-            panel6.TabIndex = 0;
-            // 
-            // label27
-            // 
-            label27.AutoSize = true;
-            label27.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            label27.Location = new Point(155, 43);
-            label27.Name = "label27";
-            label27.Size = new Size(202, 41);
-            label27.TabIndex = 1;
-            label27.Text = "Diyetisyenler";
-            // 
-            // label28
-            // 
-            label28.AutoSize = true;
-            label28.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
-            label28.Location = new Point(660, 43);
-            label28.Name = "label28";
-            label28.Size = new Size(167, 41);
-            label28.TabIndex = 2;
-            label28.Text = "Danışanlar";
             // 
             // panel7
             // 
@@ -462,18 +466,22 @@
             panel7.Controls.Add(lblNameSurname);
             panel7.Controls.Add(btnDeleteUser);
             panel7.Controls.Add(panel8);
-            panel7.Location = new Point(56, 118);
+            panel7.Location = new Point(34, 74);
+            panel7.Margin = new Padding(2, 2, 2, 2);
             panel7.Name = "panel7";
-            panel7.Size = new Size(407, 155);
+            panel7.Size = new Size(250, 97);
             panel7.TabIndex = 3;
             // 
-            // panel8
+            // lblNameSurname
             // 
-            panel8.BackColor = Color.LightGray;
-            panel8.Location = new Point(161, 24);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(230, 80);
-            panel8.TabIndex = 0;
+            lblNameSurname.AutoSize = true;
+            lblNameSurname.Font = new Font("Segoe UI", 6F, FontStyle.Regular, GraphicsUnit.Point);
+            lblNameSurname.Location = new Point(10, 7);
+            lblNameSurname.Margin = new Padding(2, 0, 2, 0);
+            lblNameSurname.Name = "lblNameSurname";
+            lblNameSurname.Size = new Size(59, 12);
+            lblNameSurname.TabIndex = 2;
+            lblNameSurname.Text = "İsim Soyisim";
             // 
             // btnDeleteUser
             // 
@@ -482,33 +490,66 @@
             btnDeleteUser.FlatStyle = FlatStyle.Flat;
             btnDeleteUser.Font = new Font("Segoe UI", 6F, FontStyle.Regular, GraphicsUnit.Point);
             btnDeleteUser.ForeColor = Color.White;
-            btnDeleteUser.Location = new Point(249, 110);
+            btnDeleteUser.Location = new Point(153, 69);
+            btnDeleteUser.Margin = new Padding(2, 2, 2, 2);
             btnDeleteUser.Name = "btnDeleteUser";
-            btnDeleteUser.Size = new Size(131, 42);
+            btnDeleteUser.Size = new Size(81, 26);
             btnDeleteUser.TabIndex = 1;
             btnDeleteUser.Text = "Kullanıcıyı Sil";
             btnDeleteUser.UseVisualStyleBackColor = false;
             // 
-            // lblNameSurname
+            // panel8
             // 
-            lblNameSurname.AutoSize = true;
-            lblNameSurname.Font = new Font("Segoe UI", 6F, FontStyle.Regular, GraphicsUnit.Point);
-            lblNameSurname.Location = new Point(16, 11);
-            lblNameSurname.Name = "lblNameSurname";
-            lblNameSurname.Size = new Size(98, 21);
-            lblNameSurname.TabIndex = 2;
-            lblNameSurname.Text = "İsim Soyisim";
+            panel8.BackColor = Color.LightGray;
+            panel8.Location = new Point(99, 15);
+            panel8.Margin = new Padding(2, 2, 2, 2);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(142, 50);
+            panel8.TabIndex = 0;
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            label28.Location = new Point(406, 27);
+            label28.Margin = new Padding(2, 0, 2, 0);
+            label28.Name = "label28";
+            label28.Size = new Size(106, 25);
+            label28.TabIndex = 2;
+            label28.Text = "Danışanlar";
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            label27.Location = new Point(95, 27);
+            label27.Margin = new Padding(2, 0, 2, 0);
+            label27.Name = "label27";
+            label27.Size = new Size(126, 25);
+            label27.TabIndex = 1;
+            label27.Text = "Diyetisyenler";
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.Black;
+            panel6.Location = new Point(310, 27);
+            panel6.Margin = new Padding(2, 2, 2, 2);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(1, 529);
+            panel6.TabIndex = 0;
             // 
             // AdminPanel
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(165, 215, 198);
-            ClientSize = new Size(1729, 1017);
+            ClientSize = new Size(1064, 636);
             Controls.Add(panel5);
             Controls.Add(panel1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "AdminPanel";
             Text = "FormAdmin";
+            Load += AdminPanel_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel5.ResumeLayout(false);
@@ -526,14 +567,14 @@
         private Label label2;
         private Label label1;
         private Label lblKName;
-        private Label label18;
-        private Label label9;
-        private Label label19;
-        private Label label10;
-        private Label label20;
-        private Label label11;
-        private Label label21;
-        private Label label12;
+        private Label lblConMonth;
+        private Label lblDietMonth;
+        private Label lblConWeek;
+        private Label lblDietWeek;
+        private Label lblConDay;
+        private Label lblDietDay;
+        private Label lblConTotal;
+        private Label lblDietTotal;
         private Label label22;
         private Label label13;
         private Label label23;
@@ -546,10 +587,10 @@
         private Label label17;
         private Panel panel4;
         private Panel panel3;
-        private Label label8;
-        private Label label7;
-        private Label label6;
-        private Label label5;
+        private Label lblUserMonth;
+        private Label lblUserWeek;
+        private Label lblUserToday;
+        private Label lblTotalUser;
         private Label label4;
         private Panel panel5;
         private Panel panel6;
