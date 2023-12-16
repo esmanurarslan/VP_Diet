@@ -1,6 +1,6 @@
 ﻿namespace WinFormsApp1
 {
-    partial class Guncelle
+    partial class UpdateKg
     {
         /// <summary>
         /// Required designer variable.
@@ -131,17 +131,17 @@
             btnGuncelle.UseVisualStyleBackColor = true;
             btnGuncelle.Click += btnGuncelle_Click;
             // 
-            // Guncelle
+            // UpdateKg
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(165, 215, 198);
             ClientSize = new Size(354, 345);
             Controls.Add(panel1);
-            Name = "Guncelle";
+            Name = "UpdateKg";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Güncelle";
-            Load += Guncelle_Load;
+            Load += UpdateKg_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

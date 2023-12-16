@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+//Şevval's Database
+//Data Source = LAPTOP - 9HENLSU2; Initial Catalog = VP_diet; Integrated Security = True; Encrypt = True; Trust Server Certificate=True
 namespace WinFormsApp1
 {
     public partial class FormDiyetisyenKayit : Form
@@ -17,7 +18,7 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-       // SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+        SqlConnection baglanti = new SqlConnection(@"Data Source = LAPTOP - 9HENLSU2; Initial Catalog = VP_diet; Integrated Security = True; Encrypt = True; Trust Server Certificate=True");
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {

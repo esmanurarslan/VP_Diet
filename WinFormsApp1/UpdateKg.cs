@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace WinFormsApp1
 {
-    public partial class Guncelle : Form
+    public partial class UpdateKg : Form
     {
         public int Id;
 
         
-        public Guncelle(int id)
+        public UpdateKg(int id)
         {
             InitializeComponent();
             this.Id = id;
@@ -26,7 +26,7 @@ namespace WinFormsApp1
 
         }
 
-        private void Guncelle_Load(object sender, EventArgs e)
+        private void UpdateKg_Load(object sender, EventArgs e)
         {
 
         }
