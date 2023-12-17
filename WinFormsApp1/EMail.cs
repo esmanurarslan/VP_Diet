@@ -89,6 +89,8 @@ namespace WinFormsApp1
                 MessageBox.Show($"E-posta gönderirken bir hata oluştu: {ex.Message}");
             }
         }
+
+
     }
 
 }
