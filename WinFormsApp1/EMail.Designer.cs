@@ -59,7 +59,7 @@
             btnGonder.TabIndex = 5;
             btnGonder.Text = "Gönder";
             btnGonder.UseVisualStyleBackColor = false;
-            btnGonder.Click += btnGonder_Click;
+         
             // 
             // label3
             // 

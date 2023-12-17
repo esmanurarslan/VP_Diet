@@ -14,8 +14,8 @@ namespace WinFormsApp1
     public partial class UpdateKg : Form
     {
         public int Id;
-        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
-        //SqlConnection baglanti = new SqlConnection(@"/Data Source = LAPTOP - 9HENLSU2; Initial Catalog = VP_diet; Integrated Security = True; Encrypt = True; Trust Server Certificate=True");
+       // SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+        SqlConnection baglanti = new SqlConnection(@"Data Source = LAPTOP-9HENLSU2; Initial Catalog = VP_diet; Integrated Security = True; Encrypt = True; TrustServerCertificate=True");
 
         public UpdateKg(int id)
         {

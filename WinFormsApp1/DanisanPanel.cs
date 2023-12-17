@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WinFormsApp1.Properties;
 
 
 // Şevval's database
@@ -61,7 +62,7 @@ namespace WinFormsApp1
         }
         */
 
-        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+        SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
         private void UpdateKgForm_UpdateCompleted(object sender, EventArgs e)
         {
             // Güncelleme tamamlandığında yapılacak işlemler
@@ -178,26 +179,32 @@ namespace WinFormsApp1
 
         }
 
-        private void dietitianPanel()
+        private void populateItems()
         {
-            Panel myPanel = new Panel();
+            listItem[] listItems = new listItem[20];
 
-            myPanel.Location = new System.Drawing.Point(10, 60);
-            myPanel.Size = new System.Drawing.Size(241, 84);
-            myPanel.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
+            //loop 
+
+            for (int i = 0; i < listItems.Length; i++)
+            {
+                listItems[i] = new listItem();
+                listItems[i].UserName = "Get data Somewhere";
+                listItems[i].MyProperty = Resources.avatar;
+                listItems[i].ImageBackColor = Color.FromArgb(165, 215, 198);
 
 
-            Button myButton = new Button();
-            myButton.Text = "İletişime Geç!";
-            myButton.Location = new System.Drawing.Point(180, 60);
-
-
-            myPanel.Controls.Add(myButton);
-            myButton.Click += MyButton_Click;
-
-            this.Controls.Add(myPanel);
+                //add flowlayout
+                if (flowLayoutPanel1.Controls.Count > 0)
+                {
+                    flowLayoutPanel1.Controls.Clear();
+                }
+                else
+                    flowLayoutPanel1.Controls.Add(listItems[i]);
+            }
 
         }
+
+       
 
         //İletişime Geç butona click edildiğinde olacaklar
         private void MyButton_Click(object? sender, EventArgs e)
@@ -205,35 +212,7 @@ namespace WinFormsApp1
             throw new NotImplementedException();
         }
 
-        private void SearchDietitian(string nameSurname)
-        {
-            // Veritabanı sorgusu
-            string query = "SELECT * FROM Dietitians WHERE dietitianId =@id";
-
-            SqlCommand command = new SqlCommand(query, baglanti);
-            command.Parameters.AddWithValue("@nameSurname", nameSurname);
-
-            baglanti.Open();
-            SqlDataReader reader = command.ExecuteReader();
-
-            if (reader.Read())
-            {
-
-                myPanel.Visible = true;
-
-
-            }
-            else
-            {
-
-                MessageBox.Show("Diyetisyen bulunamadı!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-
-            }
-
-            reader.Close();
-            baglanti.Close();
-        }
+        
 
 
 
@@ -271,6 +250,11 @@ namespace WinFormsApp1
             DanisanPanel form = new DanisanPanel(Id);
             form.Show();
             this.Close();
+        }
+
+        private void DanisanPanel_Load(object sender, EventArgs e)
+        {
+            populateItems();
         }
     }
 

@@ -20,7 +20,7 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-        SqlConnection baglanti = new SqlConnection(@"Data Source = localhost; Initial Catalog = VP_diet; Integrated Security = True");
+        SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
 
 
         private void btnCancel_Click_1(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace WinFormsApp1
             }
 
             // Veritabanı bağlantısı
-            using (SqlConnection connection = new SqlConnection("Data Source = localhost; Initial Catalog = VP_diet; Integrated Security = True"))
+            using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True"))
             {
                 connection.Open();
 
