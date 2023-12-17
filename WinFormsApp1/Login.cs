@@ -51,7 +51,7 @@ namespace WinFormsApp1
                 if (dataReader.Read())
                 {
                     int userType = Convert.ToInt32(dataReader["userType"]);
-               
+
                     switch (userType)
                     {
                         case 1:
@@ -64,7 +64,7 @@ namespace WinFormsApp1
                             break;
                         case 3:
                             int id = Convert.ToInt32(dataReader["Id"]);
-                            DanisanPanel Danisan = new DanisanPanel(id);                   
+                            DanisanPanel Danisan = new DanisanPanel(id);
                             Danisan.Show();
                             break;
                         default:
@@ -80,8 +80,14 @@ namespace WinFormsApp1
                 }
             }
             baglanti.Close();
-           
 
+
+        }
+
+        private void linkLabelUnuttum_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            EMail eMail = new EMail();
+            eMail.Show();
         }
     }
 }

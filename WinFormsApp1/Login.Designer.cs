@@ -77,6 +77,7 @@
             linkLabelUnuttum.TabIndex = 7;
             linkLabelUnuttum.TabStop = true;
             linkLabelUnuttum.Text = "şifremi unuttum!";
+            linkLabelUnuttum.LinkClicked += linkLabelUnuttum_LinkClicked;
             // 
             // linkLabelUyeOl
             // 

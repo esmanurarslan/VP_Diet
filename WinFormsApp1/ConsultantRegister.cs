@@ -72,12 +72,13 @@ namespace WinFormsApp1
                 }
 
                 // Users tablosuna kullanıcı ekleme
-                string insertUserQuery = "INSERT INTO Users (userName, password, userType, registerDate) VALUES (@UserName, @Password, 3, @RegisterDate)";
+                string insertUserQuery = "INSERT INTO Users (userName, password, userType, registerDate,email) VALUES (@UserName, @Password, 3, @RegisterDate,@Email)";
                 using (SqlCommand command = new SqlCommand(insertUserQuery, connection))
                 {
                     command.Parameters.AddWithValue("@UserName", txtKullaniciAdi.Text);
                     command.Parameters.AddWithValue("@Password", txtParola.Text);
                     command.Parameters.AddWithValue("@RegisterDate", DateTime.Now);
+                    command.Parameters.AddWithValue("@Email", txtMail.Text);
                     command.ExecuteNonQuery();
                 }
 
