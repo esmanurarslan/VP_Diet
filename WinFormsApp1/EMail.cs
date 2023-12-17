@@ -11,6 +11,10 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Net;
 using System.Net.Mail;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Security;
+using System.Security.Policy;
+
 
 namespace WinFormsApp1
 {
@@ -20,10 +24,7 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-        //SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
-        SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
-    } }
-       /* private void btnGonder_Click(object sender, EventArgs e)
+        private void btnGonder_Click(object sender, EventArgs e)
         {
             string email = txtMail.Text.Trim();
 
@@ -32,77 +33,62 @@ namespace WinFormsApp1
             {
                 baglanti.Open();
 
-                // Diyetisyen tablosundan dietitianId'yi al
-                using (SqlCommand komutDiet = new SqlCommand("SELECT dietitianId FROM Dietitian WHERE email = @p1", baglanti))
+                // Users tablosundan şifreyi al
+                using (SqlCommand komut = new SqlCommand("SELECT password FROM Users WHERE email = @p1", baglanti))
                 {
-                    komutDiet.Parameters.AddWithValue("@p1", email);
+                    komut.Parameters.AddWithValue("@p1", email);
 
-                    using (SqlDataReader dataReader = komutDiet.ExecuteReader())
+                    using (SqlDataReader dataReader = komut.ExecuteReader())
                     {
                         if (dataReader.Read())
                         {
-                            int dietitianId = dataReader.GetInt32(0); // dietitianId'yi al
+                            string password = dataReader.GetString(0);
 
-                            // Users tablosundan şifreyi al
-                            using (SqlCommand komutUser = new SqlCommand("SELECT password FROM Users WHERE id = @p2", baglanti))
-                            {
-                                komutUser.Parameters.AddWithValue("@p2", dietitianId);
+                            // E-posta gönderme işlemini gerçekleştir
+                            SendEmail(email, "Şifre Hatırlatma", $"Kullanıcı Adı: {email}\nŞifre: {password}");
 
-                                using (SqlDataReader userReader = komutUser.ExecuteReader())
-                                {
-                                    if (userReader.Read())
-                                    {
-                                        string password = userReader.GetString(0);
-
-                                        // E-posta gönderme işlemini gerçekleştir
-                                        SendEmail(email, "Şifre Hatırlatma", $"Kullanıcı Adı: {email}\nŞifre: {password}");
-
-                                        MessageBox.Show("Şifre e-posta ile gönderildi.");
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Kullanıcı bulunamadı.");
-                                    }
-                                }
-                            }
+                            MessageBox.Show("Şifre e-posta ile gönderildi.");
                         }
-                    }
-                }
-            }
-        
-    }
-
-            private void SendEmail(string to, string subject, string body)
-            {
-                try
-                {
-                    // E-posta gönderme işlemini gerçekleştirecek SMTP istemcisini oluştur
-                    using (SmtpClient smtpClient = new SmtpClient("projectvisualprg@gmail.com"))
-                    {
-                        smtpClient.Port = 587;
-                        smtpClient.Credentials = new NetworkCredential("your-email@gmail.com", "your-password");
-                        smtpClient.EnableSsl = true;
-
-                        // E-posta mesajını oluştur
-                        using (MailMessage mailMessage = new MailMessage())
+                        else
                         {
-                            mailMessage.From = new MailAddress("your-email@gmail.com");
-                            mailMessage.To.Add(to);
-                            mailMessage.Subject = subject;
-                            mailMessage.Body = body;
-
-                            // E-posta gönder
-                            smtpClient.Send(mailMessage);
+                            MessageBox.Show("Kullanıcı bulunamadı.");
                         }
                     }
-
-                    MessageBox.Show("E-posta başarıyla gönderildi.");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"E-posta gönderirken bir hata oluştu: {ex.Message}");
                 }
             }
         }
-    } 
-       */
+
+        private void SendEmail(string to, string subject, string body)
+        {
+            try
+            {
+                // E-posta gönderme işlemini gerçekleştirecek SMTP istemcisini oluştur
+                using (SmtpClient smtpClient = new SmtpClient("smtp.gmail.com"))
+                {
+                    smtpClient.Port = 587;
+                    smtpClient.Credentials = new NetworkCredential("projectvisualprg@gmail.com", "rhucaiqdhpqznfen");
+                    smtpClient.EnableSsl = true;
+
+                    // E-posta mesajını oluştur
+                    using (MailMessage mailMessage = new MailMessage())
+                    {
+                        mailMessage.From = new MailAddress("projectvisualprg@gmail.com");
+                        mailMessage.To.Add(to);
+                        mailMessage.Subject = subject;
+                        mailMessage.Body = body;
+
+                        // E-posta gönder
+                        smtpClient.Send(mailMessage);
+                    }
+                }
+
+                MessageBox.Show("E-posta başarıyla gönderildi.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"E-posta gönderirken bir hata oluştu: {ex.Message}");
+            }
+        }
+    }
+
+}
