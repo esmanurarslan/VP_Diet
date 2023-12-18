@@ -20,47 +20,24 @@ namespace WinFormsApp1
 
         #region Properties
 
-        private string _userName;
-        private Color _backColor;
-        private Image _icon;
+        private string name;
+        private string puan;
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        [Category("Custom Props")]
+        public string Name
         {
-
-        }
-
-        private void listItem_Load(object sender, EventArgs e)
-        {
-
+            get { return name; }
+            set { name = value; lblUsername.Text = value; }
         }
 
         [Category("Custom Props")]
-        public string UserName
+        public string Puan
         {
-            get { return _userName; }
-            set { _userName = value; lblUsername.Text = value; }
+            get { return puan; }
+            set { puan = value; lblPuan.Text = value; }
         }
 
-
-        [Category("Custom Props")]
-        public Image MyProperty
-        {
-            get { return _icon; }
-            set { _icon = value; circularPictureBox1.Image = value; }
-
-        }
-
-        [Category("Custom Props")]
-        public Color ImageBackColor
-
-        {
-            get { return _backColor; }
-            set { _backColor = value; panel1.BackColor = value; }
-
-        }
-
-
-        #endregion 
+        #endregion
 
     }
 }

@@ -33,6 +33,8 @@ namespace WinFormsApp1
             lblUsername = new Label();
             panel1 = new Panel();
             circularPictureBox1 = new CircularPictureBox();
+            lblPuan = new Label();
+            btnIncele = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)circularPictureBox1).BeginInit();
             SuspendLayout();
@@ -42,7 +44,7 @@ namespace WinFormsApp1
             lblUsername.AutoSize = true;
             lblUsername.BackColor = SystemColors.ControlLightLight;
             lblUsername.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblUsername.Location = new Point(99, 29);
+            lblUsername.Location = new Point(99, 16);
             lblUsername.Name = "lblUsername";
             lblUsername.Size = new Size(84, 20);
             lblUsername.TabIndex = 1;
@@ -67,16 +69,39 @@ namespace WinFormsApp1
             circularPictureBox1.TabIndex = 0;
             circularPictureBox1.TabStop = false;
             // 
+            // lblPuan
+            // 
+            lblPuan.AutoSize = true;
+            lblPuan.BackColor = SystemColors.ControlLightLight;
+            lblPuan.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPuan.Location = new Point(99, 36);
+            lblPuan.Name = "lblPuan";
+            lblPuan.Size = new Size(41, 20);
+            lblPuan.TabIndex = 3;
+            lblPuan.Text = "Puan";
+            // 
+            // btnIncele
+            // 
+            btnIncele.BackColor = Color.FromArgb(165, 215, 198);
+            btnIncele.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnIncele.Location = new Point(169, 53);
+            btnIncele.Name = "btnIncele";
+            btnIncele.Size = new Size(80, 26);
+            btnIncele.TabIndex = 4;
+            btnIncele.Text = "İncele";
+            btnIncele.UseVisualStyleBackColor = false;
+            // 
             // listItem
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(btnIncele);
+            Controls.Add(lblPuan);
             Controls.Add(panel1);
             Controls.Add(lblUsername);
             Name = "listItem";
             Size = new Size(252, 82);
-            Load += listItem_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)circularPictureBox1).EndInit();
             ResumeLayout(false);
@@ -87,5 +112,7 @@ namespace WinFormsApp1
         private Label lblUsername;
         private Panel panel1;
         private CircularPictureBox circularPictureBox1;
+        private Label lblPuan;
+        private Button btnIncele;
     }
 }

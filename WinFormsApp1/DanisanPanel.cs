@@ -62,7 +62,10 @@ namespace WinFormsApp1
         }
         */
 
-        SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
+        //SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
+
+        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+
         private void UpdateKgForm_UpdateCompleted(object sender, EventArgs e)
         {
             // Güncelleme tamamlandığında yapılacak işlemler
@@ -185,7 +188,7 @@ namespace WinFormsApp1
             try
             {
                 // Veritabanına bağlantı sağla
-                using (SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True"))
+                using (baglanti)
                 {
                     baglanti.Open();
 
@@ -217,43 +220,31 @@ namespace WinFormsApp1
 
         private void populateItems()
         {
-            listItem[] listItems = new listItem[20];
-
-            List<string> dietitianUsernames = GetDietitianUsernames();
-
-            // Check if there are dietitian usernames to populate
-            if (dietitianUsernames != null && dietitianUsernames.Count > 0)
+            SqlConnection connection = new SqlConnection("Data Source = localhost; Initial Catalog = VP_diet; Integrated Security = True");
+            using (connection)
             {
-                // Ensure the array is large enough to accommodate the retrieved usernames
-                if (listItems.Length >= dietitianUsernames.Count)
+                connection.Open();
+
+                string query = "SELECT nameSurname FROM Dietitian";
+                using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    // Clear existing controls in FlowLayoutPanel
-                    flowLayoutPanel1.Controls.Clear();
-
-                    // Iterate through the dietitian usernames and create listItem objects
-                    for (int i = 0; i < dietitianUsernames.Count; i++)
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        listItems[i] = new listItem();
-                        listItems[i].UserName = dietitianUsernames[i];
-                        listItems[i].ImageBackColor = Color.FromArgb(165, 215, 198);
+                        while (reader.Read())
+                        {
+                            listItem listItem = new listItem();
+                            listItem.Name = reader["nameSurname"].ToString();
+                            listItem.Puan = "süper";
 
-                        // Add the listItem to the FlowLayoutPanel
-                        flowLayoutPanel1.Controls.Add(listItems[i]);
+                            flowLayoutPanel1.Controls.Add(listItem);
+                        }
                     }
                 }
-                else
-                {
-                    MessageBox.Show("Array size is not sufficient to accommodate all dietitian usernames.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("No dietitian usernames found in the database.");
             }
         }
-    
 
-       
+
+
 
 
         private void btnParola_Click(object sender, EventArgs e)
@@ -297,7 +288,7 @@ namespace WinFormsApp1
             populateItems();
         }
 
-       
+
     }
 
 

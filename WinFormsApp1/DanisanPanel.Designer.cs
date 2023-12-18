@@ -50,9 +50,6 @@ namespace WinFormsApp1
             label9 = new Label();
             btnParola = new Button();
             btnGüncelle = new Button();
-            rightPanel = new Panel();
-            btnArama = new Button();
-            txtArama = new TextBox();
             middlePanel1 = new Panel();
             grafikPanel4 = new Panel();
             grafikPanel3 = new Panel();
@@ -77,7 +74,6 @@ namespace WinFormsApp1
             flowLayoutPanel1 = new FlowLayoutPanel();
             leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)circularPictureBox1).BeginInit();
-            rightPanel.SuspendLayout();
             middlePanel1.SuspendLayout();
             humanBodyPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -113,7 +109,6 @@ namespace WinFormsApp1
             // 
             // circularPictureBox1
             // 
-            circularPictureBox1.Image = (Image)resources.GetObject("circularPictureBox1.Image");
             circularPictureBox1.Location = new Point(17, 25);
             circularPictureBox1.Name = "circularPictureBox1";
             circularPictureBox1.Size = new Size(76, 82);
@@ -299,35 +294,6 @@ namespace WinFormsApp1
             btnGüncelle.Text = "Bilgileri Güncelle";
             btnGüncelle.UseVisualStyleBackColor = false;
             btnGüncelle.Click += btnGuncelle_Click;
-            // 
-            // rightPanel
-            // 
-            rightPanel.BackColor = Color.FromArgb(216, 232, 227);
-            rightPanel.Controls.Add(btnArama);
-            rightPanel.Controls.Add(txtArama);
-            rightPanel.Location = new Point(847, 1);
-            rightPanel.Name = "rightPanel";
-            rightPanel.Size = new Size(260, 640);
-            rightPanel.TabIndex = 1;
-            // 
-            // btnArama
-            // 
-            btnArama.Image = (Image)resources.GetObject("btnArama.Image");
-            btnArama.Location = new Point(202, 25);
-            btnArama.Name = "btnArama";
-            btnArama.Size = new Size(29, 27);
-            btnArama.TabIndex = 4;
-            btnArama.UseVisualStyleBackColor = true;
-            btnArama.Click += btnArama_Click;
-            // 
-            // txtArama
-            // 
-            txtArama.BackColor = Color.FromArgb(233, 233, 233);
-            txtArama.Location = new Point(10, 25);
-            txtArama.Name = "txtArama";
-            txtArama.Size = new Size(186, 27);
-            txtArama.TabIndex = 3;
-            txtArama.Text = "Diyetisyen Ara";
             // 
             // middlePanel1
             // 
@@ -517,9 +483,11 @@ namespace WinFormsApp1
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Location = new Point(847, 59);
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.Dock = DockStyle.Right;
+            flowLayoutPanel1.Location = new Point(850, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(260, 579);
+            flowLayoutPanel1.Size = new Size(260, 641);
             flowLayoutPanel1.TabIndex = 6;
             // 
             // DanisanPanel
@@ -529,7 +497,6 @@ namespace WinFormsApp1
             BackColor = Color.FromArgb(165, 215, 198);
             ClientSize = new Size(1110, 641);
             Controls.Add(middlePanel1);
-            Controls.Add(rightPanel);
             Controls.Add(leftPanel);
             Controls.Add(flowLayoutPanel1);
             Name = "DanisanPanel";
@@ -539,8 +506,6 @@ namespace WinFormsApp1
             leftPanel.ResumeLayout(false);
             leftPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)circularPictureBox1).EndInit();
-            rightPanel.ResumeLayout(false);
-            rightPanel.PerformLayout();
             middlePanel1.ResumeLayout(false);
             middlePanel1.PerformLayout();
             humanBodyPanel.ResumeLayout(false);
@@ -554,7 +519,6 @@ namespace WinFormsApp1
         #endregion
 
         private Panel leftPanel;
-        private Panel rightPanel;
         private Panel middlePanel1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Panel humanBodyPanel;
@@ -573,8 +537,6 @@ namespace WinFormsApp1
         private PictureBox pictureBox1;
         private CircularPictureBox circularPictureBox;
         private Button btnParola;
-        private Button btnArama;
-        private TextBox txtArama;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private CircularPictureBox circularPictureBox1;
 
