@@ -75,7 +75,7 @@ namespace WinFormsApp1
             Controls.Add(panel1);
             Controls.Add(lblUsername);
             Name = "listItem";
-            Size = new Size(209, 82);
+            Size = new Size(252, 82);
             Load += listItem_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)circularPictureBox1).EndInit();

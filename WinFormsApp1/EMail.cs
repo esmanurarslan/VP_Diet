@@ -29,7 +29,7 @@ namespace WinFormsApp1
             string email = txtMail.Text.Trim();
 
             // SqlConnection nesnesini using bloğu içine al
-            using (SqlConnection baglanti = new SqlConnection("Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True"))
+            using (SqlConnection baglanti = new SqlConnection(@"Data Source = LAPTOP-9HENLSU2; Initial Catalog = VP_diet; Integrated Security = True; Encrypt = True; TrustServerCertificate=True"))
             {
                 baglanti.Open();
 
