@@ -177,34 +177,6 @@ namespace WinFormsApp1
             // buraya girilen kullanıcı adını databaseden çeken ve diyetisyen gönderen kodu yazacağım
 
         }
-
-        private void populateItems()
-        {
-            // Veritabanından diyetisyen kullanıcı adlarını al
-            List<string> dietitianUsernames = GetDietitianUsernames();
-
-            // Eğer diyetisyen kullanıcı adları varsa işleme devam et
-            if (dietitianUsernames != null && dietitianUsernames.Count > 0)
-            {
-                // FlowLayoutPanel'ı temizle
-                flowLayoutPanel1.Controls.Clear();
-
-                // Her bir diyetisyen için listItem oluştur ve FlowLayoutPanel'a ekle
-                foreach (string username in dietitianUsernames)
-                {
-                    listItem listItem = new listItem();
-                    listItem.UserName = username;
-                    listItem.ImageBackColor = Color.FromArgb(165, 215, 198);
-
-                    flowLayoutPanel1.Controls.Add(listItem);
-                }
-            }
-            else
-            {
-                MessageBox.Show("No dietitian usernames found in the database.");
-            }
-        }
-
         // Veritabanından diyetisyen kullanıcı adlarını getiren bir metod
         private List<string> GetDietitianUsernames()
         {
@@ -213,13 +185,13 @@ namespace WinFormsApp1
             try
             {
                 // Veritabanına bağlantı sağla
-                using (SqlConnection connection = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True"))
+                using (SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True"))
                 {
-                    connection.Open();
+                    baglanti.Open();
 
                     // SQL sorgusunu oluştur
                     string query = "SELECT nameSurname FROM Dietitian"; // DietitianTable tablosunda bulunan kullanıcı adlarını çek
-                    using (SqlCommand command = new SqlCommand(query, connection))
+                    using (SqlCommand command = new SqlCommand(query, baglanti))
                     {
                         // Veritabanından verileri oku
                         using (SqlDataReader reader = command.ExecuteReader())
@@ -231,6 +203,8 @@ namespace WinFormsApp1
                             }
                         }
                     }
+
+                    baglanti.Close();
                 }
             }
             catch (Exception ex)
@@ -241,13 +215,45 @@ namespace WinFormsApp1
             return usernames;
         }
 
+        private void populateItems()
+        {
+            listItem[] listItems = new listItem[20];
 
+            List<string> dietitianUsernames = GetDietitianUsernames();
 
+            // Check if there are dietitian usernames to populate
+            if (dietitianUsernames != null && dietitianUsernames.Count > 0)
+            {
+                // Ensure the array is large enough to accommodate the retrieved usernames
+                if (listItems.Length >= dietitianUsernames.Count)
+                {
+                    // Clear existing controls in FlowLayoutPanel
+                    flowLayoutPanel1.Controls.Clear();
 
+                    // Iterate through the dietitian usernames and create listItem objects
+                    for (int i = 0; i < dietitianUsernames.Count; i++)
+                    {
+                        listItems[i] = new listItem();
+                        listItems[i].UserName = dietitianUsernames[i];
+                        listItems[i].ImageBackColor = Color.FromArgb(165, 215, 198);
 
+                        // Add the listItem to the FlowLayoutPanel
+                        flowLayoutPanel1.Controls.Add(listItems[i]);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Array size is not sufficient to accommodate all dietitian usernames.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No dietitian usernames found in the database.");
+            }
+        }
+    
 
-
-
+       
 
 
         private void btnParola_Click(object sender, EventArgs e)
