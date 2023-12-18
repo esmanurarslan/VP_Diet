@@ -17,13 +17,15 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-        //SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
-        SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
+        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+        //SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
         private void AdminPanel_Load(object sender, EventArgs e)
         {
             LoadUserStatistics();
             LoadDietStatistics();
             LoadConsultantStatistics();
+            populateDietitiansItems();
+            populateConsultantItems();
         }
 
         private void LoadUserStatistics()
@@ -134,6 +136,92 @@ namespace WinFormsApp1
             }
         }
 
+        private List<string> GetDietitianUsernames()
+        {
+            List<string> usernames = new List<string>();
+
+            try
+            {
+                // Veritabanına bağlantı sağla
+                using (baglanti)
+                {
+                    baglanti.Open();
+
+                    // SQL sorgusunu oluştur
+                    string query = "SELECT nameSurname FROM Dietitian"; // DietitianTable tablosunda bulunan kullanıcı adlarını çek
+                    using (SqlCommand command = new SqlCommand(query, baglanti))
+                    {
+                        // Veritabanından verileri oku
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string username = reader["nameSurname"].ToString();
+                                usernames.Add(username);
+                            }
+                        }
+                    }
+
+                    baglanti.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error retrieving dietitian usernames: " + ex.Message);
+            }
+
+            return usernames;
+        }
+
+        private void populateDietitiansItems()
+        {
+            SqlConnection connection = new SqlConnection("Data Source = localhost; Initial Catalog = VP_diet; Integrated Security = True");
+            using (connection)
+            {
+                connection.Open();
+
+                string query = "SELECT nameSurname FROM Dietitian";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            listItem listItem = new listItem();
+                            listItem.Name = reader["nameSurname"].ToString();
+                            listItem.Puan = "süper";
+
+                            flowLayoutPanel1.Controls.Add(listItem);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void populateConsultantItems()
+        {
+            SqlConnection connection = new SqlConnection("Data Source = localhost; Initial Catalog = VP_diet; Integrated Security = True");
+            using (connection)
+            {
+                connection.Open();
+
+                string query = "SELECT userName,email FROM Users where userType=3";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            listItem listItem = new listItem();
+                            listItem.Name = reader["userName"].ToString();
+                            listItem.Puan = reader["email"].ToString();
+
+                            flowLayoutPanel2.Controls.Add(listItem);
+                        }
+                    }
+                }
+            }
+        }
 
     }
 }

@@ -60,16 +60,13 @@
             lblKName = new Label();
             panel2 = new Panel();
             panel5 = new Panel();
-            panel7 = new Panel();
-            lblNameSurname = new Label();
-            btnDeleteUser = new CustomButton();
-            panel8 = new Panel();
             label28 = new Label();
             label27 = new Label();
             panel6 = new Panel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
-            panel7.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -106,7 +103,7 @@
             panel1.Controls.Add(lblKName);
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(342, 643);
             panel1.TabIndex = 0;
@@ -321,7 +318,7 @@
             // 
             panel4.BackColor = Color.Black;
             panel4.Location = new Point(31, 407);
-            panel4.Margin = new Padding(2, 2, 2, 2);
+            panel4.Margin = new Padding(2);
             panel4.Name = "panel4";
             panel4.Size = new Size(286, 1);
             panel4.TabIndex = 10;
@@ -330,7 +327,7 @@
             // 
             panel3.BackColor = Color.Black;
             panel3.Location = new Point(31, 220);
-            panel3.Margin = new Padding(2, 2, 2, 2);
+            panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
             panel3.Size = new Size(286, 1);
             panel3.TabIndex = 10;
@@ -442,7 +439,7 @@
             // 
             panel2.BackColor = Color.Black;
             panel2.Location = new Point(28, 39);
-            panel2.Margin = new Padding(2, 2, 2, 2);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(286, 1);
             panel2.TabIndex = 0;
@@ -450,62 +447,16 @@
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(216, 232, 227);
-            panel5.Controls.Add(panel7);
+            panel5.Controls.Add(flowLayoutPanel2);
+            panel5.Controls.Add(flowLayoutPanel1);
             panel5.Controls.Add(label28);
             panel5.Controls.Add(label27);
             panel5.Controls.Add(panel6);
             panel5.Location = new Point(388, 27);
-            panel5.Margin = new Padding(2, 2, 2, 2);
+            panel5.Margin = new Padding(2);
             panel5.Name = "panel5";
             panel5.Size = new Size(621, 584);
             panel5.TabIndex = 1;
-            // 
-            // panel7
-            // 
-            panel7.BackColor = Color.White;
-            panel7.Controls.Add(lblNameSurname);
-            panel7.Controls.Add(btnDeleteUser);
-            panel7.Controls.Add(panel8);
-            panel7.Location = new Point(34, 74);
-            panel7.Margin = new Padding(2, 2, 2, 2);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(250, 97);
-            panel7.TabIndex = 3;
-            // 
-            // lblNameSurname
-            // 
-            lblNameSurname.AutoSize = true;
-            lblNameSurname.Font = new Font("Segoe UI", 6F, FontStyle.Regular, GraphicsUnit.Point);
-            lblNameSurname.Location = new Point(10, 7);
-            lblNameSurname.Margin = new Padding(2, 0, 2, 0);
-            lblNameSurname.Name = "lblNameSurname";
-            lblNameSurname.Size = new Size(59, 12);
-            lblNameSurname.TabIndex = 2;
-            lblNameSurname.Text = "İsim Soyisim";
-            // 
-            // btnDeleteUser
-            // 
-            btnDeleteUser.BackColor = Color.Tomato;
-            btnDeleteUser.FlatAppearance.BorderSize = 0;
-            btnDeleteUser.FlatStyle = FlatStyle.Flat;
-            btnDeleteUser.Font = new Font("Segoe UI", 6F, FontStyle.Regular, GraphicsUnit.Point);
-            btnDeleteUser.ForeColor = Color.White;
-            btnDeleteUser.Location = new Point(153, 69);
-            btnDeleteUser.Margin = new Padding(2, 2, 2, 2);
-            btnDeleteUser.Name = "btnDeleteUser";
-            btnDeleteUser.Size = new Size(81, 26);
-            btnDeleteUser.TabIndex = 1;
-            btnDeleteUser.Text = "Kullanıcıyı Sil";
-            btnDeleteUser.UseVisualStyleBackColor = false;
-            // 
-            // panel8
-            // 
-            panel8.BackColor = Color.LightGray;
-            panel8.Location = new Point(99, 15);
-            panel8.Margin = new Padding(2, 2, 2, 2);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(142, 50);
-            panel8.TabIndex = 0;
             // 
             // label28
             // 
@@ -533,10 +484,24 @@
             // 
             panel6.BackColor = Color.Black;
             panel6.Location = new Point(310, 27);
-            panel6.Margin = new Padding(2, 2, 2, 2);
+            panel6.Margin = new Padding(2);
             panel6.Name = "panel6";
             panel6.Size = new Size(1, 529);
             panel6.TabIndex = 0;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Location = new Point(37, 64);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(250, 492);
+            flowLayoutPanel1.TabIndex = 3;
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Location = new Point(332, 64);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(250, 492);
+            flowLayoutPanel2.TabIndex = 4;
             // 
             // AdminPanel
             // 
@@ -546,7 +511,7 @@
             ClientSize = new Size(1064, 636);
             Controls.Add(panel5);
             Controls.Add(panel1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "AdminPanel";
             Text = "FormAdmin";
             Load += AdminPanel_Load;
@@ -554,8 +519,6 @@
             panel1.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -594,11 +557,9 @@
         private Label label4;
         private Panel panel5;
         private Panel panel6;
-        private Panel panel7;
-        private CustomButton btnDeleteUser;
-        private Panel panel8;
         private Label label28;
         private Label label27;
-        private Label lblNameSurname;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }
