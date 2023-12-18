@@ -22,6 +22,7 @@ namespace WinFormsApp1
 
         private string name;
         private string puan;
+       
 
         [Category("Custom Props")]
         public string Name

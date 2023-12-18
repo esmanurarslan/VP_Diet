@@ -62,9 +62,8 @@ namespace WinFormsApp1
         }
         */
 
-        //SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
-
-        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+           SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
+        //SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
 
         private void UpdateKgForm_UpdateCompleted(object sender, EventArgs e)
         {
@@ -220,7 +219,8 @@ namespace WinFormsApp1
 
         private void populateItems()
         {
-            SqlConnection connection = new SqlConnection("Data Source = localhost; Initial Catalog = VP_diet; Integrated Security = True");
+            SqlConnection connection = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
+            //SqlConnection connection = new SqlConnection("Data Source = localhost; Initial Catalog = VP_diet; Integrated Security = True");
             using (connection)
             {
                 connection.Open();
@@ -235,8 +235,10 @@ namespace WinFormsApp1
                             listItem listItem = new listItem();
                             listItem.Name = reader["nameSurname"].ToString();
                             listItem.Puan = "süper";
+                            
 
                             flowLayoutPanel1.Controls.Add(listItem);
+                           
                         }
                     }
                 }

@@ -31,7 +31,6 @@ namespace WinFormsApp1
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanisanPanel));
             leftPanel = new Panel();
-            circularPictureBox1 = new CircularPictureBox();
             label17 = new Label();
             label15 = new Label();
             label13 = new Label();
@@ -73,7 +72,6 @@ namespace WinFormsApp1
             backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             flowLayoutPanel1 = new FlowLayoutPanel();
             leftPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)circularPictureBox1).BeginInit();
             middlePanel1.SuspendLayout();
             humanBodyPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -82,7 +80,6 @@ namespace WinFormsApp1
             // leftPanel
             // 
             leftPanel.BackColor = Color.FromArgb(216, 232, 227);
-            leftPanel.Controls.Add(circularPictureBox1);
             leftPanel.Controls.Add(label17);
             leftPanel.Controls.Add(label15);
             leftPanel.Controls.Add(label13);
@@ -106,14 +103,6 @@ namespace WinFormsApp1
             leftPanel.Size = new Size(260, 640);
             leftPanel.TabIndex = 0;
             leftPanel.Paint += leftPanel_Paint;
-            // 
-            // circularPictureBox1
-            // 
-            circularPictureBox1.Location = new Point(17, 25);
-            circularPictureBox1.Name = "circularPictureBox1";
-            circularPictureBox1.Size = new Size(76, 82);
-            circularPictureBox1.TabIndex = 46;
-            circularPictureBox1.TabStop = false;
             // 
             // label17
             // 
@@ -484,6 +473,7 @@ namespace WinFormsApp1
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.BackColor = Color.FromArgb(216, 232, 227);
             flowLayoutPanel1.Dock = DockStyle.Right;
             flowLayoutPanel1.Location = new Point(850, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -505,7 +495,6 @@ namespace WinFormsApp1
             Load += DanisanPanel_Load;
             leftPanel.ResumeLayout(false);
             leftPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)circularPictureBox1).EndInit();
             middlePanel1.ResumeLayout(false);
             middlePanel1.PerformLayout();
             humanBodyPanel.ResumeLayout(false);
