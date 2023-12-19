@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,16 +13,27 @@ namespace WinFormsApp1
 {
     public partial class listItem : UserControl
     {
-        public listItem()
+        public int id;
+
+        public listItem(int id)
         {
             InitializeComponent();
+            DietitianId = id;
+            btnIncele.Click += BtnIncele_Click;
+
+        }
+        public event EventHandler<int> InceleClicked;
+        private void BtnIncele_Click(object sender, EventArgs e)
+        {
+            // InceleClicked etkinliğini başlat
+            InceleClicked?.Invoke(this, DietitianId);
         }
 
-
         #region Properties
-
+        private int dietitianId;
         private string name;
         private string puan;
+        public event EventHandler<int> btnInceleClicked;
        
 
         [Category("Custom Props")]
@@ -37,6 +49,14 @@ namespace WinFormsApp1
             get { return puan; }
             set { puan = value; lblPuan.Text = value; }
         }
+
+        [Category("Custom Props")]
+        public int DietitianId
+        {
+            get { return dietitianId; }
+            set { dietitianId = value; }
+        }
+
 
         #endregion
 

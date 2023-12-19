@@ -35,6 +35,14 @@ namespace WinFormsApp1
             // UpdateCompleted olayına abone ol
             UpdateKg updateKgForm = new UpdateKg(Id);
             updateKgForm.UpdateCompleted += UpdateKgForm_UpdateCompleted;
+
+            foreach (var listItemControl in flowLayoutPanel1.Controls)
+            {
+                if (listItemControl is listItem listItem)
+                {
+                    listItem.btnInceleClicked += ListItem_InceleClicked;
+                }
+            }
         }
 
         /*private void DanisanPanel_Load(object sender, EventArgs e)
@@ -62,8 +70,8 @@ namespace WinFormsApp1
         }
         */
 
-           SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
-        //SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+           //SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
+        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
 
         private void UpdateKgForm_UpdateCompleted(object sender, EventArgs e)
         {
@@ -171,14 +179,6 @@ namespace WinFormsApp1
 
         }
 
-
-        private void btnArama_Click(object sender, EventArgs e)
-        {
-            //string aramaKelimesi = txtArama.Text;
-
-            // buraya girilen kullanıcı adını databaseden çeken ve diyetisyen gönderen kodu yazacağım
-
-        }
         // Veritabanından diyetisyen kullanıcı adlarını getiren bir metod
         private List<string> GetDietitianUsernames()
         {
@@ -219,31 +219,31 @@ namespace WinFormsApp1
 
         private void populateItems()
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
-            //SqlConnection connection = new SqlConnection("Data Source = localhost; Initial Catalog = VP_diet; Integrated Security = True");
+            SqlConnection connection = new SqlConnection("Data Source=localhost; Initial Catalog=VP_diet; Integrated Security=True");
             using (connection)
             {
                 connection.Open();
 
-                string query = "SELECT nameSurname FROM Dietitian";
+                string query = "SELECT * FROM Dietitian";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            listItem listItem = new listItem();
+                            listItem listItem = new listItem(Convert.ToInt32(reader["dietitianId"]));
+                            listItem.DietitianId = Convert.ToInt32(reader["dietitianId"]); // Bu satırın eklenmiş olması önemli
                             listItem.Name = reader["nameSurname"].ToString();
                             listItem.Puan = "süper";
-                            
-
+                            listItem.InceleClicked += ListItem_InceleClicked;
                             flowLayoutPanel1.Controls.Add(listItem);
-                           
                         }
                     }
                 }
             }
+        
         }
+        
 
 
 
@@ -288,6 +288,12 @@ namespace WinFormsApp1
         private void DanisanPanel_Load(object sender, EventArgs e)
         {
             populateItems();
+        }
+        private void ListItem_InceleClicked(object sender, int dietitianId)
+        {
+            // InceleClicked etkinliği tetiklendiğinde infoFrm formunu aç
+            infoFrm form = new infoFrm(dietitianId);
+            form.Show();
         }
 
 

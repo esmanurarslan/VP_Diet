@@ -24,8 +24,8 @@ namespace WinFormsApp1
             LoadUserStatistics();
             LoadDietStatistics();
             LoadConsultantStatistics();
-            populateDietitiansItems();
-            populateConsultantItems();
+            //populateDietitiansItems();
+            //populateConsultantItems();
         }
 
         private void LoadUserStatistics()
@@ -173,7 +173,7 @@ namespace WinFormsApp1
             return usernames;
         }
 
-        private void populateDietitiansItems()
+       /* private void populateDietitiansItems()
         {
               SqlConnection connection = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
             //SqlConnection connection = new SqlConnection("Data Source = localhost; Initial Catalog = VP_diet; Integrated Security = True");
@@ -223,7 +223,7 @@ namespace WinFormsApp1
                     }
                 }
             }
-        }
+        }*/
 
     }
 }
