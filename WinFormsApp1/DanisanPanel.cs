@@ -361,7 +361,43 @@ namespace WinFormsApp1
             }
         }
 
+        private void btnSil_Click(object sender, EventArgs e)
+        {
+            // Kullanıcıya silme işlemini onaylamasını isteyen bir onay kutusu göster
+            DialogResult result = MessageBox.Show("Kaydı silmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Kullanıcı Evet'i seçerse silme işlemine devam et
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection("Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True"))
+                    {
+                        connection.Open();
+
+                        // Partner tablosundan kaydı silen SQL sorgusu
+                        string deleteQuery = "DELETE FROM Partner WHERE consultant = @id";
+
+                        using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
+                        {
+                            deleteCommand.Parameters.AddWithValue("@id", Id);
+                            deleteCommand.ExecuteNonQuery();
+                        }
+
+                        connection.Close();
+                    }
+
+                    // Partner tablosundan kaydı sildikten sonra danışan panelini yeniden yükle
+                    LoadConsultantData(Id);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error deleting record: " + ex.Message);
+                }
+
+            }
+        }
+
+
     }
-
-
 }

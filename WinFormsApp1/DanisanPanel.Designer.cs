@@ -71,6 +71,7 @@ namespace WinFormsApp1
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            btnSil = new Button();
             leftPanel.SuspendLayout();
             middlePanel1.SuspendLayout();
             humanBodyPanel.SuspendLayout();
@@ -80,6 +81,7 @@ namespace WinFormsApp1
             // leftPanel
             // 
             leftPanel.BackColor = Color.FromArgb(216, 232, 227);
+            leftPanel.Controls.Add(btnSil);
             leftPanel.Controls.Add(lblBmi);
             leftPanel.Controls.Add(label14);
             leftPanel.Controls.Add(label15);
@@ -116,7 +118,7 @@ namespace WinFormsApp1
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(5, 388);
+            label14.Location = new Point(12, 410);
             label14.Name = "label14";
             label14.Size = new Size(231, 20);
             label14.TabIndex = 46;
@@ -226,9 +228,9 @@ namespace WinFormsApp1
             label12.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label12.Location = new Point(17, 307);
             label12.Name = "label12";
-            label12.Size = new Size(93, 23);
+            label12.Size = new Size(114, 23);
             label12.TabIndex = 22;
-            label12.Text = "Diyetisyen";
+            label12.Text = "Diyetisyenim";
             // 
             // diyetisyenLbl
             // 
@@ -479,6 +481,19 @@ namespace WinFormsApp1
             flowLayoutPanel1.Size = new Size(260, 641);
             flowLayoutPanel1.TabIndex = 6;
             // 
+            // btnSil
+            // 
+            btnSil.BackColor = Color.Silver;
+            btnSil.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSil.ForeColor = SystemColors.ButtonHighlight;
+            btnSil.Location = new Point(133, 390);
+            btnSil.Name = "btnSil";
+            btnSil.Size = new Size(97, 26);
+            btnSil.TabIndex = 48;
+            btnSil.Text = "Sil";
+            btnSil.UseVisualStyleBackColor = false;
+            btnSil.Click += btnSil_Click;
+            // 
             // DanisanPanel
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -552,5 +567,6 @@ namespace WinFormsApp1
         private FlowLayoutPanel flowLayoutPanel1;
         private Label label14;
         private Label lblBmi;
+        private Button btnSil;
     }
 }
