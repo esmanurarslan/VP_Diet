@@ -41,6 +41,13 @@ namespace WinFormsApp1
                         {
                             string name = dataReader["nameSurname"].ToString();
                             lblName.Text = name;
+                            string egitim = dataReader["education"].ToString();
+                            lblEgitim.Text = egitim;
+                            string univeriste = dataReader["university"].ToString();
+                            lblUniversite.Text = univeriste;
+                            string uzmanlik = dataReader["specialization"].ToString();
+                            lblUzmanlik.Text = uzmanlik;
+
                         }
                     }
                     else
@@ -51,8 +58,49 @@ namespace WinFormsApp1
                 }
 
             }
-             
+
             baglanti.Close();
+        }
+
+        private void btnSec_Click(object sender, EventArgs e)
+        {
+            DanisanPanel danisanPanelForm = Application.OpenForms.OfType<DanisanPanel>().FirstOrDefault();
+
+            if (danisanPanelForm != null)
+            {
+                // DanisanPanel formu açık ise, Partner tablosuna giriş yap
+                int consultantId = danisanPanelForm.Id;
+                int dietitianId = this.Id; // infoFrm'nin dietitianId'si
+
+                // Partner tablosuna giriş yap
+                AddToPartnerTable(consultantId, dietitianId);
+
+                // İşlem başarılı mesajı
+                MessageBox.Show("Partner tablosuna giriş yapıldı.");
+            }
+            else
+            {
+                // DanisanPanel formu kapalı ise uyarı ver
+                MessageBox.Show("DanisanPanel formu bulunamadı.");
+            }
+        }
+
+        private void AddToPartnerTable(int consultantId, int dietitianId)
+        {
+            using (SqlConnection connection = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True"))
+            {
+                connection.Open();
+
+                // Partner tablosuna giriş yap
+                string query = "INSERT INTO Partner (consultant, dietitian) VALUES (@consultantId, @dietitianId)";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@consultantId", consultantId);
+                    command.Parameters.AddWithValue("@dietitianId", dietitianId);
+
+                    command.ExecuteNonQuery();
+                }
+            }
         }
     }
 }
