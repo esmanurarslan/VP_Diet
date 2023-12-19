@@ -31,7 +31,8 @@ namespace WinFormsApp1
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanisanPanel));
             leftPanel = new Panel();
-            label17 = new Label();
+            lblBmi = new Label();
+            label14 = new Label();
             label15 = new Label();
             label13 = new Label();
             label10 = new Label();
@@ -41,7 +42,6 @@ namespace WinFormsApp1
             lblUser = new Label();
             lblGun = new Label();
             btnSayfaYenile = new Button();
-            rateLbl = new LinkLabel();
             diyetisyenMailLbl = new LinkLabel();
             label12 = new Label();
             diyetisyenLbl = new Label();
@@ -80,7 +80,8 @@ namespace WinFormsApp1
             // leftPanel
             // 
             leftPanel.BackColor = Color.FromArgb(216, 232, 227);
-            leftPanel.Controls.Add(label17);
+            leftPanel.Controls.Add(lblBmi);
+            leftPanel.Controls.Add(label14);
             leftPanel.Controls.Add(label15);
             leftPanel.Controls.Add(label13);
             leftPanel.Controls.Add(label10);
@@ -90,7 +91,6 @@ namespace WinFormsApp1
             leftPanel.Controls.Add(lblUser);
             leftPanel.Controls.Add(lblGun);
             leftPanel.Controls.Add(btnSayfaYenile);
-            leftPanel.Controls.Add(rateLbl);
             leftPanel.Controls.Add(diyetisyenMailLbl);
             leftPanel.Controls.Add(label12);
             leftPanel.Controls.Add(diyetisyenLbl);
@@ -104,14 +104,23 @@ namespace WinFormsApp1
             leftPanel.TabIndex = 0;
             leftPanel.Paint += leftPanel_Paint;
             // 
-            // label17
+            // lblBmi
             // 
-            label17.AutoSize = true;
-            label17.Location = new Point(12, 330);
-            label17.Name = "label17";
-            label17.Size = new Size(231, 20);
-            label17.TabIndex = 45;
-            label17.Text = "-------------------------------------";
+            lblBmi.AutoSize = true;
+            lblBmi.Location = new Point(24, 262);
+            lblBmi.Name = "lblBmi";
+            lblBmi.Size = new Size(22, 20);
+            lblBmi.TabIndex = 47;
+            lblBmi.Text = "M";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(5, 388);
+            label14.Name = "label14";
+            label14.Size = new Size(231, 20);
+            label14.TabIndex = 46;
+            label14.Text = "-------------------------------------";
             // 
             // label15
             // 
@@ -143,9 +152,10 @@ namespace WinFormsApp1
             // lblTarget
             // 
             lblTarget.AutoSize = true;
+            lblTarget.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblTarget.Location = new Point(139, 218);
             lblTarget.Name = "lblTarget";
-            lblTarget.Size = new Size(16, 20);
+            lblTarget.Size = new Size(17, 20);
             lblTarget.TabIndex = 41;
             lblTarget.Text = "x";
             // 
@@ -179,11 +189,12 @@ namespace WinFormsApp1
             // lblGun
             // 
             lblGun.AutoSize = true;
-            lblGun.Location = new Point(17, 170);
+            lblGun.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblGun.Location = new Point(44, 170);
             lblGun.Name = "lblGun";
-            lblGun.Size = new Size(50, 20);
+            lblGun.Size = new Size(17, 20);
             lblGun.TabIndex = 37;
-            lblGun.Text = "label8";
+            lblGun.Text = "x";
             // 
             // btnSayfaYenile
             // 
@@ -198,23 +209,11 @@ namespace WinFormsApp1
             btnSayfaYenile.UseVisualStyleBackColor = false;
             btnSayfaYenile.Click += btnSayfaYenile_Click;
             // 
-            // rateLbl
-            // 
-            rateLbl.AutoSize = true;
-            rateLbl.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
-            rateLbl.LinkColor = Color.FromArgb(70, 125, 106);
-            rateLbl.Location = new Point(111, 443);
-            rateLbl.Name = "rateLbl";
-            rateLbl.Size = new Size(146, 17);
-            rateLbl.TabIndex = 24;
-            rateLbl.TabStop = true;
-            rateLbl.Text = "Diyetisyeni Değerlendir!";
-            // 
             // diyetisyenMailLbl
             // 
             diyetisyenMailLbl.AutoSize = true;
             diyetisyenMailLbl.LinkColor = Color.Black;
-            diyetisyenMailLbl.Location = new Point(24, 410);
+            diyetisyenMailLbl.Location = new Point(17, 354);
             diyetisyenMailLbl.Name = "diyetisyenMailLbl";
             diyetisyenMailLbl.Size = new Size(188, 20);
             diyetisyenMailLbl.TabIndex = 23;
@@ -225,7 +224,7 @@ namespace WinFormsApp1
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label12.Location = new Point(24, 363);
+            label12.Location = new Point(17, 307);
             label12.Name = "label12";
             label12.Size = new Size(93, 23);
             label12.TabIndex = 22;
@@ -234,7 +233,7 @@ namespace WinFormsApp1
             // diyetisyenLbl
             // 
             diyetisyenLbl.AutoSize = true;
-            diyetisyenLbl.Location = new Point(24, 386);
+            diyetisyenLbl.Location = new Point(17, 330);
             diyetisyenLbl.Name = "diyetisyenLbl";
             diyetisyenLbl.Size = new Size(113, 20);
             diyetisyenLbl.TabIndex = 21;
@@ -541,17 +540,17 @@ namespace WinFormsApp1
         private Label lblBoy;
         private Button btnSayfaYenile;
         private LinkLabel diyetisyenMailLbl;
-        private LinkLabel rateLbl;
 
         private Label kilolbl;
         private Label lblGun;
         private Label lblUser;
-        private Label label17;
         private Label label15;
         private Label label13;
         private Label lblTarget;
         private Label label8;
         private Label lblMail;
         private FlowLayoutPanel flowLayoutPanel1;
+        private Label label14;
+        private Label lblBmi;
     }
 }

@@ -3,15 +3,18 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Text;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp1.Properties;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 
 // Şevval's database
@@ -70,7 +73,7 @@ namespace WinFormsApp1
         }
         */
 
-           //SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
+        //SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
         SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
 
         private void UpdateKgForm_UpdateCompleted(object sender, EventArgs e)
@@ -84,29 +87,8 @@ namespace WinFormsApp1
             {
                 baglanti.Open();
 
-                // İlk SqlCommand için SqlDataReader
-                using (SqlCommand komut2 = new SqlCommand("SELECT * FROM Consultant WHERE consultantId = @id", baglanti))
-                {
-                    komut2.Parameters.AddWithValue("@id", id);
 
-                    using (SqlDataReader dataReader = komut2.ExecuteReader())
-                    {
-                        if (dataReader.Read())
-                        {
-                            string email = dataReader["email"].ToString();
-                            lblMail.Text = email;
-                            string boy = dataReader["height"].ToString();
-                            lblBoy.Text = boy;
-                            int boy1 = Convert.ToInt32(dataReader["height"]);
-                            string target = dataReader["targetWeight"].ToString();
-                            lblTarget.Text = target;
-
-
-                        }
-                    }
-                }
-
-                // İkinci SqlCommand için SqlDataReader
+                // 1. SqlCommand için SqlDataReader
                 using (SqlCommand komut1 = new SqlCommand("SELECT * FROM Users WHERE Id = @id", baglanti))
                 {
                     komut1.Parameters.AddWithValue("@id", id);
@@ -128,7 +110,29 @@ namespace WinFormsApp1
                     }
                 }
 
+                // 2. SqlCommand için SqlDataReader
+                using (SqlCommand komut2 = new SqlCommand("SELECT * FROM Consultant WHERE consultantId = @id", baglanti))
+                {
+                    komut2.Parameters.AddWithValue("@id", id);
 
+                    using (SqlDataReader dataReader = komut2.ExecuteReader())
+                    {
+                        if (dataReader.Read())
+                        {
+                            string email = dataReader["email"].ToString();
+                            lblMail.Text = email;
+                            string boyy = dataReader["height"].ToString();
+                            lblBoy.Text = boyy;
+                            int boy1 = Convert.ToInt32(dataReader["height"]);
+                            string target = dataReader["targetWeight"].ToString();
+                            lblTarget.Text = target;
+
+
+                        }
+                    }
+                }
+
+                // 3. SqlCommand için SqlDataReader
                 using (SqlCommand komut3 = new SqlCommand("SELECT TOP 1 * FROM UpdateTbl WHERE userId = @id ORDER BY updateTime DESC", baglanti))
                 {
                     komut3.Parameters.AddWithValue("@id", id);
@@ -137,8 +141,8 @@ namespace WinFormsApp1
                     {
                         if (dataReader3.Read())
                         {
-                            string newWeight = dataReader3["newWeight"].ToString();
-                            kiloLbl.Text = newWeight;
+                            string newwWeight = dataReader3["newWeight"].ToString();
+                            kiloLbl.Text = newwWeight;
 
                             string newWaist = dataReader3["newWaist"].ToString();
                             lblBel.Text = newWaist;
@@ -149,21 +153,61 @@ namespace WinFormsApp1
                             string newChest = dataReader3["newChest"].ToString();
                             lblGogus.Text = newChest;
 
-                            double kilo = Convert.ToDouble(dataReader3["newWeight"]);
-                            //double boy1 = Convert.ToDouble(dataReader3["height"]);
-                            //double vki = kilo / ((boy1 / 100) * (boy1 / 100)); // Formül: VKI = kilo / (boy * boy)
-
-                            //lblVki.Text = vki.ToString("F2");
-
 
                         }
                     }
                 }
+
+                //4.SqlCommand için SqlDataReader
+                using (SqlCommand komut4 = new SqlCommand("SELECT D.nameSurname AS DietitianNameSurname, D.email AS DietitianEmail FROM Partner P JOIN Dietitian D ON P.dietitian = D.dietitianId WHERE P.consultant = @id ", baglanti))
+                {
+                    komut4.Parameters.AddWithValue("@id", id);
+
+                    using (SqlDataReader dataReader4 = komut4.ExecuteReader())
+                    {
+                        if (dataReader4.Read())
+                        {
+                            string dietitianNameSurname = dataReader4["DietitianNameSurname"].ToString();
+                            string dietitianEmail = dataReader4["DietitianEmail"].ToString();
+
+                            // Elde edilen değerleri kullanabilirsiniz
+                            diyetisyenLbl.Text = dietitianNameSurname;
+                            diyetisyenMailLbl.Text = dietitianEmail;
+                        }
+                        else
+                        {
+                            // Belirtilen consultantId ile eşleşen bir kayıt bulunamadı
+                            diyetisyenLbl.Text = "Eşleşen diyetisyen bulunamadı";
+                            diyetisyenMailLbl.Text = "";
+                        }
+                    }
+                }
+
+                using (SqlCommand komut7 = new SqlCommand("SELECT TOP 1 U.newWeight, C.height FROM UpdateTbl U INNER JOIN Consultant C ON U.userId = C.consultantId WHERE U.userId = @id ORDER BY U.updateTime DESC", baglanti))
+                {
+                    komut7.Parameters.AddWithValue("@id", id);
+
+                    using (SqlDataReader dataReader7 = komut7.ExecuteReader())
+                    {
+                        if (dataReader7.Read())
+                        {
+                            double newWeight = Convert.ToDouble(dataReader7["newWeight"]);
+                            double height = Convert.ToDouble(dataReader7["height"]) / 100;
+
+                            // BMI hesapla ve göster
+                            CalculateAndShowBMI(newWeight, height);
+                        }
+
+                    }
+
+
+
+
+                }
+
+                baglanti.Close();
             }
-
-            baglanti.Close();
         }
-
         private void btnGuncelle_Click(object sender, EventArgs e)
         {
             UpdateKg frm = new UpdateKg(Id);
@@ -241,14 +285,8 @@ namespace WinFormsApp1
                     }
                 }
             }
-        
+
         }
-        
-
-
-
-
-
         private void btnParola_Click(object sender, EventArgs e)
         {
             PassUpdate frm = new PassUpdate(Id);
@@ -296,6 +334,32 @@ namespace WinFormsApp1
             form.Show();
         }
 
+        private void CalculateAndShowBMI(double weight, double height)
+        {
+            // BMI hesapla
+            double bmi = weight / (height * height);
+
+            // BMI'ı ekrana yazdır
+            lblBmi.Text = $"BMI: {bmi:F2}";
+
+            // BMI değerlendirmesi
+            if (bmi < 18.5)
+            {
+                lblBmi.Text += " (Zayıf)";
+            }
+            else if (bmi < 24.9)
+            {
+                lblBmi.Text += " (Normal)";
+            }
+            else if (bmi < 29.9)
+            {
+                lblBmi.Text += " (Fazla Kilolu)";
+            }
+            else
+            {
+                lblBmi.Text += " (Obez)";
+            }
+        }
 
     }
 
