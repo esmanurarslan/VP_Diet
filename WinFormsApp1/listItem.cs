@@ -13,12 +13,12 @@ namespace WinFormsApp1
 {
     public partial class listItem : UserControl
     {
-        public int id;
+        public int Id;
 
         public listItem(int id)
         {
             InitializeComponent();
-            DietitianId = id;
+            Id = id;
             btnIncele.Click += BtnIncele_Click;
 
         }

@@ -17,15 +17,31 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-        // SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
-        SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
+        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+        //SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
         private void AdminPanel_Load(object sender, EventArgs e)
         {
             LoadUserStatistics();
             LoadDietStatistics();
             LoadConsultantStatistics();
-            //populateDietitiansItems();
-            //populateConsultantItems();
+            populateDietitiansItems();
+            populateConsultantItems();
+
+            foreach (var listItemControl in flowLayoutPanel1.Controls)
+            {
+                if (listItemControl is listItem listItem)
+                {
+                    listItem.btnInceleClicked += ListItem_InceleClicked;
+                }
+            }
+
+            foreach (var listItemControl in flowLayoutPanel2.Controls)
+            {
+                if (listItemControl is listItem listItem)
+                {
+                    listItem.btnInceleClicked += ListItem_InceleClicked;
+                }
+            }
         }
 
         private void LoadUserStatistics()
@@ -173,25 +189,25 @@ namespace WinFormsApp1
             return usernames;
         }
 
-       /* private void populateDietitiansItems()
+        private void populateDietitiansItems()
         {
-              SqlConnection connection = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
-            //SqlConnection connection = new SqlConnection("Data Source = localhost; Initial Catalog = VP_diet; Integrated Security = True");
+            SqlConnection connection = new SqlConnection("Data Source=localhost; Initial Catalog=VP_diet;Integrated Security=True");
             using (connection)
             {
                 connection.Open();
 
-                string query = "SELECT nameSurname FROM Dietitian";
+                string query = "SELECT * FROM Dietitian";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            listItem listItem = new listItem();
+                            listItem listItem = new listItem(Convert.ToInt32(reader["dietitianId"]));
+                            listItem.DietitianId = Convert.ToInt32(reader["dietitianId"]); // Bu satırın eklenmiş olması önemli
                             listItem.Name = reader["nameSurname"].ToString();
                             listItem.Puan = "süper";
-
+                            listItem.InceleClicked += ListItem_InceleClicked;
                             flowLayoutPanel1.Controls.Add(listItem);
                         }
                     }
@@ -201,29 +217,35 @@ namespace WinFormsApp1
 
         private void populateConsultantItems()
         {
-            SqlConnection connection = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
-            //SqlConnection connection = new SqlConnection("Data Source = localhost; Initial Catalog = VP_diet; Integrated Security = True");
+            SqlConnection connection = new SqlConnection("Data Source=localhost; Initial Catalog=VP_diet;Integrated Security=True");
             using (connection)
             {
                 connection.Open();
 
-                string query = "SELECT userName,email FROM Users where userType=3";
+                string query = "SELECT Id, userName, email FROM Users WHERE userType=3";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            listItem listItem = new listItem();
+                            int consultantId = Convert.ToInt32(reader["Id"]);
+                            listItem listItem = new listItem(consultantId);
                             listItem.Name = reader["userName"].ToString();
                             listItem.Puan = reader["email"].ToString();
-
+                            listItem.InceleClicked += ListItem_InceleClicked;
                             flowLayoutPanel2.Controls.Add(listItem);
                         }
                     }
                 }
             }
-        }*/
+        }
 
+        private void ListItem_InceleClicked(object sender, int Id)
+        {
+            // InceleClicked etkinliği tetiklendiğinde infoFrm formunu aç
+            infoFrm form = new infoFrm(Id);
+            form.Show();
+        }
     }
 }
