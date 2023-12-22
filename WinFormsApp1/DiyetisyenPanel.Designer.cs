@@ -28,190 +28,183 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.pnlDietInfo = new System.Windows.Forms.Panel();
-            this.customButton1 = new WinFormsApp1.CustomButton();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblTotalCon = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblDietSchool = new System.Windows.Forms.Label();
-            this.lblDietMail = new System.Windows.Forms.Label();
-            this.lblDietUserName = new System.Windows.Forms.Label();
-            this.circularPictureBox1 = new WinFormsApp1.CircularPictureBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.flowLPnlCon = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblCity = new System.Windows.Forms.Label();
-            this.pnlDietInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.SuspendLayout();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            pnlDietInfo = new Panel();
+            customButton1 = new CustomButton();
+            label5 = new Label();
+            lblTotalCon = new Label();
+            panel2 = new Panel();
+            panel1 = new Panel();
+            lblDietSchool = new Label();
+            lblDietMail = new Label();
+            lblDietUserName = new Label();
+            circularPictureBox1 = new CircularPictureBox();
+            panel3 = new Panel();
+            flowLPnlCon = new FlowLayoutPanel();
+            label1 = new Label();
+            pnlDietInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)circularPictureBox1).BeginInit();
+            panel3.SuspendLayout();
+            SuspendLayout();
             // 
             // pnlDietInfo
             // 
-            this.pnlDietInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(232)))), ((int)(((byte)(227)))));
-            this.pnlDietInfo.Controls.Add(this.lblCity);
-            this.pnlDietInfo.Controls.Add(this.customButton1);
-            this.pnlDietInfo.Controls.Add(this.label5);
-            this.pnlDietInfo.Controls.Add(this.lblTotalCon);
-            this.pnlDietInfo.Controls.Add(this.panel2);
-            this.pnlDietInfo.Controls.Add(this.panel1);
-            this.pnlDietInfo.Controls.Add(this.lblDietSchool);
-            this.pnlDietInfo.Controls.Add(this.lblDietMail);
-            this.pnlDietInfo.Controls.Add(this.lblDietUserName);
-            this.pnlDietInfo.Controls.Add(this.circularPictureBox1);
-            this.pnlDietInfo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlDietInfo.Location = new System.Drawing.Point(0, 0);
-            this.pnlDietInfo.Name = "pnlDietInfo";
-            this.pnlDietInfo.Size = new System.Drawing.Size(248, 481);
-            this.pnlDietInfo.TabIndex = 0;
+            pnlDietInfo.BackColor = Color.FromArgb(216, 232, 227);
+            pnlDietInfo.Controls.Add(customButton1);
+            pnlDietInfo.Controls.Add(label5);
+            pnlDietInfo.Controls.Add(lblTotalCon);
+            pnlDietInfo.Controls.Add(panel2);
+            pnlDietInfo.Controls.Add(panel1);
+            pnlDietInfo.Controls.Add(lblDietSchool);
+            pnlDietInfo.Controls.Add(lblDietMail);
+            pnlDietInfo.Controls.Add(lblDietUserName);
+            pnlDietInfo.Controls.Add(circularPictureBox1);
+            pnlDietInfo.Dock = DockStyle.Left;
+            pnlDietInfo.Location = new Point(0, 0);
+            pnlDietInfo.Margin = new Padding(3, 4, 3, 4);
+            pnlDietInfo.Name = "pnlDietInfo";
+            pnlDietInfo.Size = new Size(283, 641);
+            pnlDietInfo.TabIndex = 0;
             // 
             // customButton1
             // 
-            this.customButton1.BackColor = System.Drawing.Color.Gray;
-            this.customButton1.FlatAppearance.BorderSize = 0;
-            this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.customButton1.ForeColor = System.Drawing.Color.White;
-            this.customButton1.Location = new System.Drawing.Point(12, 409);
-            this.customButton1.Name = "customButton1";
-            this.customButton1.Size = new System.Drawing.Size(213, 40);
-            this.customButton1.TabIndex = 12;
-            this.customButton1.Text = "Parola Değiştir";
-            this.customButton1.UseVisualStyleBackColor = false;
+            customButton1.BackColor = Color.Gray;
+            customButton1.FlatAppearance.BorderSize = 0;
+            customButton1.FlatStyle = FlatStyle.Flat;
+            customButton1.ForeColor = Color.White;
+            customButton1.Location = new Point(14, 545);
+            customButton1.Margin = new Padding(3, 4, 3, 4);
+            customButton1.Name = "customButton1";
+            customButton1.Size = new Size(243, 53);
+            customButton1.TabIndex = 12;
+            customButton1.Text = "Parola Değiştir";
+            customButton1.UseVisualStyleBackColor = false;
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label5.Location = new System.Drawing.Point(64, 293);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(79, 15);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "danışan sayısı";
+            label5.AutoSize = true;
+            label5.ForeColor = SystemColors.ControlDark;
+            label5.Location = new Point(73, 391);
+            label5.Name = "label5";
+            label5.Size = new Size(99, 20);
+            label5.TabIndex = 11;
+            label5.Text = "danışan sayısı";
             // 
             // lblTotalCon
             // 
-            this.lblTotalCon.AutoSize = true;
-            this.lblTotalCon.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTotalCon.Location = new System.Drawing.Point(44, 293);
-            this.lblTotalCon.Name = "lblTotalCon";
-            this.lblTotalCon.Size = new System.Drawing.Size(14, 15);
-            this.lblTotalCon.TabIndex = 10;
-            this.lblTotalCon.Text = "0";
-            this.lblTotalCon.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            lblTotalCon.AutoSize = true;
+            lblTotalCon.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblTotalCon.Location = new Point(50, 391);
+            lblTotalCon.Name = "lblTotalCon";
+            lblTotalCon.Size = new Size(18, 20);
+            lblTotalCon.TabIndex = 10;
+            lblTotalCon.Text = "0";
+            lblTotalCon.TextAlign = ContentAlignment.TopRight;
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.Black;
-            this.panel2.Location = new System.Drawing.Point(12, 332);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(213, 2);
-            this.panel2.TabIndex = 6;
+            panel2.BackColor = Color.Black;
+            panel2.Location = new Point(14, 443);
+            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(243, 3);
+            panel2.TabIndex = 6;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Location = new System.Drawing.Point(12, 226);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(213, 2);
-            this.panel1.TabIndex = 5;
+            panel1.BackColor = Color.Black;
+            panel1.Location = new Point(14, 301);
+            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(243, 3);
+            panel1.TabIndex = 5;
             // 
             // lblDietSchool
             // 
-            this.lblDietSchool.AutoSize = true;
-            this.lblDietSchool.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblDietSchool.Location = new System.Drawing.Point(12, 197);
-            this.lblDietSchool.Name = "lblDietSchool";
-            this.lblDietSchool.Size = new System.Drawing.Size(119, 15);
-            this.lblDietSchool.TabIndex = 4;
-            this.lblDietSchool.Text = "Example Mezun Okul";
+            lblDietSchool.AutoSize = true;
+            lblDietSchool.ForeColor = SystemColors.ControlDark;
+            lblDietSchool.Location = new Point(14, 263);
+            lblDietSchool.Name = "lblDietSchool";
+            lblDietSchool.Size = new Size(148, 20);
+            lblDietSchool.TabIndex = 4;
+            lblDietSchool.Text = "Example Mezun Okul";
             // 
             // lblDietMail
             // 
-            this.lblDietMail.AutoSize = true;
-            this.lblDietMail.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblDietMail.Location = new System.Drawing.Point(12, 173);
-            this.lblDietMail.Name = "lblDietMail";
-            this.lblDietMail.Size = new System.Drawing.Size(131, 15);
-            this.lblDietMail.TabIndex = 3;
-            this.lblDietMail.Text = "example@hotmail.com";
+            lblDietMail.AutoSize = true;
+            lblDietMail.ForeColor = SystemColors.ControlDark;
+            lblDietMail.Location = new Point(14, 231);
+            lblDietMail.Name = "lblDietMail";
+            lblDietMail.Size = new Size(163, 20);
+            lblDietMail.TabIndex = 3;
+            lblDietMail.Text = "example@hotmail.com";
             // 
             // lblDietUserName
             // 
-            this.lblDietUserName.AutoSize = true;
-            this.lblDietUserName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDietUserName.Location = new System.Drawing.Point(12, 143);
-            this.lblDietUserName.Name = "lblDietUserName";
-            this.lblDietUserName.Size = new System.Drawing.Size(96, 20);
-            this.lblDietUserName.TabIndex = 1;
-            this.lblDietUserName.Text = "Kullanıcı Adı";
+            lblDietUserName.AutoSize = true;
+            lblDietUserName.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblDietUserName.Location = new Point(14, 191);
+            lblDietUserName.Name = "lblDietUserName";
+            lblDietUserName.Size = new Size(122, 25);
+            lblDietUserName.TabIndex = 1;
+            lblDietUserName.Text = "Kullanıcı Adı";
             // 
             // circularPictureBox1
             // 
-            this.circularPictureBox1.BackColor = System.Drawing.Color.White;
-            this.circularPictureBox1.Location = new System.Drawing.Point(12, 29);
-            this.circularPictureBox1.Name = "circularPictureBox1";
-            this.circularPictureBox1.Size = new System.Drawing.Size(101, 98);
-            this.circularPictureBox1.TabIndex = 0;
-            this.circularPictureBox1.TabStop = false;
+            circularPictureBox1.BackColor = Color.White;
+            circularPictureBox1.Location = new Point(14, 39);
+            circularPictureBox1.Margin = new Padding(3, 4, 3, 4);
+            circularPictureBox1.Name = "circularPictureBox1";
+            circularPictureBox1.Size = new Size(115, 131);
+            circularPictureBox1.TabIndex = 0;
+            circularPictureBox1.TabStop = false;
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(232)))), ((int)(((byte)(227)))));
-            this.panel3.Controls.Add(this.flowLPnlCon);
-            this.panel3.Controls.Add(this.label1);
-            this.panel3.Location = new System.Drawing.Point(312, 29);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(602, 440);
-            this.panel3.TabIndex = 13;
+            panel3.BackColor = Color.FromArgb(216, 232, 227);
+            panel3.Controls.Add(flowLPnlCon);
+            panel3.Controls.Add(label1);
+            panel3.Location = new Point(357, 39);
+            panel3.Margin = new Padding(3, 4, 3, 4);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(688, 587);
+            panel3.TabIndex = 13;
             // 
             // flowLPnlCon
             // 
-            this.flowLPnlCon.Location = new System.Drawing.Point(28, 59);
-            this.flowLPnlCon.Name = "flowLPnlCon";
-            this.flowLPnlCon.Size = new System.Drawing.Size(265, 361);
-            this.flowLPnlCon.TabIndex = 14;
+            flowLPnlCon.Location = new Point(32, 79);
+            flowLPnlCon.Margin = new Padding(3, 4, 3, 4);
+            flowLPnlCon.Name = "flowLPnlCon";
+            flowLPnlCon.Size = new Size(303, 481);
+            flowLPnlCon.TabIndex = 14;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(28, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 21);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Danışanlarım";
-            // 
-            // lblCity
-            // 
-            this.lblCity.AutoSize = true;
-            this.lblCity.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.lblCity.Location = new System.Drawing.Point(64, 262);
-            this.lblCity.Name = "lblCity";
-            this.lblCity.Size = new System.Drawing.Size(28, 15);
-            this.lblCity.TabIndex = 13;
-            this.lblCity.Text = "City";
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(32, 35);
+            label1.Name = "label1";
+            label1.Size = new Size(137, 28);
+            label1.TabIndex = 13;
+            label1.Text = "Danışanlarım";
             // 
             // DiyetisyenPanel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(165)))), ((int)(((byte)(215)))), ((int)(((byte)(198)))));
-            this.ClientSize = new System.Drawing.Size(971, 481);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.pnlDietInfo);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "DiyetisyenPanel";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DiyetisyenPanel";
-            this.pnlDietInfo.ResumeLayout(false);
-            this.pnlDietInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.circularPictureBox1)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(165, 215, 198);
+            ClientSize = new Size(1110, 641);
+            Controls.Add(panel3);
+            Controls.Add(pnlDietInfo);
+            Name = "DiyetisyenPanel";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "DiyetisyenPanel";
+            pnlDietInfo.ResumeLayout(false);
+            pnlDietInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)circularPictureBox1).EndInit();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -229,6 +222,5 @@
         private Panel panel3;
         private Label label1;
         private FlowLayoutPanel flowLPnlCon;
-        private Label lblCity;
     }
 }

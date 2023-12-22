@@ -8,76 +8,82 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Linq.Expressions;
+using System.Reflection.Emit;
 
 
 namespace WinFormsApp1
 {
     public partial class DiyetisyenPanel : Form
     {
-
-        public DiyetisyenPanel()
+        public int Id;
+        public DiyetisyenPanel(int id)
         {
             InitializeComponent();
+            LoadDietitianData(this.Id = id);
 
         }
-        
-        SqlConnection connection = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
 
-        private void LoadDietitanData(int id)
+        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+
+        private void LoadDietitianData(int id)
         {
-            using(connection)
-                try
+
+            using (baglanti) // connectionString'i uygun şekilde değiştirin
+            {
+                baglanti.Open();
+
+
+                // 1. SqlCommand için SqlDataReader
+                using (SqlCommand komut1 = new SqlCommand("SELECT * FROM Users WHERE Id = @id", baglanti))
                 {
-                    connection.Open();
+                    komut1.Parameters.AddWithValue("@id", id);
 
-                    string Command = "SELECT * FROM";
-
-                    using (SqlCommand cmdID = new SqlCommand(Command + "Users WHERE Id = @id ", connection))
+                    using (SqlDataReader dataReader2 = komut1.ExecuteReader())
                     {
-                        cmdID.Parameters.AddWithValue("id", id);
-
-                        using(SqlDataReader reader1 = cmdID.ExecuteReader())
+                        if (dataReader2.Read())
                         {
-                            if (reader1.Read())
-                            {
-                                string userName = reader1["userName"].ToString();
-                                DateTime dateLog = DateTime.Now;
-                                Console.WriteLine($"User Name : {userName}, Time : {dateLog}");
-                            }
-                        }
-                    }
+                            string kullaniciAdi = dataReader2["userName"].ToString();
+                            lblDietUserName.Text = kullaniciAdi;
 
-                    using (SqlCommand cmdNameSurname = new SqlCommand(Command + "Dietitan WHERE dietitanId = @id ",connection))
-                    {
-                        cmdNameSurname.Parameters.AddWithValue("@id", id);
-
-                        using(SqlDataReader reader2 = cmdNameSurname.ExecuteReader())
-                        {
-                            if(reader2.Read())
-                            {
-                                string nameSurname = reader2["nameSurname"].ToString();
-                                string email = reader2["email"].ToString();
-                                string university = reader2["university"].ToString();
-                                string city = reader2["city"].ToString();
-
-                                lblDietUserName.Text = nameSurname;
-                                lblDietMail.Text = email;
-                                lblDietSchool.Text = university; 
-                                lblCity.Text = city;
-                            } 
-                        }
-
-                        using (SqlCommand cmdPartnerNumber = new SqlCommand(Command + "Partner WHERE dietitan = @id ", connection))
-                        {
+                            string email = dataReader2["email"].ToString();
+                            lblDietMail.Text = email;
 
                         }
                     }
+                }
 
-                }catch(Exception ex) { }
+                using (SqlCommand komut2 = new SqlCommand("SELECT * FROM Dietitian WHERE dietitianId = @id", baglanti))
+                {
+                    komut2.Parameters.AddWithValue("@id", id);
 
+                    using (SqlDataReader dataReader = komut2.ExecuteReader())
+                    {
+                        if (dataReader.Read())
+                        {
+                            string university = dataReader["university"].ToString();
+                            lblDietSchool.Text = university;
+
+
+                        }
+                    }
+                }
+
+                using (SqlCommand komut3 = new SqlCommand("SELECT Count(*) FROM Partner WHERE dietitian= @id ", baglanti))
+                {
+                    komut3.Parameters.AddWithValue("@id", id);
+
+                    using (SqlDataReader dataReader3 = komut3.ExecuteReader())
+                    {
+                        if (dataReader3.Read())
+                        {
+                            int totalCon = Convert.ToInt32(dataReader3[0]); // Count(*) değerini alır
+                            lblTotalCon.Text = totalCon.ToString();
+                        }
+                    }
+                }
+
+            }
         }
-
-        
-
     }
 }

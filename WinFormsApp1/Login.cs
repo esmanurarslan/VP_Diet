@@ -51,19 +51,21 @@ namespace WinFormsApp1
                 if (dataReader.Read())
                 {
                     int userType = Convert.ToInt32(dataReader["userType"]);
-
+                    int id = Convert.ToInt32(dataReader["Id"]);
                     switch (userType)
                     {
                         case 1:
+                            
                             AdminPanel formAdmin = new AdminPanel(); //new AdminPanel(id)
                             formAdmin.Show();
                             break;
                         case 2:
-                            DiyetisyenPanel Diyetisyen = new DiyetisyenPanel(); //new DiyetisyenPanel(id);
+                            
+                            DiyetisyenPanel Diyetisyen = new DiyetisyenPanel(id); //new DiyetisyenPanel(id);
                             Diyetisyen.Show();
                             break;
                         case 3:
-                            int id = Convert.ToInt32(dataReader["Id"]);
+                            
                             DanisanPanel Danisan = new DanisanPanel(id);
                             Danisan.Show();
                             break;
