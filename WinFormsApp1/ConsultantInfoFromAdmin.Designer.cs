@@ -30,14 +30,14 @@
         {
             label1 = new Label();
             panel1 = new Panel();
+            label6 = new Label();
+            lblDiyetisyen = new Label();
             label2 = new Label();
-            label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            lblUniversite = new Label();
-            lblName = new Label();
-            lblUzmanlik = new Label();
-            lblEgitim = new Label();
+            lblCinsiyet = new Label();
+            lblSehir = new Label();
+            lblEmail = new Label();
             btnSil = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -55,41 +55,51 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(lblDiyetisyen);
             panel1.Controls.Add(label2);
-            panel1.Controls.Add(label3);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label5);
-            panel1.Controls.Add(lblUniversite);
-            panel1.Controls.Add(lblName);
-            panel1.Controls.Add(lblUzmanlik);
-            panel1.Controls.Add(lblEgitim);
+            panel1.Controls.Add(lblCinsiyet);
+            panel1.Controls.Add(lblSehir);
+            panel1.Controls.Add(lblEmail);
             panel1.Location = new Point(12, 37);
             panel1.Name = "panel1";
             panel1.Size = new Size(489, 170);
             panel1.TabIndex = 11;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(103, 115);
+            label6.Name = "label6";
+            label6.Size = new Size(84, 20);
+            label6.TabIndex = 9;
+            label6.Text = "Diyetisyeni:";
+            label6.Click += label6_Click;
+            // 
+            // lblDiyetisyen
+            // 
+            lblDiyetisyen.AutoSize = true;
+            lblDiyetisyen.Location = new Point(202, 115);
+            lblDiyetisyen.Name = "lblDiyetisyen";
+            lblDiyetisyen.Size = new Size(50, 20);
+            lblDiyetisyen.TabIndex = 8;
+            lblDiyetisyen.Text = "label1";
+            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(133, 84);
+            label2.Location = new Point(127, 49);
             label2.Name = "label2";
             label2.Size = new Size(60, 20);
             label2.TabIndex = 6;
             label2.Text = "Cinsiyet";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(98, 18);
-            label3.Name = "label3";
-            label3.Size = new Size(95, 20);
-            label3.TabIndex = 4;
-            label3.Text = "Kullanıcı Adı:";
-            // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(148, 117);
+            label4.Location = new Point(142, 82);
             label4.Name = "label4";
             label4.Size = new Size(45, 20);
             label4.TabIndex = 7;
@@ -98,47 +108,38 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(144, 51);
+            label5.Location = new Point(138, 16);
             label5.Name = "label5";
             label5.Size = new Size(49, 20);
             label5.TabIndex = 5;
             label5.Text = "Email:";
             // 
-            // lblUniversite
+            // lblCinsiyet
             // 
-            lblUniversite.AutoSize = true;
-            lblUniversite.Location = new Point(208, 84);
-            lblUniversite.Name = "lblUniversite";
-            lblUniversite.Size = new Size(50, 20);
-            lblUniversite.TabIndex = 2;
-            lblUniversite.Text = "label1";
+            lblCinsiyet.AutoSize = true;
+            lblCinsiyet.Location = new Point(202, 49);
+            lblCinsiyet.Name = "lblCinsiyet";
+            lblCinsiyet.Size = new Size(50, 20);
+            lblCinsiyet.TabIndex = 2;
+            lblCinsiyet.Text = "label1";
             // 
-            // lblName
+            // lblSehir
             // 
-            lblName.AutoSize = true;
-            lblName.Location = new Point(208, 18);
-            lblName.Name = "lblName";
-            lblName.Size = new Size(50, 20);
-            lblName.TabIndex = 0;
-            lblName.Text = "label1";
+            lblSehir.AutoSize = true;
+            lblSehir.Location = new Point(202, 82);
+            lblSehir.Name = "lblSehir";
+            lblSehir.Size = new Size(50, 20);
+            lblSehir.TabIndex = 3;
+            lblSehir.Text = "label1";
             // 
-            // lblUzmanlik
+            // lblEmail
             // 
-            lblUzmanlik.AutoSize = true;
-            lblUzmanlik.Location = new Point(208, 117);
-            lblUzmanlik.Name = "lblUzmanlik";
-            lblUzmanlik.Size = new Size(50, 20);
-            lblUzmanlik.TabIndex = 3;
-            lblUzmanlik.Text = "label1";
-            // 
-            // lblEgitim
-            // 
-            lblEgitim.AutoSize = true;
-            lblEgitim.Location = new Point(208, 51);
-            lblEgitim.Name = "lblEgitim";
-            lblEgitim.Size = new Size(50, 20);
-            lblEgitim.TabIndex = 1;
-            lblEgitim.Text = "label1";
+            lblEmail.AutoSize = true;
+            lblEmail.Location = new Point(202, 16);
+            lblEmail.Name = "lblEmail";
+            lblEmail.Size = new Size(50, 20);
+            lblEmail.TabIndex = 1;
+            lblEmail.Text = "label1";
             // 
             // btnSil
             // 
@@ -172,13 +173,13 @@
         private Label label1;
         private Panel panel1;
         private Label label2;
-        private Label label3;
         private Label label4;
         private Label label5;
-        private Label lblUniversite;
-        private Label lblName;
-        private Label lblUzmanlik;
-        private Label lblEgitim;
+        private Label lblCinsiyet;
+        private Label lblSehir;
+        private Label lblEmail;
         private Button btnSil;
+        private Label label6;
+        private Label lblDiyetisyen;
     }
 }

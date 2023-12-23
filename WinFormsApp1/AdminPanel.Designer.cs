@@ -157,12 +157,12 @@
             // lblAdmin
             // 
             lblAdmin.AutoSize = true;
-            lblAdmin.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            lblAdmin.ForeColor = SystemColors.ControlDarkDark;
+            lblAdmin.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblAdmin.ForeColor = SystemColors.ActiveCaptionText;
             lblAdmin.Location = new Point(55, 27);
             lblAdmin.Margin = new Padding(2, 0, 2, 0);
             lblAdmin.Name = "lblAdmin";
-            lblAdmin.Size = new Size(18, 19);
+            lblAdmin.Size = new Size(20, 20);
             lblAdmin.TabIndex = 19;
             lblAdmin.Text = "A";
             // 
@@ -518,16 +518,18 @@
             // 
             // flowLayoutPanel2
             // 
-            flowLayoutPanel2.Location = new Point(332, 64);
+            flowLayoutPanel2.AutoScroll = true;
+            flowLayoutPanel2.Location = new Point(316, 64);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(250, 600);
+            flowLayoutPanel2.Size = new Size(280, 600);
             flowLayoutPanel2.TabIndex = 4;
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Location = new Point(37, 64);
+            flowLayoutPanel1.AutoScroll = true;
+            flowLayoutPanel1.Location = new Point(26, 64);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(250, 600);
+            flowLayoutPanel1.Size = new Size(280, 600);
             flowLayoutPanel1.TabIndex = 3;
             // 
             // label28

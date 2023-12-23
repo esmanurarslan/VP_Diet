@@ -57,7 +57,29 @@ namespace WinFormsApp1
                     }
                 }
 
+                SqlCommand komut2 = new SqlCommand("SELECT COUNT(*) FROM Partner WHERE dietitian = @p1", baglanti);
+                komut2.Parameters.AddWithValue("@p1", id);
+
+                using (SqlDataReader dataReader2 = komut2.ExecuteReader())
+                {
+                    if (dataReader2.HasRows)
+                    {
+                        while (dataReader2.Read())
+                        {
+                            // Dönen değeri alın
+                            int danisanSayisi = Convert.ToInt32(dataReader2[0]);
+                            lblDanisanSayisi.Text = danisanSayisi.ToString();
+                        }
+                    }
+                    else
+                    {
+                        // Veri bulunamadıysa yapılacak işlemler
+                        lblDanisanSayisi.Text = "Veri bulunamadı";
+                    }
+                }
             }
+
+            
 
             baglanti.Close();
         }

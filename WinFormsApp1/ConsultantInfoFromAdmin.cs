@@ -35,11 +35,26 @@ namespace WinFormsApp1
                 komut.Parameters.AddWithValue("@p1", id);
                 using (SqlDataReader dataReader = komut.ExecuteReader())
                 {
-                   
-                        dataReader.Read(); // Tek bir satır olduğunu varsayıyoruz
-                        string name = dataReader["email"].ToString();
-                        lblName.Text = name;
-                  
+
+                    dataReader.Read(); // Tek bir satır olduğunu varsayıyoruz
+                    string email = dataReader["email"].ToString();
+                    lblEmail.Text = email;
+                    string gender = dataReader["gender"].ToString();
+                    lblCinsiyet.Text = gender;
+                    string city = dataReader["city"].ToString();
+                    lblSehir.Text = city;
+
+                }
+
+                SqlCommand komut2 = new SqlCommand("SELECT D.nameSurname FROM Partner AS P JOIN Dietitian AS D ON P.dietitian = D.dietitianId WHERE P.consultant = @p1", baglanti);
+                komut2.Parameters.AddWithValue("@p1", id);
+                using (SqlDataReader dataReader = komut2.ExecuteReader())
+                {
+
+                    dataReader.Read(); // Tek bir satır olduğunu varsayıyoruz
+                    string name = dataReader["nameSurname"].ToString();
+                    lblDiyetisyen.Text = name;
+
                 }
             }
 
@@ -92,6 +107,11 @@ namespace WinFormsApp1
                     MessageBox.Show("Error deleting record: " + ex.Message);
                 }
             }
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

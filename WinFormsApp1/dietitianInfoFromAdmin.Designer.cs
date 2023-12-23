@@ -39,6 +39,8 @@
             lblUzmanlik = new Label();
             lblEgitim = new Label();
             btnSil = new Button();
+            label6 = new Label();
+            lblDanisanSayisi = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -55,6 +57,8 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(lblDanisanSayisi);
+            panel1.Controls.Add(label6);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label4);
@@ -65,7 +69,7 @@
             panel1.Controls.Add(lblEgitim);
             panel1.Location = new Point(12, 37);
             panel1.Name = "panel1";
-            panel1.Size = new Size(489, 170);
+            panel1.Size = new Size(489, 175);
             panel1.TabIndex = 8;
             // 
             // label2
@@ -150,6 +154,24 @@
             btnSil.UseVisualStyleBackColor = true;
             btnSil.Click += btnSil_Click;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(173, 146);
+            label6.Name = "label6";
+            label6.Size = new Size(126, 20);
+            label6.TabIndex = 8;
+            label6.Text = "Kişinin diyetisyeni";
+            // 
+            // lblDanisanSayisi
+            // 
+            lblDanisanSayisi.AutoSize = true;
+            lblDanisanSayisi.Location = new Point(117, 146);
+            lblDanisanSayisi.Name = "lblDanisanSayisi";
+            lblDanisanSayisi.Size = new Size(50, 20);
+            lblDanisanSayisi.TabIndex = 9;
+            lblDanisanSayisi.Text = "label1";
+            // 
             // dietitianInfoFromAdmin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -181,5 +203,7 @@
         private Label lblUzmanlik;
         private Label lblEgitim;
         private Button btnSil;
+        private Label lblDanisanSayisi;
+        private Label label6;
     }
 }
