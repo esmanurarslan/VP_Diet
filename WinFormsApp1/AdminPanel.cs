@@ -39,9 +39,9 @@ namespace WinFormsApp1
 
             foreach (var listItemControl in flowLayoutPanel2.Controls)
             {
-                if (listItemControl is listItem listItem)
+                if (listItemControl is ConsultantItem consultantItem)
                 {
-                    listItem.btnInceleClicked += ListItem_InceleClicked;
+                    consultantItem.InceleClicked += ListItem_InceleClicked2;
                 }
             }
         }
@@ -257,22 +257,30 @@ namespace WinFormsApp1
                         while (reader.Read())
                         {
                             int consultantId = Convert.ToInt32(reader["Id"]);
-                            listItem listItem = new listItem(consultantId);
-                            listItem.Name = reader["userName"].ToString();
+                            ConsultantItem consultantItem = new ConsultantItem(consultantId);
+                            consultantItem.Username = reader["userName"].ToString();
                             DateTime registerDate = Convert.ToDateTime(reader["registerDate"]);
 
                             // Gün sayısını hesaplayarak label'a atama yapın
                             TimeSpan difference = DateTime.Now - registerDate;
                             int gunSayisi = (int)difference.TotalDays;
-                            listItem.Puan = gunSayisi.ToString() + " gündür üye";
-                            listItem.InceleClicked += ListItem_InceleClicked;
-                            flowLayoutPanel2.Controls.Add(listItem);
+                            consultantItem.Gun = gunSayisi.ToString() + " gündür üye";
+
+                            // Diğer özelliklere de değer atandığından emin olun
+                            consultantItem.ConsultantId = consultantId;
+
+                            consultantItem.InceleClicked += ListItem_InceleClicked2;
+                            flowLayoutPanel2.Controls.Add(consultantItem);
                         }
-
-
                     }
                 }
             }
+        }
+
+        private void ListItem_InceleClicked2(object? sender, int Id)
+        {
+            ConsultantInfoFromAdmin form = new ConsultantInfoFromAdmin(Id);
+            form.Show();
         }
 
         private void ListItem_InceleClicked(object sender, int Id)
