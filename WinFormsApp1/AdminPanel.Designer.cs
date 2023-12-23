@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btnSayfaYenile = new Button();
+            btnParola = new Button();
+            label6 = new Label();
+            lblAdmin = new Label();
             lblConMonth = new Label();
             lblDietMonth = new Label();
             lblConWeek = new Label();
@@ -60,11 +64,11 @@
             lblKName = new Label();
             panel2 = new Panel();
             panel5 = new Panel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             label28 = new Label();
             label27 = new Label();
             panel6 = new Panel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            flowLayoutPanel2 = new FlowLayoutPanel();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
             SuspendLayout();
@@ -72,6 +76,10 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(216, 232, 227);
+            panel1.Controls.Add(btnSayfaYenile);
+            panel1.Controls.Add(btnParola);
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(lblAdmin);
             panel1.Controls.Add(lblConMonth);
             panel1.Controls.Add(lblDietMonth);
             panel1.Controls.Add(lblConWeek);
@@ -105,14 +113,64 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(342, 643);
+            panel1.Size = new Size(342, 722);
             panel1.TabIndex = 0;
+            // 
+            // btnSayfaYenile
+            // 
+            btnSayfaYenile.BackColor = Color.Silver;
+            btnSayfaYenile.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSayfaYenile.ForeColor = SystemColors.ButtonHighlight;
+            btnSayfaYenile.Location = new Point(55, 659);
+            btnSayfaYenile.Name = "btnSayfaYenile";
+            btnSayfaYenile.Size = new Size(206, 48);
+            btnSayfaYenile.TabIndex = 38;
+            btnSayfaYenile.Text = "Sayfa Yenile";
+            btnSayfaYenile.UseVisualStyleBackColor = false;
+            btnSayfaYenile.Click += btnSayfaYenile_Click;
+            // 
+            // btnParola
+            // 
+            btnParola.BackColor = Color.Silver;
+            btnParola.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btnParola.ForeColor = SystemColors.ButtonHighlight;
+            btnParola.Location = new Point(55, 603);
+            btnParola.Name = "btnParola";
+            btnParola.Size = new Size(206, 48);
+            btnParola.TabIndex = 37;
+            btnParola.Text = "Parola Değiştir";
+            btnParola.UseVisualStyleBackColor = false;
+            btnParola.Click += btnParola_Click;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.ForeColor = SystemColors.ControlDarkDark;
+            label6.Location = new Point(123, 27);
+            label6.Margin = new Padding(2, 0, 2, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(70, 19);
+            label6.TabIndex = 20;
+            label6.Text = "Hoşgeldin";
+            // 
+            // lblAdmin
+            // 
+            lblAdmin.AutoSize = true;
+            lblAdmin.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            lblAdmin.ForeColor = SystemColors.ControlDarkDark;
+            lblAdmin.Location = new Point(55, 27);
+            lblAdmin.Margin = new Padding(2, 0, 2, 0);
+            lblAdmin.Name = "lblAdmin";
+            lblAdmin.Size = new Size(18, 19);
+            lblAdmin.TabIndex = 19;
+            lblAdmin.Text = "A";
             // 
             // lblConMonth
             // 
             lblConMonth.AutoSize = true;
             lblConMonth.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblConMonth.Location = new Point(262, 551);
+            lblConMonth.Location = new Point(248, 564);
             lblConMonth.Margin = new Padding(2, 0, 2, 0);
             lblConMonth.Name = "lblConMonth";
             lblConMonth.Size = new Size(18, 20);
@@ -123,7 +181,7 @@
             // 
             lblDietMonth.AutoSize = true;
             lblDietMonth.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblDietMonth.Location = new Point(262, 364);
+            lblDietMonth.Location = new Point(248, 377);
             lblDietMonth.Margin = new Padding(2, 0, 2, 0);
             lblDietMonth.Name = "lblDietMonth";
             lblDietMonth.Size = new Size(18, 20);
@@ -134,7 +192,7 @@
             // 
             lblConWeek.AutoSize = true;
             lblConWeek.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblConWeek.Location = new Point(262, 521);
+            lblConWeek.Location = new Point(248, 534);
             lblConWeek.Margin = new Padding(2, 0, 2, 0);
             lblConWeek.Name = "lblConWeek";
             lblConWeek.Size = new Size(18, 20);
@@ -145,7 +203,7 @@
             // 
             lblDietWeek.AutoSize = true;
             lblDietWeek.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblDietWeek.Location = new Point(262, 334);
+            lblDietWeek.Location = new Point(248, 347);
             lblDietWeek.Margin = new Padding(2, 0, 2, 0);
             lblDietWeek.Name = "lblDietWeek";
             lblDietWeek.Size = new Size(18, 20);
@@ -156,7 +214,7 @@
             // 
             lblConDay.AutoSize = true;
             lblConDay.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblConDay.Location = new Point(262, 489);
+            lblConDay.Location = new Point(248, 502);
             lblConDay.Margin = new Padding(2, 0, 2, 0);
             lblConDay.Name = "lblConDay";
             lblConDay.Size = new Size(18, 20);
@@ -167,7 +225,7 @@
             // 
             lblDietDay.AutoSize = true;
             lblDietDay.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblDietDay.Location = new Point(262, 302);
+            lblDietDay.Location = new Point(248, 315);
             lblDietDay.Margin = new Padding(2, 0, 2, 0);
             lblDietDay.Name = "lblDietDay";
             lblDietDay.Size = new Size(18, 20);
@@ -178,7 +236,7 @@
             // 
             lblConTotal.AutoSize = true;
             lblConTotal.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblConTotal.Location = new Point(262, 456);
+            lblConTotal.Location = new Point(248, 469);
             lblConTotal.Margin = new Padding(2, 0, 2, 0);
             lblConTotal.Name = "lblConTotal";
             lblConTotal.Size = new Size(18, 20);
@@ -189,7 +247,7 @@
             // 
             lblDietTotal.AutoSize = true;
             lblDietTotal.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblDietTotal.Location = new Point(262, 269);
+            lblDietTotal.Location = new Point(248, 282);
             lblDietTotal.Margin = new Padding(2, 0, 2, 0);
             lblDietTotal.Name = "lblDietTotal";
             lblDietTotal.Size = new Size(18, 20);
@@ -201,7 +259,7 @@
             label22.AutoSize = true;
             label22.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label22.ForeColor = SystemColors.ControlDarkDark;
-            label22.Location = new Point(35, 552);
+            label22.Location = new Point(21, 565);
             label22.Margin = new Padding(2, 0, 2, 0);
             label22.Name = "label22";
             label22.Size = new Size(195, 19);
@@ -213,7 +271,7 @@
             label13.AutoSize = true;
             label13.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label13.ForeColor = SystemColors.ControlDarkDark;
-            label13.Location = new Point(35, 365);
+            label13.Location = new Point(21, 378);
             label13.Margin = new Padding(2, 0, 2, 0);
             label13.Name = "label13";
             label13.Size = new Size(209, 19);
@@ -225,7 +283,7 @@
             label23.AutoSize = true;
             label23.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label23.ForeColor = SystemColors.ControlDarkDark;
-            label23.Location = new Point(35, 522);
+            label23.Location = new Point(21, 535);
             label23.Margin = new Padding(2, 0, 2, 0);
             label23.Name = "label23";
             label23.Size = new Size(212, 19);
@@ -237,7 +295,7 @@
             label14.AutoSize = true;
             label14.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label14.ForeColor = SystemColors.ControlDarkDark;
-            label14.Location = new Point(35, 335);
+            label14.Location = new Point(21, 348);
             label14.Margin = new Padding(2, 0, 2, 0);
             label14.Name = "label14";
             label14.Size = new Size(226, 19);
@@ -249,7 +307,7 @@
             label24.AutoSize = true;
             label24.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label24.ForeColor = SystemColors.ControlDarkDark;
-            label24.Location = new Point(35, 491);
+            label24.Location = new Point(21, 504);
             label24.Margin = new Padding(2, 0, 2, 0);
             label24.Name = "label24";
             label24.Size = new Size(205, 19);
@@ -261,7 +319,7 @@
             label15.AutoSize = true;
             label15.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label15.ForeColor = SystemColors.ControlDarkDark;
-            label15.Location = new Point(35, 304);
+            label15.Location = new Point(21, 317);
             label15.Margin = new Padding(2, 0, 2, 0);
             label15.Name = "label15";
             label15.Size = new Size(219, 19);
@@ -273,7 +331,7 @@
             label25.AutoSize = true;
             label25.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label25.ForeColor = SystemColors.ControlDarkDark;
-            label25.Location = new Point(35, 458);
+            label25.Location = new Point(21, 471);
             label25.Margin = new Padding(2, 0, 2, 0);
             label25.Name = "label25";
             label25.Size = new Size(143, 19);
@@ -285,7 +343,7 @@
             label16.AutoSize = true;
             label16.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label16.ForeColor = SystemColors.ControlDarkDark;
-            label16.Location = new Point(35, 271);
+            label16.Location = new Point(21, 284);
             label16.Margin = new Padding(2, 0, 2, 0);
             label16.Name = "label16";
             label16.Size = new Size(157, 19);
@@ -296,7 +354,7 @@
             // 
             label26.AutoSize = true;
             label26.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label26.Location = new Point(31, 421);
+            label26.Location = new Point(17, 434);
             label26.Margin = new Padding(2, 0, 2, 0);
             label26.Name = "label26";
             label26.Size = new Size(94, 23);
@@ -307,7 +365,7 @@
             // 
             label17.AutoSize = true;
             label17.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label17.Location = new Point(31, 234);
+            label17.Location = new Point(17, 247);
             label17.Margin = new Padding(2, 0, 2, 0);
             label17.Name = "label17";
             label17.Size = new Size(114, 23);
@@ -317,7 +375,7 @@
             // panel4
             // 
             panel4.BackColor = Color.Black;
-            panel4.Location = new Point(31, 407);
+            panel4.Location = new Point(17, 420);
             panel4.Margin = new Padding(2);
             panel4.Name = "panel4";
             panel4.Size = new Size(286, 1);
@@ -326,7 +384,7 @@
             // panel3
             // 
             panel3.BackColor = Color.Black;
-            panel3.Location = new Point(31, 220);
+            panel3.Location = new Point(17, 233);
             panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
             panel3.Size = new Size(286, 1);
@@ -336,7 +394,7 @@
             // 
             lblUserMonth.AutoSize = true;
             lblUserMonth.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblUserMonth.Location = new Point(262, 183);
+            lblUserMonth.Location = new Point(248, 196);
             lblUserMonth.Margin = new Padding(2, 0, 2, 0);
             lblUserMonth.Name = "lblUserMonth";
             lblUserMonth.Size = new Size(18, 20);
@@ -347,7 +405,7 @@
             // 
             lblUserWeek.AutoSize = true;
             lblUserWeek.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblUserWeek.Location = new Point(262, 153);
+            lblUserWeek.Location = new Point(248, 166);
             lblUserWeek.Margin = new Padding(2, 0, 2, 0);
             lblUserWeek.Name = "lblUserWeek";
             lblUserWeek.Size = new Size(18, 20);
@@ -358,7 +416,7 @@
             // 
             lblUserToday.AutoSize = true;
             lblUserToday.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblUserToday.Location = new Point(262, 122);
+            lblUserToday.Location = new Point(248, 135);
             lblUserToday.Margin = new Padding(2, 0, 2, 0);
             lblUserToday.Name = "lblUserToday";
             lblUserToday.Size = new Size(18, 20);
@@ -369,7 +427,7 @@
             // 
             lblTotalUser.AutoSize = true;
             lblTotalUser.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTotalUser.Location = new Point(262, 89);
+            lblTotalUser.Location = new Point(248, 102);
             lblTotalUser.Margin = new Padding(2, 0, 2, 0);
             lblTotalUser.Name = "lblTotalUser";
             lblTotalUser.Size = new Size(18, 20);
@@ -381,7 +439,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label4.ForeColor = SystemColors.ControlDarkDark;
-            label4.Location = new Point(31, 184);
+            label4.Location = new Point(17, 197);
             label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
             label4.Size = new Size(195, 19);
@@ -393,7 +451,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label3.ForeColor = SystemColors.ControlDarkDark;
-            label3.Location = new Point(31, 154);
+            label3.Location = new Point(17, 167);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new Size(212, 19);
@@ -405,7 +463,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label2.ForeColor = SystemColors.ControlDarkDark;
-            label2.Location = new Point(31, 123);
+            label2.Location = new Point(17, 136);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new Size(205, 19);
@@ -417,7 +475,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ControlDarkDark;
-            label1.Location = new Point(31, 90);
+            label1.Location = new Point(17, 103);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(143, 19);
@@ -428,7 +486,7 @@
             // 
             lblKName.AutoSize = true;
             lblKName.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            lblKName.Location = new Point(28, 54);
+            lblKName.Location = new Point(14, 67);
             lblKName.Margin = new Padding(2, 0, 2, 0);
             lblKName.Name = "lblKName";
             lblKName.Size = new Size(99, 23);
@@ -438,7 +496,7 @@
             // panel2
             // 
             panel2.BackColor = Color.Black;
-            panel2.Location = new Point(28, 39);
+            panel2.Location = new Point(14, 52);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(286, 1);
@@ -455,8 +513,22 @@
             panel5.Location = new Point(388, 27);
             panel5.Margin = new Padding(2);
             panel5.Name = "panel5";
-            panel5.Size = new Size(621, 584);
+            panel5.Size = new Size(621, 685);
             panel5.TabIndex = 1;
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.Location = new Point(332, 64);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(250, 600);
+            flowLayoutPanel2.TabIndex = 4;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Location = new Point(37, 64);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(250, 600);
+            flowLayoutPanel1.TabIndex = 3;
             // 
             // label28
             // 
@@ -486,33 +558,20 @@
             panel6.Location = new Point(310, 27);
             panel6.Margin = new Padding(2);
             panel6.Name = "panel6";
-            panel6.Size = new Size(1, 529);
+            panel6.Size = new Size(1, 650);
             panel6.TabIndex = 0;
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Location = new Point(37, 64);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(250, 492);
-            flowLayoutPanel1.TabIndex = 3;
-            // 
-            // flowLayoutPanel2
-            // 
-            flowLayoutPanel2.Location = new Point(332, 64);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(250, 492);
-            flowLayoutPanel2.TabIndex = 4;
             // 
             // AdminPanel
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(165, 215, 198);
-            ClientSize = new Size(1064, 636);
+            ClientSize = new Size(1064, 723);
             Controls.Add(panel5);
             Controls.Add(panel1);
             Margin = new Padding(2);
             Name = "AdminPanel";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormAdmin";
             Load += AdminPanel_Load;
             panel1.ResumeLayout(false);
@@ -561,5 +620,9 @@
         private Label label27;
         private FlowLayoutPanel flowLayoutPanel2;
         private FlowLayoutPanel flowLayoutPanel1;
+        private Label label6;
+        private Label lblAdmin;
+        private Button btnSayfaYenile;
+        private Button btnParola;
     }
 }

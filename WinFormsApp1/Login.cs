@@ -56,7 +56,7 @@ namespace WinFormsApp1
                     {
                         case 1:
                             
-                            AdminPanel formAdmin = new AdminPanel(); //new AdminPanel(id)
+                            AdminPanel formAdmin = new AdminPanel(id); //new AdminPanel(id)
                             formAdmin.Show();
                             break;
                         case 2:

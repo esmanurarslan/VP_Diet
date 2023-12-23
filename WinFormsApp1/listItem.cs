@@ -34,7 +34,7 @@ namespace WinFormsApp1
         private string name;
         private string puan;
         public event EventHandler<int> btnInceleClicked;
-       
+
 
         [Category("Custom Props")]
         public string Name

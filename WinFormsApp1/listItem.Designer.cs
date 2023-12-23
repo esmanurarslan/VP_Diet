@@ -73,10 +73,10 @@ namespace WinFormsApp1
             // 
             lblPuan.AutoSize = true;
             lblPuan.BackColor = SystemColors.ControlLightLight;
-            lblPuan.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPuan.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
             lblPuan.Location = new Point(99, 36);
             lblPuan.Name = "lblPuan";
-            lblPuan.Size = new Size(41, 20);
+            lblPuan.Size = new Size(36, 17);
             lblPuan.TabIndex = 3;
             lblPuan.Text = "Puan";
             // 
