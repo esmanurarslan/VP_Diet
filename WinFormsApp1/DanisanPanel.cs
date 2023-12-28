@@ -15,6 +15,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormsApp1.Properties;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Security.Cryptography;
+using MindFusion.Charting;
+
+
 
 
 // Şevval's database
@@ -34,6 +39,7 @@ namespace WinFormsApp1
         {
             InitializeComponent();
             //this.Id = id;
+            DrawLineChart(this.Id = id);
             LoadConsultantData(this.Id = id);
             // UpdateCompleted olayına abone ol
             UpdateKg updateKgForm = new UpdateKg(Id);
@@ -46,35 +52,12 @@ namespace WinFormsApp1
                     listItem.btnInceleClicked += ListItem_InceleClicked;
                 }
             }
+
+
+
         }
-
-        /*private void DanisanPanel_Load(object sender, EventArgs e)
-        {
-            DrawLines();
-        }
-
-        private void DrawLines()
-        {
-            using (Graphics g = this.CreateGraphics())
-            {
-                 using (Pen p = new Pen(Color.Black, 1))
-                 {
-                     // Burada label'ın üstündeki ve altındaki çizgileri çizebilirsiniz.
-                     // Örneğin, eğer label adı "label9" ise:
-                     int label9Top = label9.Top;
-                     int label9Bottom = label9.Bottom;
-
-                    g.DrawLine(p, new Point(0, label9Top), new Point(this.Width, label9Top));
-                     g.DrawLine(p, new Point(0, label9Bottom), new Point(this.Width, label9Bottom)); 
-
-                 }
-                
-            }
-        }
-        */
-
-        //SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
-        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+        SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
+        // SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
 
         private void UpdateKgForm_UpdateCompleted(object sender, EventArgs e)
         {
@@ -199,9 +182,6 @@ namespace WinFormsApp1
                         }
 
                     }
-
-
-
 
                 }
 
@@ -397,6 +377,67 @@ namespace WinFormsApp1
 
             }
         }
+
+        private void DrawLineChart(int id)
+        {
+            // Chart kontrolü oluşturun
+            Chart chart1 = new Chart();
+            chart1.Size = new System.Drawing.Size(400, 300);
+
+            // ChartArea oluşturun
+            ChartArea chartArea = new ChartArea("ChartArea");
+
+            // X ekseni etiket fontunu ayarlayın
+            chartArea.AxisX.LabelStyle.Font = new Font("Arial", 8); // Burada yazı tipi ve boyutunu isteğiniz gibi ayarlayabilirsiniz
+            chartArea.AxisX.MajorGrid.Enabled = false;
+            chartArea.AxisY.MajorGrid.Enabled = false;
+            chart1.ChartAreas.Add(chartArea);
+
+            // Veri serisi oluşturun
+            System.Windows.Forms.DataVisualization.Charting.Series series = new System.Windows.Forms.DataVisualization.Charting.Series("MySeries");
+            series.ChartType = SeriesChartType.Line;
+
+            // Seriyi grafiğe ekleyin
+            chart1.Series.Add(series);
+
+            SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
+
+            using (baglanti)
+            {
+                baglanti.Open();
+
+                string query = "SELECT * FROM UpdateTbl WHERE userId = @id ORDER BY updateTime ASC";
+
+                using (SqlCommand command = new SqlCommand(query, baglanti))
+                {
+                    // @id parametresini eklemek için Parameters kullanılmalıdır.
+                    command.Parameters.AddWithValue("@id", id);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        // SqlDataReader içinde veri okuma işlemleri
+                        int xValue = 1;
+                        while (reader.Read())
+                        {
+                            double yValue = Convert.ToDouble(reader["newWeight"]);
+                            DataPoint point = new DataPoint(xValue, yValue);
+                            series.Points.Add(point);
+                            point.Label = yValue.ToString(); // Y değeri etiket olarak ayarlanır
+                            xValue++; 
+                        }
+                    }
+                }
+            }
+            grafikPanel1.Controls.Add(chart1);
+
+            // Chart kontrolünün boyutunu panelin boyutuna ayarlayın
+            chart1.Dock = DockStyle.Fill;
+            // Formunuza chart kontrolünü ekleyin
+           // Controls.Add(chart1);
+        }
+
+
+
 
 
     }

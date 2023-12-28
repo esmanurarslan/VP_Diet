@@ -31,6 +31,7 @@ namespace WinFormsApp1
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanisanPanel));
             leftPanel = new Panel();
+            btnSil = new Button();
             lblBmi = new Label();
             label14 = new Label();
             label15 = new Label();
@@ -71,7 +72,6 @@ namespace WinFormsApp1
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            btnSil = new Button();
             leftPanel.SuspendLayout();
             middlePanel1.SuspendLayout();
             humanBodyPanel.SuspendLayout();
@@ -105,6 +105,19 @@ namespace WinFormsApp1
             leftPanel.Size = new Size(260, 640);
             leftPanel.TabIndex = 0;
             leftPanel.Paint += leftPanel_Paint;
+            // 
+            // btnSil
+            // 
+            btnSil.BackColor = Color.Silver;
+            btnSil.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point);
+            btnSil.ForeColor = SystemColors.ButtonHighlight;
+            btnSil.Location = new Point(133, 390);
+            btnSil.Name = "btnSil";
+            btnSil.Size = new Size(97, 26);
+            btnSil.TabIndex = 48;
+            btnSil.Text = "Sil";
+            btnSil.UseVisualStyleBackColor = false;
+            btnSil.Click += btnSil_Click;
             // 
             // lblBmi
             // 
@@ -480,19 +493,6 @@ namespace WinFormsApp1
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(260, 641);
             flowLayoutPanel1.TabIndex = 6;
-            // 
-            // btnSil
-            // 
-            btnSil.BackColor = Color.Silver;
-            btnSil.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSil.ForeColor = SystemColors.ButtonHighlight;
-            btnSil.Location = new Point(133, 390);
-            btnSil.Name = "btnSil";
-            btnSil.Size = new Size(97, 26);
-            btnSil.TabIndex = 48;
-            btnSil.Text = "Sil";
-            btnSil.UseVisualStyleBackColor = false;
-            btnSil.Click += btnSil_Click;
             // 
             // DanisanPanel
             // 
