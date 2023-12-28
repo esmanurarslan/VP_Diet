@@ -39,7 +39,10 @@ namespace WinFormsApp1
         {
             InitializeComponent();
             //this.Id = id;
-            DrawLineChart(this.Id = id);
+            DrawLineChart(this.Id = id ,"newWeight", grafikPanel1);
+            DrawLineChart(this.Id = id, "newWaist", grafikPanel2);
+            DrawLineChart(this.Id = id, "newHip", grafikPanel3);
+            DrawLineChart(this.Id = id, "newChest", grafikPanel4);
             LoadConsultantData(this.Id = id);
             // UpdateCompleted olayına abone ol
             UpdateKg updateKgForm = new UpdateKg(Id);
@@ -378,7 +381,7 @@ namespace WinFormsApp1
             }
         }
 
-        private void DrawLineChart(int id)
+        private void DrawLineChart(int id, string columnName, Panel panel)
         {
             // Chart kontrolü oluşturun
             Chart chart1 = new Chart();
@@ -406,7 +409,7 @@ namespace WinFormsApp1
             {
                 baglanti.Open();
 
-                string query = "SELECT * FROM UpdateTbl WHERE userId = @id ORDER BY updateTime ASC";
+                string query = $"SELECT * FROM UpdateTbl WHERE userId = @id ORDER BY updateTime ASC";
 
                 using (SqlCommand command = new SqlCommand(query, baglanti))
                 {
@@ -419,22 +422,21 @@ namespace WinFormsApp1
                         int xValue = 1;
                         while (reader.Read())
                         {
-                            double yValue = Convert.ToDouble(reader["newWeight"]);
+                            double yValue = Convert.ToDouble(reader[columnName]);
                             DataPoint point = new DataPoint(xValue, yValue);
                             series.Points.Add(point);
                             point.Label = yValue.ToString(); // Y değeri etiket olarak ayarlanır
-                            xValue++; 
+                            xValue++;
                         }
                     }
                 }
             }
-            grafikPanel1.Controls.Add(chart1);
+            panel.Controls.Add(chart1);
 
             // Chart kontrolünün boyutunu panelin boyutuna ayarlayın
             chart1.Dock = DockStyle.Fill;
-            // Formunuza chart kontrolünü ekleyin
-           // Controls.Add(chart1);
         }
+
 
 
 
