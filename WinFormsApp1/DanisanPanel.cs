@@ -39,7 +39,7 @@ namespace WinFormsApp1
         {
             InitializeComponent();
             //this.Id = id;
-            DrawLineChart(this.Id = id ,"newWeight", grafikPanel1);
+            DrawLineChart(this.Id = id, "newWeight", grafikPanel1);
             DrawLineChart(this.Id = id, "newWaist", grafikPanel2);
             DrawLineChart(this.Id = id, "newHip", grafikPanel3);
             DrawLineChart(this.Id = id, "newChest", grafikPanel4);
@@ -381,8 +381,43 @@ namespace WinFormsApp1
             }
         }
 
+        private string GetGraphTitle(string columnName)
+        {
+            // Eğer columnName "newWeight" ise "Kilo" olarak döndür
+            if (columnName == "newWeight")
+            {
+                return "Kilo";
+            }
+            // Eğer columnName "newWaist" ise "Bel" olarak döndür
+            else if (columnName == "newWaist")
+            {
+                return "Bel Ölçüsü";
+            }
+            // Eğer columnName "newHip" ise "Kalça" olarak döndür
+            else if (columnName == "newHip")
+            {
+                return "Kalça Ölçüsü";
+            }
+            // Eğer columnName "newChest" ise "Göğüs" olarak döndür
+            else if (columnName == "newChest")
+            {
+                return "Göğüs Ölçüsü";
+            }
+            // Diğer durumlar için columnName'i olduğu gibi kullan
+            else
+            {
+                return columnName;
+            }
+        }
+
         private void DrawLineChart(int id, string columnName, Panel panel)
         {
+            // Rastgele renkler oluşturmak için kullanılacak rastgele nesnesi
+            Random random = new Random();
+
+            // Rastgele bir renk oluşturun
+            Color randomColor = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
+
             // Chart kontrolü oluşturun
             Chart chart1 = new Chart();
             chart1.Size = new System.Drawing.Size(400, 300);
@@ -390,8 +425,8 @@ namespace WinFormsApp1
             // ChartArea oluşturun
             ChartArea chartArea = new ChartArea("ChartArea");
 
-            // X ekseni etiket fontunu ayarlayın
-            chartArea.AxisX.LabelStyle.Font = new Font("Arial", 8); // Burada yazı tipi ve boyutunu isteğiniz gibi ayarlayabilirsiniz
+            // X ekseni etiket fontunu ayarlayın (yazı tipi ve boyutunu isteğinize göre değiştirebilirsiniz)
+            chartArea.AxisX.LabelStyle.Font = new Font("Arial", 3); // Yazı boyutunu 6 olarak ayarladım, isteğinize göre değiştirin
             chartArea.AxisX.MajorGrid.Enabled = false;
             chartArea.AxisY.MajorGrid.Enabled = false;
             chart1.ChartAreas.Add(chartArea);
@@ -399,6 +434,9 @@ namespace WinFormsApp1
             // Veri serisi oluşturun
             System.Windows.Forms.DataVisualization.Charting.Series series = new System.Windows.Forms.DataVisualization.Charting.Series("MySeries");
             series.ChartType = SeriesChartType.Line;
+
+            // Rastgele renk atayın
+            series.Color = randomColor;
 
             // Seriyi grafiğe ekleyin
             chart1.Series.Add(series);
@@ -419,24 +457,41 @@ namespace WinFormsApp1
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         // SqlDataReader içinde veri okuma işlemleri
-                        int xValue = 1;
+                        double xValue = 1;
                         while (reader.Read())
                         {
                             double yValue = Convert.ToDouble(reader[columnName]);
+
                             DataPoint point = new DataPoint(xValue, yValue);
-                            series.Points.Add(point);
                             point.Label = yValue.ToString(); // Y değeri etiket olarak ayarlanır
-                            xValue++;
+                            series.Points.Add(point);
+
+                            xValue++; // X değerini artırmak için
                         }
                     }
                 }
             }
+
+            string graphTitle = GetGraphTitle(columnName);
+            chart1.Titles.Add($"{graphTitle} Grafiği");
+
             panel.Controls.Add(chart1);
 
             // Chart kontrolünün boyutunu panelin boyutuna ayarlayın
             chart1.Dock = DockStyle.Fill;
-        }
 
+            // Y eksenindeki etiketleri otomatik olarak belirleyin
+            chartArea.AxisY.LabelStyle.Interval = double.NaN;
+            chartArea.AxisY.LabelStyle.Enabled = true;
+
+            // X ekseni minimumunu 1e ayarlayın
+            chartArea.AxisX.Minimum = 0;
+
+            // Markers ve Lines ekleyin
+            series.MarkerStyle = MarkerStyle.Circle;
+            series.MarkerSize = 8;
+            series.BorderWidth = 2;
+        }
 
 
 
