@@ -30,6 +30,7 @@ namespace WinFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(listItem));
             lblUsername = new Label();
             panel1 = new Panel();
             circularPictureBox1 = new CircularPictureBox();
@@ -62,6 +63,7 @@ namespace WinFormsApp1
             // circularPictureBox1
             // 
             circularPictureBox1.BackColor = Color.White;
+            circularPictureBox1.Image = (Image)resources.GetObject("circularPictureBox1.Image");
             circularPictureBox1.Location = new Point(12, 16);
             circularPictureBox1.Name = "circularPictureBox1";
             circularPictureBox1.Size = new Size(53, 52);

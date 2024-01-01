@@ -72,15 +72,18 @@ namespace WinFormsApp1
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             flowLayoutPanel1 = new FlowLayoutPanel();
+            circularPictureBox1 = new CircularPictureBox();
             leftPanel.SuspendLayout();
             middlePanel1.SuspendLayout();
             humanBodyPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)circularPictureBox1).BeginInit();
             SuspendLayout();
             // 
             // leftPanel
             // 
             leftPanel.BackColor = Color.FromArgb(216, 232, 227);
+            leftPanel.Controls.Add(circularPictureBox1);
             leftPanel.Controls.Add(btnSil);
             leftPanel.Controls.Add(lblBmi);
             leftPanel.Controls.Add(label14);
@@ -122,7 +125,7 @@ namespace WinFormsApp1
             // lblBmi
             // 
             lblBmi.AutoSize = true;
-            lblBmi.Location = new Point(24, 262);
+            lblBmi.Location = new Point(17, 262);
             lblBmi.Name = "lblBmi";
             lblBmi.Size = new Size(22, 20);
             lblBmi.TabIndex = 47;
@@ -158,17 +161,17 @@ namespace WinFormsApp1
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(44, 218);
+            label10.Location = new Point(29, 218);
             label10.Name = "label10";
-            label10.Size = new Size(73, 20);
+            label10.Size = new Size(80, 20);
             label10.TabIndex = 42;
-            label10.Text = "Hedefiniz";
+            label10.Text = "Hedefiniz :";
             // 
             // lblTarget
             // 
             lblTarget.AutoSize = true;
             lblTarget.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTarget.Location = new Point(139, 218);
+            lblTarget.Location = new Point(113, 218);
             lblTarget.Name = "lblTarget";
             lblTarget.Size = new Size(17, 20);
             lblTarget.TabIndex = 41;
@@ -195,9 +198,10 @@ namespace WinFormsApp1
             // lblUser
             // 
             lblUser.AutoSize = true;
+            lblUser.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblUser.Location = new Point(17, 110);
             lblUser.Name = "lblUser";
-            lblUser.Size = new Size(19, 20);
+            lblUser.Size = new Size(20, 20);
             lblUser.TabIndex = 38;
             lblUser.Text = "U";
             // 
@@ -205,7 +209,7 @@ namespace WinFormsApp1
             // 
             lblGun.AutoSize = true;
             lblGun.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblGun.Location = new Point(44, 170);
+            lblGun.Location = new Point(34, 172);
             lblGun.Name = "lblGun";
             lblGun.Size = new Size(17, 20);
             lblGun.TabIndex = 37;
@@ -238,10 +242,10 @@ namespace WinFormsApp1
             // label12
             // 
             label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             label12.Location = new Point(17, 307);
             label12.Name = "label12";
-            label12.Size = new Size(114, 23);
+            label12.Size = new Size(108, 23);
             label12.TabIndex = 22;
             label12.Text = "Diyetisyenim";
             // 
@@ -266,7 +270,7 @@ namespace WinFormsApp1
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(58, 170);
+            label9.Location = new Point(52, 172);
             label9.Name = "label9";
             label9.Size = new Size(172, 20);
             label9.TabIndex = 17;
@@ -442,15 +446,17 @@ namespace WinFormsApp1
             // label7
             // 
             label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label7.Location = new Point(13, 390);
             label7.Name = "label7";
-            label7.Size = new Size(51, 20);
+            label7.Size = new Size(52, 20);
             label7.TabIndex = 7;
             label7.Text = "Göğüs";
             // 
             // label6
             // 
             label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label6.Location = new Point(90, 318);
             label6.Name = "label6";
             label6.Size = new Size(45, 20);
@@ -460,6 +466,7 @@ namespace WinFormsApp1
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label5.Location = new Point(13, 318);
             label5.Name = "label5";
             label5.Size = new Size(30, 20);
@@ -469,15 +476,17 @@ namespace WinFormsApp1
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(90, 249);
             label4.Name = "label4";
-            label4.Size = new Size(34, 20);
+            label4.Size = new Size(35, 20);
             label4.TabIndex = 4;
             label4.Text = "Boy";
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label3.Location = new Point(13, 249);
             label3.Name = "label3";
             label3.Size = new Size(35, 20);
@@ -493,6 +502,16 @@ namespace WinFormsApp1
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(260, 641);
             flowLayoutPanel1.TabIndex = 6;
+            // 
+            // circularPictureBox1
+            // 
+            circularPictureBox1.Image = (Image)resources.GetObject("circularPictureBox1.Image");
+            circularPictureBox1.Location = new Point(12, 25);
+            circularPictureBox1.Name = "circularPictureBox1";
+            circularPictureBox1.Size = new Size(63, 62);
+            circularPictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            circularPictureBox1.TabIndex = 49;
+            circularPictureBox1.TabStop = false;
             // 
             // DanisanPanel
             // 
@@ -514,6 +533,7 @@ namespace WinFormsApp1
             humanBodyPanel.ResumeLayout(false);
             humanBodyPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)circularPictureBox1).EndInit();
             ResumeLayout(false);
         }
 
