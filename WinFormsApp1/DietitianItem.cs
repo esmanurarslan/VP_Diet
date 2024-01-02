@@ -45,7 +45,7 @@ namespace WinFormsApp1
         public string Gender
         {
             get { return gender; }
-            set { gender = value; lblGender.Text = value;}
+            set { gender = value; lblGender.Text = value; }
         }
 
 
@@ -70,4 +70,5 @@ namespace WinFormsApp1
 
 
     }
+
 }

@@ -187,7 +187,6 @@ namespace WinFormsApp1
                             dietitianItem.InspectClicked += DietitanItemBtn_Clicked;
                             flowLPnlCon.Controls.Add(dietitianItem);
                             
-
                         }
                 }
             }
