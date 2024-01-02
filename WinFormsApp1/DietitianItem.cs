@@ -37,7 +37,7 @@ namespace WinFormsApp1
         public string Username
         {
             get { return userName; }
-            set { userName = value; }
+            set { userName = value; lblNameSurname.Text = value; }
         }
 
 
@@ -45,7 +45,7 @@ namespace WinFormsApp1
         public string Gender
         {
             get { return gender; }
-            set { gender = value; }
+            set { gender = value; lblGender.Text = value;}
         }
 
 
@@ -53,7 +53,7 @@ namespace WinFormsApp1
         public string City
         {
             get { return city; }
-            set { city = value; }
+            set { city = value; lblCity.Text = value; }
         }
 
         public Image Photo

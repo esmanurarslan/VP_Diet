@@ -182,11 +182,11 @@ namespace WinFormsApp1
                             DietitianItem dietitianItem = new DietitianItem(Convert.ToInt32(dataReader["consultantId"]));
                             dietitianItem.ConsultantId = Convert.ToInt32(dataReader["consultantId"]);
                             dietitianItem.Username = dataReader["userName"].ToString();
-                            lbl
                             dietitianItem.Gender = dataReader["gender"].ToString();
                             dietitianItem.City = dataReader["city"].ToString();
                             dietitianItem.InspectClicked += DietitanItemBtn_Clicked;
                             flowLPnlCon.Controls.Add(dietitianItem);
+                            
 
                         }
                 }
