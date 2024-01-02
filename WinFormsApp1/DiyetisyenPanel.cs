@@ -24,9 +24,9 @@ namespace WinFormsApp1
             InitializeComponent();
             LoadDietitianData(this.Id = id);
 
-            foreach(var DietatianItemControl in flowLPnlCon.Controls)
+            foreach (var DietatianItemControl in flowLPnlCon.Controls)
             {
-                if(DietatianItemControl is DietitianItem dietitianItem) 
+                if (DietatianItemControl is DietitianItem dietitianItem)
                 {
                     dietitianItem.InspectClicked += DietitanItemBtn_Clicked;
                 }
@@ -169,10 +169,10 @@ namespace WinFormsApp1
             using (baglanti)
             {
                 SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
-         
+
                 baglanti.Open();
                 string query = "SELECT * FROM Users INNER JOIN Consultant ON Users.Id = Consultant.consultantId INNER JOIN Partner ON Consultant.consultantId = Partner.consultant WHERE Partner.dietitian = @id";
-                
+
                 using (SqlCommand command = new SqlCommand(query, baglanti))
                 {
                     command.Parameters.AddWithValue("@id", Id);
@@ -186,7 +186,7 @@ namespace WinFormsApp1
                             dietitianItem.City = dataReader["city"].ToString();
                             dietitianItem.InspectClicked += DietitanItemBtn_Clicked;
                             flowLPnlCon.Controls.Add(dietitianItem);
-                            
+
                         }
                 }
             }
@@ -274,6 +274,10 @@ namespace WinFormsApp1
 
         private void DietitanItemBtn_Clicked(object sender, int consultantId)
         {
+            Load_Graphics(this.Id = consultantId, "newWeight", pnlKilo);
+            Load_Graphics(this.Id = consultantId, "newWaist", pnlBel);
+            Load_Graphics(this.Id = consultantId, "newHip", pnlKalca);
+            Load_Graphics(this.Id = consultantId, "newChest", pnlChest);
 
         }
     }
