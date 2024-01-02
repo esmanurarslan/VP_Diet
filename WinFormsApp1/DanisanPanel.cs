@@ -354,7 +354,7 @@ namespace WinFormsApp1
             {
                 try
                 {
-                    using (SqlConnection connection = new SqlConnection("Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True"))
+                    using (SqlConnection connection = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True")) 
                     {
                         connection.Open();
 

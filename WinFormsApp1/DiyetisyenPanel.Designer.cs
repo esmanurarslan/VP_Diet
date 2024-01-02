@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DiyetisyenPanel));
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             pnlDietInfo = new Panel();
             btnResetPassword = new CustomButton();
@@ -65,9 +66,9 @@
             pnlDietInfo.Controls.Add(circularPictureBox1);
             pnlDietInfo.Dock = DockStyle.Left;
             pnlDietInfo.Location = new Point(0, 0);
-            pnlDietInfo.Margin = new Padding(5, 6, 5, 6);
+            pnlDietInfo.Margin = new Padding(3, 4, 3, 4);
             pnlDietInfo.Name = "pnlDietInfo";
-            pnlDietInfo.Size = new Size(460, 1026);
+            pnlDietInfo.Size = new Size(260, 641);
             pnlDietInfo.TabIndex = 0;
             // 
             // btnResetPassword
@@ -76,10 +77,10 @@
             btnResetPassword.FlatAppearance.BorderSize = 0;
             btnResetPassword.FlatStyle = FlatStyle.Flat;
             btnResetPassword.ForeColor = Color.White;
-            btnResetPassword.Location = new Point(23, 872);
-            btnResetPassword.Margin = new Padding(5, 6, 5, 6);
+            btnResetPassword.Location = new Point(17, 560);
+            btnResetPassword.Margin = new Padding(3, 4, 3, 4);
             btnResetPassword.Name = "btnResetPassword";
-            btnResetPassword.Size = new Size(395, 85);
+            btnResetPassword.Size = new Size(223, 51);
             btnResetPassword.TabIndex = 12;
             btnResetPassword.Text = "Parola Değiştir";
             btnResetPassword.UseVisualStyleBackColor = false;
@@ -89,10 +90,9 @@
             // 
             label5.AutoSize = true;
             label5.ForeColor = SystemColors.ControlDark;
-            label5.Location = new Point(131, 580);
-            label5.Margin = new Padding(5, 0, 5, 0);
+            label5.Location = new Point(55, 220);
             label5.Name = "label5";
-            label5.Size = new Size(159, 32);
+            label5.Size = new Size(99, 20);
             label5.TabIndex = 11;
             label5.Text = "danışan sayısı";
             // 
@@ -100,10 +100,9 @@
             // 
             lblTotalCon.AutoSize = true;
             lblTotalCon.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTotalCon.Location = new Point(93, 580);
-            lblTotalCon.Margin = new Padding(5, 0, 5, 0);
+            lblTotalCon.Location = new Point(31, 220);
             lblTotalCon.Name = "lblTotalCon";
-            lblTotalCon.Size = new Size(28, 32);
+            lblTotalCon.Size = new Size(18, 20);
             lblTotalCon.TabIndex = 10;
             lblTotalCon.Text = "0";
             lblTotalCon.TextAlign = ContentAlignment.TopRight;
@@ -111,29 +110,28 @@
             // panel2
             // 
             panel2.BackColor = Color.Black;
-            panel2.Location = new Point(23, 709);
-            panel2.Margin = new Padding(5, 6, 5, 6);
+            panel2.Location = new Point(12, 256);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(395, 5);
+            panel2.Size = new Size(243, 3);
             panel2.TabIndex = 6;
             // 
             // panel1
             // 
             panel1.BackColor = Color.Black;
-            panel1.Location = new Point(23, 482);
-            panel1.Margin = new Padding(5, 6, 5, 6);
+            panel1.Location = new Point(12, 203);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(395, 5);
+            panel1.Size = new Size(243, 3);
             panel1.TabIndex = 5;
             // 
             // lblDietSchool
             // 
             lblDietSchool.AutoSize = true;
             lblDietSchool.ForeColor = SystemColors.ControlDark;
-            lblDietSchool.Location = new Point(23, 421);
-            lblDietSchool.Margin = new Padding(5, 0, 5, 0);
+            lblDietSchool.Location = new Point(17, 169);
             lblDietSchool.Name = "lblDietSchool";
-            lblDietSchool.Size = new Size(241, 32);
+            lblDietSchool.Size = new Size(148, 20);
             lblDietSchool.TabIndex = 4;
             lblDietSchool.Text = "Example Mezun Okul";
             // 
@@ -141,10 +139,9 @@
             // 
             lblDietMail.AutoSize = true;
             lblDietMail.ForeColor = SystemColors.ControlDark;
-            lblDietMail.Location = new Point(23, 370);
-            lblDietMail.Margin = new Padding(5, 0, 5, 0);
+            lblDietMail.Location = new Point(17, 140);
             lblDietMail.Name = "lblDietMail";
-            lblDietMail.Size = new Size(259, 32);
+            lblDietMail.Size = new Size(163, 20);
             lblDietMail.TabIndex = 3;
             lblDietMail.Text = "example@hotmail.com";
             // 
@@ -152,20 +149,21 @@
             // 
             lblDietUserName.AutoSize = true;
             lblDietUserName.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            lblDietUserName.Location = new Point(23, 306);
-            lblDietUserName.Margin = new Padding(5, 0, 5, 0);
+            lblDietUserName.Location = new Point(17, 110);
             lblDietUserName.Name = "lblDietUserName";
-            lblDietUserName.Size = new Size(196, 41);
+            lblDietUserName.Size = new Size(122, 25);
             lblDietUserName.TabIndex = 1;
             lblDietUserName.Text = "Kullanıcı Adı";
             // 
             // circularPictureBox1
             // 
             circularPictureBox1.BackColor = Color.White;
-            circularPictureBox1.Location = new Point(23, 62);
-            circularPictureBox1.Margin = new Padding(5, 6, 5, 6);
+            circularPictureBox1.Image = (Image)resources.GetObject("circularPictureBox1.Image");
+            circularPictureBox1.Location = new Point(12, 25);
+            circularPictureBox1.Margin = new Padding(3, 4, 3, 4);
             circularPictureBox1.Name = "circularPictureBox1";
-            circularPictureBox1.Size = new Size(187, 210);
+            circularPictureBox1.Size = new Size(63, 62);
+            circularPictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             circularPictureBox1.TabIndex = 0;
             circularPictureBox1.TabStop = false;
             // 
@@ -178,72 +176,75 @@
             panel3.Controls.Add(pnlKilo);
             panel3.Controls.Add(flowLPnlCon);
             panel3.Controls.Add(label1);
-            panel3.Location = new Point(580, 62);
-            panel3.Margin = new Padding(5, 6, 5, 6);
+            panel3.Location = new Point(357, 39);
+            panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1118, 939);
+            panel3.Size = new Size(678, 589);
             panel3.TabIndex = 13;
             // 
             // pnlChest
             // 
             pnlChest.BackColor = Color.White;
-            pnlChest.Location = new Point(601, 695);
+            pnlChest.Location = new Point(303, 429);
+            pnlChest.Margin = new Padding(2);
             pnlChest.Name = "pnlChest";
-            pnlChest.Size = new Size(469, 200);
+            pnlChest.Size = new Size(342, 120);
             pnlChest.TabIndex = 16;
             // 
             // pnlKalca
             // 
             pnlKalca.BackColor = Color.White;
-            pnlKalca.Location = new Point(601, 495);
+            pnlKalca.Location = new Point(303, 305);
+            pnlKalca.Margin = new Padding(2);
             pnlKalca.Name = "pnlKalca";
-            pnlKalca.Size = new Size(469, 194);
+            pnlKalca.Size = new Size(342, 120);
             pnlKalca.TabIndex = 16;
             // 
             // pnlBel
             // 
             pnlBel.BackColor = Color.White;
-            pnlBel.Location = new Point(601, 289);
+            pnlBel.Location = new Point(303, 181);
+            pnlBel.Margin = new Padding(2);
             pnlBel.Name = "pnlBel";
-            pnlBel.Size = new Size(469, 200);
+            pnlBel.Size = new Size(342, 120);
             pnlBel.TabIndex = 16;
             // 
             // pnlKilo
             // 
             pnlKilo.BackColor = Color.White;
-            pnlKilo.Location = new Point(601, 97);
+            pnlKilo.Location = new Point(303, 57);
+            pnlKilo.Margin = new Padding(2);
             pnlKilo.Name = "pnlKilo";
-            pnlKilo.Size = new Size(469, 186);
+            pnlKilo.Size = new Size(342, 120);
             pnlKilo.TabIndex = 15;
             // 
             // flowLPnlCon
             // 
-            flowLPnlCon.Location = new Point(52, 97);
-            flowLPnlCon.Margin = new Padding(5, 6, 5, 6);
+            flowLPnlCon.BackColor = Color.White;
+            flowLPnlCon.Location = new Point(32, 57);
+            flowLPnlCon.Margin = new Padding(3, 4, 3, 4);
             flowLPnlCon.Name = "flowLPnlCon";
-            flowLPnlCon.Size = new Size(495, 798);
+            flowLPnlCon.Size = new Size(255, 509);
             flowLPnlCon.TabIndex = 14;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(52, 34);
-            label1.Margin = new Padding(5, 0, 5, 0);
+            label1.Location = new Point(32, 21);
             label1.Name = "label1";
-            label1.Size = new Size(216, 45);
+            label1.Size = new Size(137, 28);
             label1.TabIndex = 13;
             label1.Text = "Danışanlarım";
             // 
             // DiyetisyenPanel
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(165, 215, 198);
-            ClientSize = new Size(1804, 1026);
+            ClientSize = new Size(1139, 641);
             Controls.Add(panel3);
             Controls.Add(pnlDietInfo);
-            Margin = new Padding(5);
             Name = "DiyetisyenPanel";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DiyetisyenPanel";

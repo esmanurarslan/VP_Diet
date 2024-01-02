@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DietitianItem));
             pcbConsultant = new CircularPictureBox();
             btnInspect = new CustomButton();
             lblNameSurname = new Label();
@@ -41,20 +42,22 @@
             // pcbConsultant
             // 
             pcbConsultant.BackColor = SystemColors.AppWorkspace;
-            pcbConsultant.Location = new Point(13, 27);
+            pcbConsultant.Image = (Image)resources.GetObject("pcbConsultant.Image");
+            pcbConsultant.Location = new Point(13, 14);
             pcbConsultant.Margin = new Padding(2);
             pcbConsultant.Name = "pcbConsultant";
-            pcbConsultant.Size = new Size(79, 86);
+            pcbConsultant.Size = new Size(65, 67);
+            pcbConsultant.SizeMode = PictureBoxSizeMode.Zoom;
             pcbConsultant.TabIndex = 0;
             pcbConsultant.TabStop = false;
             // 
             // btnInspect
             // 
-            btnInspect.BackColor = Color.FromArgb(165, 215, 198);
+            btnInspect.BackColor = Color.FromArgb(233, 233, 233);
             btnInspect.FlatAppearance.BorderSize = 0;
             btnInspect.FlatStyle = FlatStyle.Flat;
-            btnInspect.ForeColor = Color.White;
-            btnInspect.Location = new Point(217, 96);
+            btnInspect.ForeColor = Color.Gray;
+            btnInspect.Location = new Point(165, 85);
             btnInspect.Margin = new Padding(2);
             btnInspect.Name = "btnInspect";
             btnInspect.Size = new Size(78, 25);
@@ -67,23 +70,24 @@
             // 
             lblNameSurname.AutoSize = true;
             lblNameSurname.BackColor = Color.Transparent;
-            lblNameSurname.ForeColor = SystemColors.ControlDarkDark;
-            lblNameSurname.Location = new Point(95, 14);
+            lblNameSurname.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblNameSurname.ForeColor = SystemColors.WindowFrame;
+            lblNameSurname.Location = new Point(82, 14);
             lblNameSurname.Margin = new Padding(2, 0, 2, 0);
             lblNameSurname.Name = "lblNameSurname";
-            lblNameSurname.Size = new Size(111, 20);
+            lblNameSurname.Size = new Size(117, 20);
             lblNameSurname.TabIndex = 2;
             lblNameSurname.Text = "Name Surname";
             // 
             // panel1
             // 
-            panel1.BackColor = Color.LightGray;
+            panel1.BackColor = Color.White;
             panel1.Controls.Add(lblCity);
             panel1.Controls.Add(lblGender);
-            panel1.Location = new Point(113, 44);
+            panel1.Location = new Point(82, 33);
             panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(182, 48);
+            panel1.Size = new Size(161, 48);
             panel1.TabIndex = 3;
             // 
             // lblCity
@@ -114,14 +118,14 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = Color.FromArgb(165, 215, 198);
             Controls.Add(panel1);
             Controls.Add(lblNameSurname);
             Controls.Add(btnInspect);
             Controls.Add(pcbConsultant);
             Margin = new Padding(2);
             Name = "DietitianItem";
-            Size = new Size(335, 130);
+            Size = new Size(252, 116);
             ((System.ComponentModel.ISupportInitialize)pcbConsultant).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
