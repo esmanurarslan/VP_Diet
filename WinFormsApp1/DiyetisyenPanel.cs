@@ -24,6 +24,16 @@ namespace WinFormsApp1
             InitializeComponent();
             LoadDietitianData(this.Id = id);
 
+            foreach(var DietatianItemControl in flowLPnlCon.Controls)
+            {
+                if(DietatianItemControl is DietitianItem dietitianItem) 
+                {
+                    dietitianItem.InspectClicked += DietitanItemBtn_Clicked;
+                }
+            }
+
+            populateItems();
+
         }
 
         SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
@@ -159,10 +169,10 @@ namespace WinFormsApp1
             {
                 baglanti.Open();
                 string query = "SELECT * FROM Users\r\nINNER JOIN Consultant ON Users.id = Consultant.consultantId\r\nINNER JOIN Dietitian ON Consultant.consultantId = Partner.consultant WHERE Partner.dietitian = @id"
-                using(SqlCommand command = new SqlCommand(query,baglanti))
+                using (SqlCommand command = new SqlCommand(query, baglanti))
                 {
-                    using(SqlDataReader dataReader = command.ExecuteReader())
-                    while(dataReader.Read())
+                    using (SqlDataReader dataReader = command.ExecuteReader())
+                        while (dataReader.Read())
                         {
                             DietitianItem dietitianItem = new DietitianItem(Convert.ToInt32(dataReader["consultantId"]));
                             dietitianItem.ConsultantId = Convert.ToInt32(dataReader["consultantId"]);
@@ -260,6 +270,6 @@ namespace WinFormsApp1
         private void DietitanItemBtn_Clicked(object sender, int consultantId)
         {
 
-        } 
+        }
     }
 }
