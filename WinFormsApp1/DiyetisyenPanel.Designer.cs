@@ -42,6 +42,10 @@
             panel3 = new Panel();
             flowLPnlCon = new FlowLayoutPanel();
             label1 = new Label();
+            pnlKilo = new Panel();
+            pnlBel = new Panel();
+            pnlKalca = new Panel();
+            pnlChest = new Panel();
             pnlDietInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)circularPictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -168,6 +172,10 @@
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(216, 232, 227);
+            panel3.Controls.Add(pnlChest);
+            panel3.Controls.Add(pnlKalca);
+            panel3.Controls.Add(pnlBel);
+            panel3.Controls.Add(pnlKilo);
             panel3.Controls.Add(flowLPnlCon);
             panel3.Controls.Add(label1);
             panel3.Location = new Point(580, 62);
@@ -178,22 +186,54 @@
             // 
             // flowLPnlCon
             // 
-            flowLPnlCon.Location = new Point(52, 126);
+            flowLPnlCon.Location = new Point(52, 97);
             flowLPnlCon.Margin = new Padding(5, 6, 5, 6);
             flowLPnlCon.Name = "flowLPnlCon";
-            flowLPnlCon.Size = new Size(492, 770);
+            flowLPnlCon.Size = new Size(495, 798);
             flowLPnlCon.TabIndex = 14;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(52, 56);
+            label1.Location = new Point(52, 34);
             label1.Margin = new Padding(5, 0, 5, 0);
             label1.Name = "label1";
             label1.Size = new Size(216, 45);
             label1.TabIndex = 13;
             label1.Text = "Danışanlarım";
+            // 
+            // pnlKilo
+            // 
+            pnlKilo.BackColor = Color.White;
+            pnlKilo.Location = new Point(601, 97);
+            pnlKilo.Name = "pnlKilo";
+            pnlKilo.Size = new Size(469, 186);
+            pnlKilo.TabIndex = 15;
+            // 
+            // pnlBel
+            // 
+            pnlBel.BackColor = Color.White;
+            pnlBel.Location = new Point(601, 289);
+            pnlBel.Name = "pnlBel";
+            pnlBel.Size = new Size(469, 200);
+            pnlBel.TabIndex = 16;
+            // 
+            // pnlKalca
+            // 
+            pnlKalca.BackColor = Color.White;
+            pnlKalca.Location = new Point(601, 495);
+            pnlKalca.Name = "pnlKalca";
+            pnlKalca.Size = new Size(469, 194);
+            pnlKalca.TabIndex = 16;
+            // 
+            // pnlChest
+            // 
+            pnlChest.BackColor = Color.White;
+            pnlChest.Location = new Point(601, 695);
+            pnlChest.Name = "pnlChest";
+            pnlChest.Size = new Size(469, 200);
+            pnlChest.TabIndex = 16;
             // 
             // DiyetisyenPanel
             // 
@@ -203,7 +243,7 @@
             ClientSize = new Size(1804, 1026);
             Controls.Add(panel3);
             Controls.Add(pnlDietInfo);
-            Margin = new Padding(5, 5, 5, 5);
+            Margin = new Padding(5);
             Name = "DiyetisyenPanel";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DiyetisyenPanel";
@@ -230,5 +270,9 @@
         private Panel panel3;
         private Label label1;
         private FlowLayoutPanel flowLPnlCon;
+        private Panel pnlChest;
+        private Panel pnlKalca;
+        private Panel pnlBel;
+        private Panel pnlKilo;
     }
 }

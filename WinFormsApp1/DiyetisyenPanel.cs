@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Linq.Expressions;
 using System.Reflection.Emit;
+using System.Windows.Forms.DataVisualization.Charting;
+using MindFusion.Charting.WinForms;
 
 
 namespace WinFormsApp1
@@ -88,7 +90,7 @@ namespace WinFormsApp1
 
         private void populateItems()
         {
-            using(baglanti) 
+            using (baglanti)
             {
                 baglanti.Open();
 
@@ -115,8 +117,42 @@ namespace WinFormsApp1
             {
                 // Guncelle formu kapatıldığında ana formun saydamlığını 1.0 olarak ayarla
                 this.Opacity = 1.0;
-            }; 
+            };
             resetPass.Show();
+        }
+
+        private void Load_Graphics(int id, string columnName, Panel panel)
+        {
+            Random random = new Random();
+
+            Color randomColor = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
+
+            System.Windows.Forms.DataVisualization.Charting.Chart chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            chart.Size = new Size(300, 300);
+
+            ChartArea chartArea = new ChartArea();
+
+            chartArea.AxisX.LabelStyle.Font = new Font("Arial", 4);
+            chartArea.AxisY.MajorGrid.Enabled = false;
+            chart.ChartAreas.Add(chartArea);
+
+            System.Windows.Forms.DataVisualization.Charting.Series series = new System.Windows.Forms.DataVisualization.Charting.Series("MySeries");
+            series.ChartType = SeriesChartType.Line;
+
+            series.Color = randomColor;
+            chart.Series.Add(series);
+
+            using(baglanti)
+            {
+                baglanti.Open();
+
+                string query = $"SELECT * FROM UpdateTbl WHERE userId = @id ORDER BY updateTime ASC";
+
+                using(SqlCommand command = new SqlCommand(query,baglanti)) 
+                {
+                    command.Parameters.AddWithValue("")
+                }
+            }
         }
     }
 }
