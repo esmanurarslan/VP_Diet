@@ -32,11 +32,12 @@ namespace WinFormsApp1
                 }
             }
 
-            populateItems();
+            populateItems(this.Id = Id);
 
         }
+        SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
 
-        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+        //SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
 
         private void LoadDietitianData(int id)
         {
@@ -163,20 +164,25 @@ namespace WinFormsApp1
             return consultantName;
         }
 
-        private void populateItems()
+        private void populateItems(int id)
         {
             using (baglanti)
             {
+                SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
+         
                 baglanti.Open();
-                string query = "SELECT * FROM Users\r\nINNER JOIN Consultant ON Users.id = Consultant.consultantId\r\nINNER JOIN Dietitian ON Consultant.consultantId = Partner.consultant WHERE Partner.dietitian = @id"
+                string query = "SELECT * FROM Users INNER JOIN Consultant ON Users.Id = Consultant.consultantId INNER JOIN Partner ON Consultant.consultantId = Partner.consultant WHERE Partner.dietitian = @id";
+                
                 using (SqlCommand command = new SqlCommand(query, baglanti))
                 {
+                    command.Parameters.AddWithValue("@id", Id);
                     using (SqlDataReader dataReader = command.ExecuteReader())
                         while (dataReader.Read())
                         {
                             DietitianItem dietitianItem = new DietitianItem(Convert.ToInt32(dataReader["consultantId"]));
                             dietitianItem.ConsultantId = Convert.ToInt32(dataReader["consultantId"]);
                             dietitianItem.Username = dataReader["userName"].ToString();
+                            lbl
                             dietitianItem.Gender = dataReader["gender"].ToString();
                             dietitianItem.City = dataReader["city"].ToString();
                             dietitianItem.InspectClicked += DietitanItemBtn_Clicked;
