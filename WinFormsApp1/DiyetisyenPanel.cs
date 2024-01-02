@@ -23,8 +23,8 @@ namespace WinFormsApp1
             LoadDietitianData(this.Id = id);
 
         }
-
-        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+        SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
+       // SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
 
         private void LoadDietitianData(int id)
         {
@@ -92,15 +92,15 @@ namespace WinFormsApp1
             {
                 baglanti.Open();
 
-                string query = "SELECT * FROM Partner";
+                string query = "SELECT * FROM Partner ";
                 using (SqlCommand command = new SqlCommand(query, baglanti))
                 {
                     using SqlDataReader dataReader = command.ExecuteReader();
                     {
                         while (dataReader.Read())
                         {
-                            //DietitianItem dietitianItem = new DietitianItem(dataReader["consultant"]);
-                        }
+                            DietitianItem dietitianItem = new DietitianItem((int)dataReader["consultant"]);
+                        } 
                     }
                 }
             }
