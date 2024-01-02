@@ -228,6 +228,8 @@ namespace WinFormsApp1
 
             using (baglanti)
             {
+                SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
+
                 baglanti.Open();
 
                 string query = $"SELECT * FROM UpdateTbl WHERE userId = @id ORDER BY updateTime ASC";
@@ -274,6 +276,8 @@ namespace WinFormsApp1
 
         private void DietitanItemBtn_Clicked(object sender, int consultantId)
         {
+
+            
             Load_Graphics(this.Id = consultantId, "newWeight", pnlKilo);
             Load_Graphics(this.Id = consultantId, "newWaist", pnlBel);
             Load_Graphics(this.Id = consultantId, "newHip", pnlKalca);

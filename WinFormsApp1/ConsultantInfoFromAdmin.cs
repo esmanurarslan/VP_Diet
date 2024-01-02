@@ -50,11 +50,17 @@ namespace WinFormsApp1
                 komut2.Parameters.AddWithValue("@p1", id);
                 using (SqlDataReader dataReader = komut2.ExecuteReader())
                 {
-
-                    dataReader.Read(); // Tek bir satır olduğunu varsayıyoruz
-                    string name = dataReader["nameSurname"].ToString();
-                    lblDiyetisyen.Text = name;
-
+                    if (dataReader.Read())
+                    {
+                        // Veri bulundu, adını al ve lblDiyetisyen.Text'e ata
+                        string name = dataReader["nameSurname"].ToString();
+                        lblDiyetisyen.Text = name;
+                    }
+                    else
+                    {
+                        // Veri bulunamadı, "Diyetisyeni yok" mesajını ata
+                        lblDiyetisyen.Text = "Diyetisyeni yok";
+                    }
                 }
             }
 
