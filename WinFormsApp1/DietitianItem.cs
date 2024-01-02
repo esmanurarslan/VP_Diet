@@ -29,7 +29,7 @@ namespace WinFormsApp1
         //Properties
         private int consultantId;
         private string userName;
-        private string email;
+        private string gender;
         private string city;
         private Image photo;
 
@@ -42,10 +42,10 @@ namespace WinFormsApp1
 
 
 
-        public string Email
+        public string Gender
         {
-            get { return email; }
-            set { email = value; }
+            get { return gender; }
+            set { gender = value; }
         }
 
 
@@ -63,14 +63,10 @@ namespace WinFormsApp1
         }
 
         public int ConsultantId
-        { 
-            get { return consultantId; } 
-            set { consultantId = value; } 
+        {
+            get { return consultantId; }
+            set { consultantId = value; }
         }
-
-
-
-
 
 
     }

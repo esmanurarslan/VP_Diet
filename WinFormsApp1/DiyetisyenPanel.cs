@@ -88,22 +88,91 @@ namespace WinFormsApp1
             }
         }
 
+        private string GetGraphTitle(string columnName)
+        {
+            // Eğer columnName "newWeight" ise "Kilo" olarak döndür
+            if (columnName == "newWeight")
+            {
+                return "Kilo";
+            }
+            // Eğer columnName "newWaist" ise "Bel" olarak döndür
+            else if (columnName == "newWaist")
+            {
+                return "Bel Ölçüsü";
+            }
+            // Eğer columnName "newHip" ise "Kalça" olarak döndür
+            else if (columnName == "newHip")
+            {
+                return "Kalça Ölçüsü";
+            }
+            // Eğer columnName "newChest" ise "Göğüs" olarak döndür
+            else if (columnName == "newChest")
+            {
+                return "Göğüs Ölçüsü";
+            }
+            // Diğer durumlar için columnName'i olduğu gibi kullan
+            else
+            {
+                return columnName;
+            }
+        }
+
+        private List<string> GetConsultantName()
+        {
+            List<string> consultantName = new List<string>();
+
+            try
+            {
+                using (baglanti)
+                {
+                    baglanti.Open();
+
+                    string query = "SELECT * FROM Users\r\nINNER JOIN Consultant ON Users.id = Consultant.consultantId\r\nINNER JOIN Dietitian ON Consultant.consultantId = Partner.consultant WHERE Partner.dietitian = @id;";
+                    using (SqlCommand command = new SqlCommand(query, baglanti))
+                    {
+                        using SqlDataReader dataReader = command.ExecuteReader();
+                        {
+                            while (dataReader.Read())
+                            {
+                                string usernames = dataReader["userName"].ToString();
+                                consultantName.Add(usernames);
+                            }
+                        }
+                    }
+
+                    baglanti.Close();
+                }
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error");
+            }
+            return consultantName;
+        }
+
         private void populateItems()
         {
             using (baglanti)
             {
                 baglanti.Open();
-
-                string query = "SELECT * FROM Partner";
-                using (SqlCommand command = new SqlCommand(query, baglanti))
+                string query = "SELECT * FROM Users\r\nINNER JOIN Consultant ON Users.id = Consultant.consultantId\r\nINNER JOIN Dietitian ON Consultant.consultantId = Partner.consultant WHERE Partner.dietitian = @id"
+                using(SqlCommand command = new SqlCommand(query,baglanti))
                 {
-                    using SqlDataReader dataReader = command.ExecuteReader();
-                    {
-                        while (dataReader.Read())
+                    using(SqlDataReader dataReader = command.ExecuteReader())
+                    while(dataReader.Read())
                         {
-                            //DietitianItem dietitianItem = new DietitianItem(dataReader["consultant"]);
+                            DietitianItem dietitianItem = new DietitianItem(Convert.ToInt32(dataReader["consultantId"]));
+                            dietitianItem.ConsultantId = Convert.ToInt32(dataReader["consultantId"]);
+                            dietitianItem.Username = dataReader["userName"].ToString();
+                            dietitianItem.Gender = dataReader["gender"].ToString();
+                            dietitianItem.City = dataReader["city"].ToString();
+                            dietitianItem.InspectClicked += DietitanItemBtn_Clicked;
+                            flowLPnlCon.Controls.Add(dietitianItem);
+
                         }
-                    }
                 }
             }
         }
@@ -142,17 +211,55 @@ namespace WinFormsApp1
             series.Color = randomColor;
             chart.Series.Add(series);
 
-            using(baglanti)
+            using (baglanti)
             {
                 baglanti.Open();
 
                 string query = $"SELECT * FROM UpdateTbl WHERE userId = @id ORDER BY updateTime ASC";
 
-                using(SqlCommand command = new SqlCommand(query,baglanti)) 
+                using (SqlCommand command = new SqlCommand(query, baglanti))
                 {
-                    command.Parameters.AddWithValue("")
+                    command.Parameters.AddWithValue("@id", id);
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+
+                    {
+                        double xValue = 1;
+                        while (reader.Read())
+                        {
+                            double yValue = Convert.ToDouble(reader[columnName]);
+
+                            DataPoint point = new DataPoint(xValue, yValue);
+                            point.Label = yValue.ToString();
+                            series.Points.Add(point);
+
+                            xValue++;
+
+                        }
+
+                    }
                 }
             }
+            string graphTitle = GetGraphTitle(columnName);
+            chart.Titles.Add($"{graphTitle} Grafiği");
+
+            panel.Controls.Add(chart);
+
+            chart.Dock = DockStyle.Fill;
+
+            chartArea.AxisY.LabelStyle.Interval = double.NaN;
+            chartArea.AxisX.LabelStyle.Enabled = true;
+
+            chartArea.AxisX.Minimum = 0;
+
+            series.MarkerStyle = MarkerStyle.Circle;
+            series.MarkerSize = 8;
+            series.BorderWidth = 2;
         }
+
+        private void DietitanItemBtn_Clicked(object sender, int consultantId)
+        {
+
+        } 
     }
 }

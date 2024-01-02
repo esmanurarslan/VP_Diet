@@ -40,12 +40,12 @@
             lblDietUserName = new Label();
             circularPictureBox1 = new CircularPictureBox();
             panel3 = new Panel();
+            pnlChest = new Panel();
+            pnlKalca = new Panel();
+            pnlBel = new Panel();
+            pnlKilo = new Panel();
             flowLPnlCon = new FlowLayoutPanel();
             label1 = new Label();
-            pnlKilo = new Panel();
-            pnlBel = new Panel();
-            pnlKalca = new Panel();
-            pnlChest = new Panel();
             pnlDietInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)circularPictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -89,7 +89,7 @@
             // 
             label5.AutoSize = true;
             label5.ForeColor = SystemColors.ControlDark;
-            label5.Location = new Point(119, 626);
+            label5.Location = new Point(131, 580);
             label5.Margin = new Padding(5, 0, 5, 0);
             label5.Name = "label5";
             label5.Size = new Size(159, 32);
@@ -100,7 +100,7 @@
             // 
             lblTotalCon.AutoSize = true;
             lblTotalCon.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTotalCon.Location = new Point(81, 626);
+            lblTotalCon.Location = new Point(93, 580);
             lblTotalCon.Margin = new Padding(5, 0, 5, 0);
             lblTotalCon.Name = "lblTotalCon";
             lblTotalCon.Size = new Size(28, 32);
@@ -184,6 +184,38 @@
             panel3.Size = new Size(1118, 939);
             panel3.TabIndex = 13;
             // 
+            // pnlChest
+            // 
+            pnlChest.BackColor = Color.White;
+            pnlChest.Location = new Point(601, 695);
+            pnlChest.Name = "pnlChest";
+            pnlChest.Size = new Size(469, 200);
+            pnlChest.TabIndex = 16;
+            // 
+            // pnlKalca
+            // 
+            pnlKalca.BackColor = Color.White;
+            pnlKalca.Location = new Point(601, 495);
+            pnlKalca.Name = "pnlKalca";
+            pnlKalca.Size = new Size(469, 194);
+            pnlKalca.TabIndex = 16;
+            // 
+            // pnlBel
+            // 
+            pnlBel.BackColor = Color.White;
+            pnlBel.Location = new Point(601, 289);
+            pnlBel.Name = "pnlBel";
+            pnlBel.Size = new Size(469, 200);
+            pnlBel.TabIndex = 16;
+            // 
+            // pnlKilo
+            // 
+            pnlKilo.BackColor = Color.White;
+            pnlKilo.Location = new Point(601, 97);
+            pnlKilo.Name = "pnlKilo";
+            pnlKilo.Size = new Size(469, 186);
+            pnlKilo.TabIndex = 15;
+            // 
             // flowLPnlCon
             // 
             flowLPnlCon.Location = new Point(52, 97);
@@ -202,38 +234,6 @@
             label1.Size = new Size(216, 45);
             label1.TabIndex = 13;
             label1.Text = "Danışanlarım";
-            // 
-            // pnlKilo
-            // 
-            pnlKilo.BackColor = Color.White;
-            pnlKilo.Location = new Point(601, 97);
-            pnlKilo.Name = "pnlKilo";
-            pnlKilo.Size = new Size(469, 186);
-            pnlKilo.TabIndex = 15;
-            // 
-            // pnlBel
-            // 
-            pnlBel.BackColor = Color.White;
-            pnlBel.Location = new Point(601, 289);
-            pnlBel.Name = "pnlBel";
-            pnlBel.Size = new Size(469, 200);
-            pnlBel.TabIndex = 16;
-            // 
-            // pnlKalca
-            // 
-            pnlKalca.BackColor = Color.White;
-            pnlKalca.Location = new Point(601, 495);
-            pnlKalca.Name = "pnlKalca";
-            pnlKalca.Size = new Size(469, 194);
-            pnlKalca.TabIndex = 16;
-            // 
-            // pnlChest
-            // 
-            pnlChest.BackColor = Color.White;
-            pnlChest.Location = new Point(601, 695);
-            pnlChest.Name = "pnlChest";
-            pnlChest.Size = new Size(469, 200);
-            pnlChest.TabIndex = 16;
             // 
             // DiyetisyenPanel
             // 

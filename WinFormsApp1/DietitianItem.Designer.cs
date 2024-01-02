@@ -33,7 +33,7 @@
             lblNameSurname = new Label();
             panel1 = new Panel();
             lblCity = new Label();
-            lblEmail = new Label();
+            lblGender = new Label();
             ((System.ComponentModel.ISupportInitialize)pcbConsultant).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -76,7 +76,7 @@
             // 
             panel1.BackColor = Color.LightGray;
             panel1.Controls.Add(lblCity);
-            panel1.Controls.Add(lblEmail);
+            panel1.Controls.Add(lblGender);
             panel1.Location = new Point(183, 70);
             panel1.Name = "panel1";
             panel1.Size = new Size(295, 76);
@@ -93,16 +93,16 @@
             lblCity.TabIndex = 1;
             lblCity.Text = "City";
             // 
-            // lblEmail
+            // lblGender
             // 
-            lblEmail.AutoSize = true;
-            lblEmail.Font = new Font("Segoe UI", 7.125F, FontStyle.Regular, GraphicsUnit.Point);
-            lblEmail.ForeColor = Color.Black;
-            lblEmail.Location = new Point(17, 11);
-            lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(58, 25);
-            lblEmail.TabIndex = 0;
-            lblEmail.Text = "Email";
+            lblGender.AutoSize = true;
+            lblGender.Font = new Font("Segoe UI", 7.125F, FontStyle.Regular, GraphicsUnit.Point);
+            lblGender.ForeColor = Color.Black;
+            lblGender.Location = new Point(17, 11);
+            lblGender.Name = "lblGender";
+            lblGender.Size = new Size(74, 25);
+            lblGender.TabIndex = 0;
+            lblGender.Text = "Gender";
             // 
             // DietitianItem
             // 
@@ -129,6 +129,6 @@
         private Label lblNameSurname;
         private Panel panel1;
         private Label lblCity;
-        private Label lblEmail;
+        private Label lblGender;
     }
 }
