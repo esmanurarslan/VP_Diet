@@ -85,5 +85,38 @@ namespace WinFormsApp1
 
             }
         }
+
+        private void populateItems()
+        {
+            using(baglanti) 
+            {
+                baglanti.Open();
+
+                string query = "SELECT * FROM Partner";
+                using (SqlCommand command = new SqlCommand(query, baglanti))
+                {
+                    using SqlDataReader dataReader = command.ExecuteReader();
+                    {
+                        while (dataReader.Read())
+                        {
+                            //DietitianItem dietitianItem = new DietitianItem(dataReader["consultant"]);
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnResetPassword_Click(object sender, EventArgs e)
+        {
+            PassUpdate resetPass = new PassUpdate(Id);
+
+            this.Opacity = 0.5;
+            resetPass.FormClosed += (s, args) =>
+            {
+                // Guncelle formu kapatıldığında ana formun saydamlığını 1.0 olarak ayarla
+                this.Opacity = 1.0;
+            }; 
+            resetPass.Show();
+        }
     }
 }
