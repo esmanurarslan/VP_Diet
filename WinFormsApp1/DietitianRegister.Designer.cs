@@ -261,6 +261,7 @@
             BackColor = Color.FromArgb(165, 215, 198);
             ClientSize = new Size(430, 680);
             Controls.Add(panel1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(2);
             Name = "FormDiyetisyenKayit";
             StartPosition = FormStartPosition.CenterScreen;

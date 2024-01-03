@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,8 +21,8 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-        //SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
         SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
+        //SqlConnection baglanti = new SqlConnection(@" Data Source = localhost; Initial Catalog = VP_diet; Integrated Security = True");
 
         private void btnCancel_Click_1(object sender, EventArgs e)
         {
@@ -31,12 +32,33 @@ namespace WinFormsApp1
         }
 
         private void btnKayit_Click(object sender, EventArgs e)
-        {// Kullanıcı adı ve şifre kontrolü
+        {
+            if (string.IsNullOrWhiteSpace(txtKullaniciAdi.Text) ||
+                string.IsNullOrWhiteSpace(txtParola.Text) ||
+                string.IsNullOrWhiteSpace(txtParolaTekrar.Text) ||
+                string.IsNullOrWhiteSpace(txtMail.Text) ||
+                string.IsNullOrWhiteSpace(txtSehir.Text) ||
+                string.IsNullOrWhiteSpace(txtMevcutKilo.Text) ||
+                string.IsNullOrWhiteSpace(txtHedefKilo.Text) ||
+                string.IsNullOrWhiteSpace(txtBoy.Text) ||
+                string.IsNullOrWhiteSpace(txtBel.Text) ||
+                string.IsNullOrWhiteSpace(txtKalca.Text) ||
+                string.IsNullOrWhiteSpace(txtGogus.Text))
+                    {
+                MessageBox.Show("Eksik bilgi girişi! Lütfen tüm alanları doldurunuz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                // Boş alanların çerçeve rengini kırmızı yapma
+               
+
+                return;
+            }
+            // Kullanıcı adı ve şifre kontrolü
             if (txtParola.Text != txtParolaTekrar.Text)
             {
                 MessageBox.Show("Şifreler eşleşmiyor.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+          
 
             // Veritabanı bağlantısı
             using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True"))
@@ -90,10 +112,12 @@ namespace WinFormsApp1
                 {
                     // Burada uygun parametre değerlerini ekleyin
                     command.Parameters.AddWithValue("@ConsultantId", GetLastUserId(connection).ToString());
-                    command.Parameters.AddWithValue("@Email", txtMail.Text);
+                    string email = txtMail.Text.Trim();
+                    command.Parameters.AddWithValue("@Email", email);
                     command.Parameters.AddWithValue("@BirthDate", dateBirthDate.Value);
                     command.Parameters.AddWithValue("@Gender", cmbCinsiyet.SelectedItem.ToString());
-                    command.Parameters.AddWithValue("@City", txtSehir.Text);
+                    string city = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtSehir.Text.Trim());
+                    command.Parameters.AddWithValue("@City", city);
                     command.Parameters.AddWithValue("@FirstWeight", float.Parse(txtMevcutKilo.Text));
                     command.Parameters.AddWithValue("@TargetWeight", float.Parse(txtHedefKilo.Text));
                     command.Parameters.AddWithValue("@Height", int.Parse(txtBoy.Text));
@@ -128,6 +152,7 @@ namespace WinFormsApp1
             frm.Show();
 
         }
+       
         private int GetLastUserId(SqlConnection connection)
         {
             // Users tablosundaki son eklenen kullanıcının Id'sini getirme
@@ -137,6 +162,7 @@ namespace WinFormsApp1
                 return (int)command.ExecuteScalar();
             }
         }
+        
         private void ClearForm()
         {
             // Tüm TextBox ve ComboBox kontrol elemanlarını temizle

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Globalization;
 //Şevval's Database
 //Data Source = LAPTOP - 9HENLSU2; Initial Catalog = VP_diet; Integrated Security = True; Encrypt = True; Trust Server Certificate=True
 
@@ -21,7 +22,7 @@ namespace WinFormsApp1
             InitializeComponent();
         }
         SqlConnection baglanti = new SqlConnection(@"Data Source = LAPTOP-9HENLSU2; Initial Catalog = VP_diet; Integrated Security = True; Encrypt = True; TrustServerCertificate=True");
-        //SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+        // SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
@@ -70,7 +71,22 @@ namespace WinFormsApp1
 
         private void btnKayit_Click(object sender, EventArgs e)
         {
-           
+            if (string.IsNullOrWhiteSpace(txtUser.Text) ||
+                string.IsNullOrWhiteSpace(txtParola.Text) ||
+                string.IsNullOrWhiteSpace(txtParolaTekrar.Text) ||
+                string.IsNullOrWhiteSpace(txtEposta.Text) ||
+                string.IsNullOrWhiteSpace(txtAd.Text) ||
+                string.IsNullOrWhiteSpace(cmbGender.Text) ||
+                string.IsNullOrWhiteSpace(txtCity.Text) ||
+                string.IsNullOrWhiteSpace(cmbEgitim.Text) ||
+                string.IsNullOrWhiteSpace(txtUzmanlik.Text) ||
+                string.IsNullOrWhiteSpace(txtUniversite.Text))
+            {
+                MessageBox.Show("Eksik bilgi girişi! Lütfen tüm alanları doldurunuz.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                return;
+            }
+
             // Kullanıcı adı ve şifre kontrolü
             if (txtParola.Text != txtParolaTekrar.Text)
             {
@@ -79,7 +95,7 @@ namespace WinFormsApp1
             }
 
             // Veritabanı bağlantısı
-            using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True"))
+            using (SqlConnection connection = new SqlConnection("Data Source = LAPTOP - 9HENLSU2; Initial Catalog = VP_diet; Integrated Security = True; Encrypt = True; Trust Server Certificate=True"))
             {
                 connection.Open();
 
@@ -129,14 +145,19 @@ namespace WinFormsApp1
                 {
                     // Burada uygun parametre değerlerini ekleyin
                     command.Parameters.AddWithValue("@DietitianId", GetLastUserId(connection).ToString());
-                    command.Parameters.AddWithValue("@NameSurname", txtAd.Text);
-                    command.Parameters.AddWithValue("@Email", txtEposta.Text);
+                    string adSoyad = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtAd.Text.Trim());
+                    command.Parameters.AddWithValue("@NameSurname", adSoyad);
+                    string email = txtEposta.Text.Trim();
+                    command.Parameters.AddWithValue("@Email", email);
                     command.Parameters.AddWithValue("@BirthDate", dateBirthDate.Value);
                     command.Parameters.AddWithValue("@Gender", cmbGender.SelectedItem.ToString());
-                    command.Parameters.AddWithValue("@City", txtCity.Text);
+                    string city = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtCity.Text.Trim());
+                    command.Parameters.AddWithValue("@City", city);
                     command.Parameters.AddWithValue("@Education", cmbEgitim.SelectedItem.ToString());
-                    command.Parameters.AddWithValue("@Specialization", txtUzmanlik.Text);
-                    command.Parameters.AddWithValue("@University", txtUniversite.Text);
+                    string uzmanlik = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtUzmanlik.Text.Trim());
+                    command.Parameters.AddWithValue("@Specialization", uzmanlik);
+                    string universite = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(txtUniversite.Text.Trim());
+                    command.Parameters.AddWithValue("@University", universite);
                     command.ExecuteNonQuery();
                 }
 
