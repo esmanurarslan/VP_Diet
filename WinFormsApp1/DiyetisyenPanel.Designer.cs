@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DiyetisyenPanel));
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             pnlDietInfo = new Panel();
+            btnCikis = new CustomButton();
             btnResetPassword = new CustomButton();
             label5 = new Label();
             lblTotalCon = new Label();
@@ -47,7 +48,6 @@
             pnlKilo = new Panel();
             flowLPnlCon = new FlowLayoutPanel();
             label1 = new Label();
-            btnCikis = new CustomButton();
             pnlDietInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)circularPictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -72,6 +72,21 @@
             pnlDietInfo.Name = "pnlDietInfo";
             pnlDietInfo.Size = new Size(260, 641);
             pnlDietInfo.TabIndex = 0;
+            // 
+            // btnCikis
+            // 
+            btnCikis.BackColor = Color.Gray;
+            btnCikis.FlatAppearance.BorderSize = 0;
+            btnCikis.FlatStyle = FlatStyle.Flat;
+            btnCikis.ForeColor = Color.White;
+            btnCikis.Location = new Point(17, 563);
+            btnCikis.Margin = new Padding(3, 4, 3, 4);
+            btnCikis.Name = "btnCikis";
+            btnCikis.Size = new Size(223, 51);
+            btnCikis.TabIndex = 13;
+            btnCikis.Text = "Çıkış Yap";
+            btnCikis.UseVisualStyleBackColor = false;
+            btnCikis.Click += btnCikis_Click;
             // 
             // btnResetPassword
             // 
@@ -238,21 +253,6 @@
             label1.Size = new Size(137, 28);
             label1.TabIndex = 13;
             label1.Text = "Danışanlarım";
-            // 
-            // btnCikis
-            // 
-            btnCikis.BackColor = Color.Gray;
-            btnCikis.FlatAppearance.BorderSize = 0;
-            btnCikis.FlatStyle = FlatStyle.Flat;
-            btnCikis.ForeColor = Color.White;
-            btnCikis.Location = new Point(17, 563);
-            btnCikis.Margin = new Padding(3, 4, 3, 4);
-            btnCikis.Name = "btnCikis";
-            btnCikis.Size = new Size(223, 51);
-            btnCikis.TabIndex = 13;
-            btnCikis.Text = "Çıkış Yap";
-            btnCikis.UseVisualStyleBackColor = false;
-            btnCikis.Click += btnCikis_Click;
             // 
             // DiyetisyenPanel
             // 

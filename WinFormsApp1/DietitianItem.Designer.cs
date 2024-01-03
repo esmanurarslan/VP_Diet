@@ -126,6 +126,7 @@
             Margin = new Padding(2);
             Name = "DietitianItem";
             Size = new Size(252, 116);
+       
             ((System.ComponentModel.ISupportInitialize)pcbConsultant).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

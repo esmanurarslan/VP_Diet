@@ -252,9 +252,12 @@ namespace WinFormsApp1
 
                             xValue++;
 
-                        }
 
+
+                        }
+                        reader.Close();
                     }
+
                 }
             }
             string graphTitle = GetGraphTitle(columnName);
@@ -276,13 +279,16 @@ namespace WinFormsApp1
 
         private void DietitanItemBtn_Clicked(object sender, int consultantId)
         {
+            // Clear the panels before adding new charts
+            pnlKilo.Controls.Clear();
+            pnlBel.Controls.Clear();
+            pnlKalca.Controls.Clear();
+            pnlChest.Controls.Clear();
 
-
-            Load_Graphics(this.Id = consultantId, "newWeight", pnlKilo);
-            Load_Graphics(this.Id = consultantId, "newWaist", pnlBel);
-            Load_Graphics(this.Id = consultantId, "newHip", pnlKalca);
-            Load_Graphics(this.Id = consultantId, "newChest", pnlChest);
-
+            Load_Graphics(consultantId, "newWeight", pnlKilo);
+            Load_Graphics(consultantId, "newWaist", pnlBel);
+            Load_Graphics(consultantId, "newHip", pnlKalca);
+            Load_Graphics(consultantId, "newChest", pnlChest);
         }
 
         private void btnCikis_Click(object sender, EventArgs e)
@@ -294,7 +300,9 @@ namespace WinFormsApp1
 
             frm.Show();
 
-     
+
         }
+
+      
     }
 }

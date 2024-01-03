@@ -33,6 +33,7 @@ namespace WinFormsApp1
         private string city;
         private Image photo;
 
+       
 
         public string Username
         {
