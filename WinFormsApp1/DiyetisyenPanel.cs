@@ -99,34 +99,6 @@ namespace WinFormsApp1
             }
         }
 
-        private string GetGraphTitle(string columnName)
-        {
-            // Eğer columnName "newWeight" ise "Kilo" olarak döndür
-            if (columnName == "newWeight")
-            {
-                return "Kilo";
-            }
-            // Eğer columnName "newWaist" ise "Bel" olarak döndür
-            else if (columnName == "newWaist")
-            {
-                return "Bel Ölçüsü";
-            }
-            // Eğer columnName "newHip" ise "Kalça" olarak döndür
-            else if (columnName == "newHip")
-            {
-                return "Kalça Ölçüsü";
-            }
-            // Eğer columnName "newChest" ise "Göğüs" olarak döndür
-            else if (columnName == "newChest")
-            {
-                return "Göğüs Ölçüsü";
-            }
-            // Diğer durumlar için columnName'i olduğu gibi kullan
-            else
-            {
-                return columnName;
-            }
-        }
 
         private List<string> GetConsultantName()
         {
@@ -205,9 +177,39 @@ namespace WinFormsApp1
             resetPass.Show();
         }
 
+
+        private string GetGraphTitle(string columnName)
+        {
+            // Eğer columnName "newWeight" ise "Kilo" olarak döndür
+            if (columnName == "newWeight")
+            {
+                return "Kilo";
+            }
+            // Eğer columnName "newWaist" ise "Bel" olarak döndür
+            else if (columnName == "newWaist")
+            {
+                return "Bel Ölçüsü";
+            }
+            // Eğer columnName "newHip" ise "Kalça" olarak döndür
+            else if (columnName == "newHip")
+            {
+                return "Kalça Ölçüsü";
+            }
+            // Eğer columnName "newChest" ise "Göğüs" olarak döndür
+            else if (columnName == "newChest")
+            {
+                return "Göğüs Ölçüsü";
+            }
+            // Diğer durumlar için columnName'i olduğu gibi kullan
+            else
+            {
+                return columnName;
+            }
+        }
+
         private void Load_Graphics(int id, string columnName, Panel panel)
         {
-            panel.Controls.Clear();
+          
 
             Random random = new Random();
 
@@ -219,19 +221,18 @@ namespace WinFormsApp1
             ChartArea chartArea = new ChartArea();
 
             chartArea.AxisX.LabelStyle.Font = new Font("Arial", 4);
+            chartArea.AxisX.MajorGrid.Enabled = false;
             chartArea.AxisY.MajorGrid.Enabled = false;
             chart.ChartAreas.Add(chartArea);
 
             System.Windows.Forms.DataVisualization.Charting.Series series = new System.Windows.Forms.DataVisualization.Charting.Series("MySeries");
-            series.ChartType = SeriesChartType.Line;
+            series.ChartType = SeriesChartType.Line; 
 
             series.Color = randomColor;
             chart.Series.Add(series);
 
-            using (baglanti)
+            using (SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True"))
             {
-                SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
-
                 baglanti.Open();
 
                 string query = $"SELECT * FROM UpdateTbl WHERE userId = @id ORDER BY updateTime ASC";
@@ -241,7 +242,6 @@ namespace WinFormsApp1
                     command.Parameters.AddWithValue("@id", id);
 
                     using (SqlDataReader reader = command.ExecuteReader())
-
                     {
                         double xValue = 1;
                         while (reader.Read())
@@ -253,15 +253,12 @@ namespace WinFormsApp1
                             series.Points.Add(point);
 
                             xValue++;
-
-
-
                         }
                         reader.Close();
                     }
-
                 }
             }
+
             string graphTitle = GetGraphTitle(columnName);
             chart.Titles.Add($"{graphTitle} Grafiği");
 
@@ -278,6 +275,7 @@ namespace WinFormsApp1
             series.MarkerSize = 8;
             series.BorderWidth = 2;
         }
+
 
         private void DietitanItemBtn_Clicked(object sender, int consultantId)
         {
