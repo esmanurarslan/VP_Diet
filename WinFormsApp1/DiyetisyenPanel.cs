@@ -207,6 +207,8 @@ namespace WinFormsApp1
 
         private void Load_Graphics(int id, string columnName, Panel panel)
         {
+            panel.Controls.Clear();
+
             Random random = new Random();
 
             Color randomColor = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
