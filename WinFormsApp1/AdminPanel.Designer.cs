@@ -69,8 +69,11 @@
             label28 = new Label();
             label27 = new Label();
             panel6 = new Panel();
+            panel7 = new Panel();
+            btnCikis = new Button();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
+            panel7.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -563,12 +566,35 @@
             panel6.Size = new Size(1, 650);
             panel6.TabIndex = 0;
             // 
+            // panel7
+            // 
+            panel7.BackColor = Color.FromArgb(216, 232, 227);
+            panel7.Controls.Add(btnCikis);
+            panel7.Location = new Point(1063, 0);
+            panel7.Name = "panel7";
+            panel7.Size = new Size(272, 712);
+            panel7.TabIndex = 2;
+            // 
+            // btnCikis
+            // 
+            btnCikis.BackColor = Color.Silver;
+            btnCikis.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            btnCikis.ForeColor = SystemColors.ButtonHighlight;
+            btnCikis.Location = new Point(39, 654);
+            btnCikis.Name = "btnCikis";
+            btnCikis.Size = new Size(206, 48);
+            btnCikis.TabIndex = 38;
+            btnCikis.Text = "Çıkış Yap";
+            btnCikis.UseVisualStyleBackColor = false;
+            btnCikis.Click += btnCikis_Click;
+            // 
             // AdminPanel
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(165, 215, 198);
-            ClientSize = new Size(1064, 723);
+            ClientSize = new Size(1335, 714);
+            Controls.Add(panel7);
             Controls.Add(panel5);
             Controls.Add(panel1);
             Margin = new Padding(2);
@@ -580,6 +606,7 @@
             panel1.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            panel7.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -626,5 +653,7 @@
         private Label lblAdmin;
         private Button btnSayfaYenile;
         private Button btnParola;
+        private Panel panel7;
+        private Button btnCikis;
     }
 }

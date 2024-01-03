@@ -47,6 +47,7 @@
             pnlKilo = new Panel();
             flowLPnlCon = new FlowLayoutPanel();
             label1 = new Label();
+            btnCikis = new CustomButton();
             pnlDietInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)circularPictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -55,6 +56,7 @@
             // pnlDietInfo
             // 
             pnlDietInfo.BackColor = Color.FromArgb(216, 232, 227);
+            pnlDietInfo.Controls.Add(btnCikis);
             pnlDietInfo.Controls.Add(btnResetPassword);
             pnlDietInfo.Controls.Add(label5);
             pnlDietInfo.Controls.Add(lblTotalCon);
@@ -77,7 +79,7 @@
             btnResetPassword.FlatAppearance.BorderSize = 0;
             btnResetPassword.FlatStyle = FlatStyle.Flat;
             btnResetPassword.ForeColor = Color.White;
-            btnResetPassword.Location = new Point(17, 560);
+            btnResetPassword.Location = new Point(17, 504);
             btnResetPassword.Margin = new Padding(3, 4, 3, 4);
             btnResetPassword.Name = "btnResetPassword";
             btnResetPassword.Size = new Size(223, 51);
@@ -237,12 +239,27 @@
             label1.TabIndex = 13;
             label1.Text = "Danışanlarım";
             // 
+            // btnCikis
+            // 
+            btnCikis.BackColor = Color.Gray;
+            btnCikis.FlatAppearance.BorderSize = 0;
+            btnCikis.FlatStyle = FlatStyle.Flat;
+            btnCikis.ForeColor = Color.White;
+            btnCikis.Location = new Point(17, 563);
+            btnCikis.Margin = new Padding(3, 4, 3, 4);
+            btnCikis.Name = "btnCikis";
+            btnCikis.Size = new Size(223, 51);
+            btnCikis.TabIndex = 13;
+            btnCikis.Text = "Çıkış Yap";
+            btnCikis.UseVisualStyleBackColor = false;
+            btnCikis.Click += btnCikis_Click;
+            // 
             // DiyetisyenPanel
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(165, 215, 198);
-            ClientSize = new Size(1139, 641);
+            ClientSize = new Size(1137, 641);
             Controls.Add(panel3);
             Controls.Add(pnlDietInfo);
             Name = "DiyetisyenPanel";
@@ -275,5 +292,6 @@
         private Panel pnlKalca;
         private Panel pnlBel;
         private Panel pnlKilo;
+        private CustomButton btnCikis;
     }
 }

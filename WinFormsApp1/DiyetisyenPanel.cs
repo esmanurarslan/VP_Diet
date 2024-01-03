@@ -277,12 +277,24 @@ namespace WinFormsApp1
         private void DietitanItemBtn_Clicked(object sender, int consultantId)
         {
 
-            
+
             Load_Graphics(this.Id = consultantId, "newWeight", pnlKilo);
             Load_Graphics(this.Id = consultantId, "newWaist", pnlBel);
             Load_Graphics(this.Id = consultantId, "newHip", pnlKalca);
             Load_Graphics(this.Id = consultantId, "newChest", pnlChest);
 
+        }
+
+        private void btnCikis_Click(object sender, EventArgs e)
+        {
+
+            FormGiris frm = new FormGiris();
+
+            this.Close();
+
+            frm.Show();
+
+     
         }
     }
 }

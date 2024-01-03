@@ -354,7 +354,7 @@ namespace WinFormsApp1
             {
                 try
                 {
-                    using (SqlConnection connection = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True")) 
+                    using (SqlConnection connection = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True"))
                     {
                         connection.Open();
 
@@ -493,9 +493,20 @@ namespace WinFormsApp1
             series.BorderWidth = 2;
         }
 
+        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
 
+        }
 
+        private void btnCikis_Click(object sender, EventArgs e)
+        {
 
+            FormGiris frm = new FormGiris();
 
+            this.Close();
+
+            frm.Show();
+
+        }
     }
 }

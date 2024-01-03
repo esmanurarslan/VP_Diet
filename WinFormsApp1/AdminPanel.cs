@@ -311,5 +311,16 @@ namespace WinFormsApp1
             };
             frm.Show();
         }
+
+        private void btnCikis_Click(object sender, EventArgs e)
+        {
+            FormGiris frm = new FormGiris();
+
+            this.Close();
+
+            frm.Show();
+
+
+        }
     }
 }
