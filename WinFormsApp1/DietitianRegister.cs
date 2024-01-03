@@ -143,6 +143,9 @@ namespace WinFormsApp1
                 MessageBox.Show("Kayıt başarıyla tamamlandı.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             ClearForm();
+            FormGiris frm = new FormGiris();
+            this.Close();
+            frm.Show();
 
         }
         private int GetLastUserId(SqlConnection connection)
