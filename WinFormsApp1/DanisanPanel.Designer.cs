@@ -31,21 +31,26 @@ namespace WinFormsApp1
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanisanPanel));
             leftPanel = new Panel();
+            btnCikisYap = new CustomButton();
+            btnRefresh = new CustomButton();
+            btnGuncelle = new CustomButton();
+            btnResetPassword = new CustomButton();
+            panel5 = new Panel();
+            panel4 = new Panel();
+            panel3 = new Panel();
+            panel1 = new Panel();
+            panel2 = new Panel();
             circularPictureBox1 = new CircularPictureBox();
-            btnSil = new Button();
             lblBmi = new Label();
             label10 = new Label();
             lblTarget = new Label();
             lblMail = new Label();
             lblUser = new Label();
             lblGun = new Label();
-            btnSayfaYenile = new Button();
             diyetisyenMailLbl = new LinkLabel();
             label12 = new Label();
             diyetisyenLbl = new Label();
             label9 = new Label();
-            btnParola = new Button();
-            btnGüncelle = new Button();
             middlePanel1 = new Panel();
             grafikPanel4 = new Panel();
             grafikPanel3 = new Panel();
@@ -69,12 +74,7 @@ namespace WinFormsApp1
             backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             flowLayoutPanel1 = new FlowLayoutPanel();
             backgroundWorker3 = new System.ComponentModel.BackgroundWorker();
-            btnCikis = new Button();
-            panel2 = new Panel();
-            panel1 = new Panel();
-            panel3 = new Panel();
-            panel4 = new Panel();
-            panel5 = new Panel();
+            cstmbtnsil = new CustomButton();
             leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)circularPictureBox1).BeginInit();
             middlePanel1.SuspendLayout();
@@ -85,55 +85,148 @@ namespace WinFormsApp1
             // leftPanel
             // 
             leftPanel.BackColor = Color.FromArgb(216, 232, 227);
+            leftPanel.Controls.Add(cstmbtnsil);
+            leftPanel.Controls.Add(btnCikisYap);
+            leftPanel.Controls.Add(btnRefresh);
+            leftPanel.Controls.Add(btnGuncelle);
+            leftPanel.Controls.Add(btnResetPassword);
             leftPanel.Controls.Add(panel5);
             leftPanel.Controls.Add(panel4);
             leftPanel.Controls.Add(panel3);
             leftPanel.Controls.Add(panel1);
             leftPanel.Controls.Add(panel2);
-            leftPanel.Controls.Add(btnCikis);
             leftPanel.Controls.Add(circularPictureBox1);
-            leftPanel.Controls.Add(btnSil);
             leftPanel.Controls.Add(lblBmi);
             leftPanel.Controls.Add(label10);
             leftPanel.Controls.Add(lblTarget);
             leftPanel.Controls.Add(lblMail);
             leftPanel.Controls.Add(lblUser);
             leftPanel.Controls.Add(lblGun);
-            leftPanel.Controls.Add(btnSayfaYenile);
             leftPanel.Controls.Add(diyetisyenMailLbl);
             leftPanel.Controls.Add(label12);
             leftPanel.Controls.Add(diyetisyenLbl);
             leftPanel.Controls.Add(label9);
-            leftPanel.Controls.Add(btnParola);
-            leftPanel.Controls.Add(btnGüncelle);
             leftPanel.Location = new Point(0, 1);
             leftPanel.Name = "leftPanel";
             leftPanel.Size = new Size(260, 640);
             leftPanel.TabIndex = 0;
             leftPanel.Paint += leftPanel_Paint;
             // 
+            // btnCikisYap
+            // 
+            btnCikisYap.BackColor = Color.Gray;
+            btnCikisYap.FlatAppearance.BorderSize = 0;
+            btnCikisYap.FlatStyle = FlatStyle.Flat;
+            btnCikisYap.ForeColor = Color.White;
+            btnCikisYap.Location = new Point(48, 572);
+            btnCikisYap.Margin = new Padding(3, 4, 3, 4);
+            btnCikisYap.Name = "btnCikisYap";
+            btnCikisYap.Size = new Size(176, 46);
+            btnCikisYap.TabIndex = 59;
+            btnCikisYap.Text = "Çıkış Yap";
+            btnCikisYap.UseVisualStyleBackColor = false;
+            btnCikisYap.Click += btnCikisYap_Click;
+            // 
+            // btnRefresh
+            // 
+            btnRefresh.BackColor = Color.Gray;
+            btnRefresh.FlatAppearance.BorderSize = 0;
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.ForeColor = Color.White;
+            btnRefresh.Location = new Point(48, 518);
+            btnRefresh.Margin = new Padding(3, 4, 3, 4);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(176, 46);
+            btnRefresh.TabIndex = 58;
+            btnRefresh.Text = "Sayfayı Yenile";
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
+            // 
+            // btnGuncelle
+            // 
+            btnGuncelle.BackColor = Color.Gray;
+            btnGuncelle.FlatAppearance.BorderSize = 0;
+            btnGuncelle.FlatStyle = FlatStyle.Flat;
+            btnGuncelle.ForeColor = Color.White;
+            btnGuncelle.Location = new Point(48, 410);
+            btnGuncelle.Margin = new Padding(3, 4, 3, 4);
+            btnGuncelle.Name = "btnGuncelle";
+            btnGuncelle.Size = new Size(176, 46);
+            btnGuncelle.TabIndex = 57;
+            btnGuncelle.Text = "Bilgileri Güncelle";
+            btnGuncelle.UseVisualStyleBackColor = false;
+            btnGuncelle.Click += btnGuncelle_Click_1;
+            // 
+            // btnResetPassword
+            // 
+            btnResetPassword.BackColor = Color.Gray;
+            btnResetPassword.FlatAppearance.BorderSize = 0;
+            btnResetPassword.FlatStyle = FlatStyle.Flat;
+            btnResetPassword.ForeColor = Color.White;
+            btnResetPassword.Location = new Point(48, 464);
+            btnResetPassword.Margin = new Padding(3, 4, 3, 4);
+            btnResetPassword.Name = "btnResetPassword";
+            btnResetPassword.Size = new Size(176, 46);
+            btnResetPassword.TabIndex = 56;
+            btnResetPassword.Text = "Parola Değiştir";
+            btnResetPassword.UseVisualStyleBackColor = false;
+            btnResetPassword.Click += btnResetPassword_Click;
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.Black;
+            panel5.Location = new Point(12, 394);
+            panel5.Margin = new Padding(3, 4, 3, 4);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(243, 3);
+            panel5.TabIndex = 55;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = Color.Black;
+            panel4.Location = new Point(12, 286);
+            panel4.Margin = new Padding(3, 4, 3, 4);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(243, 3);
+            panel4.TabIndex = 54;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = Color.Black;
+            panel3.Location = new Point(12, 242);
+            panel3.Margin = new Padding(3, 4, 3, 4);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(243, 3);
+            panel3.TabIndex = 53;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Black;
+            panel1.Location = new Point(12, 209);
+            panel1.Margin = new Padding(3, 4, 3, 4);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(243, 3);
+            panel1.TabIndex = 52;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = Color.Black;
+            panel2.Location = new Point(12, 154);
+            panel2.Margin = new Padding(3, 4, 3, 4);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(243, 3);
+            panel2.TabIndex = 51;
+            // 
             // circularPictureBox1
             // 
             circularPictureBox1.Image = (Image)resources.GetObject("circularPictureBox1.Image");
             circularPictureBox1.Location = new Point(12, 25);
             circularPictureBox1.Name = "circularPictureBox1";
-            circularPictureBox1.Size = new Size(63, 62);
+            circularPictureBox1.Size = new Size(75, 72);
             circularPictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             circularPictureBox1.TabIndex = 49;
             circularPictureBox1.TabStop = false;
-            // 
-            // btnSil
-            // 
-            btnSil.BackColor = Color.Silver;
-            btnSil.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSil.ForeColor = SystemColors.ButtonHighlight;
-            btnSil.Location = new Point(146, 361);
-            btnSil.Name = "btnSil";
-            btnSil.Size = new Size(97, 26);
-            btnSil.TabIndex = 48;
-            btnSil.Text = "Sil";
-            btnSil.UseVisualStyleBackColor = false;
-            btnSil.Click += btnSil_Click;
+           
             // 
             // lblBmi
             // 
@@ -192,19 +285,6 @@ namespace WinFormsApp1
             lblGun.TabIndex = 37;
             lblGun.Text = "x";
             // 
-            // btnSayfaYenile
-            // 
-            btnSayfaYenile.BackColor = Color.Silver;
-            btnSayfaYenile.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSayfaYenile.ForeColor = SystemColors.ButtonHighlight;
-            btnSayfaYenile.Location = new Point(29, 524);
-            btnSayfaYenile.Name = "btnSayfaYenile";
-            btnSayfaYenile.Size = new Size(206, 48);
-            btnSayfaYenile.TabIndex = 36;
-            btnSayfaYenile.Text = "Sayfa Yenile";
-            btnSayfaYenile.UseVisualStyleBackColor = false;
-            btnSayfaYenile.Click += btnSayfaYenile_Click;
-            // 
             // diyetisyenMailLbl
             // 
             diyetisyenMailLbl.AutoSize = true;
@@ -243,32 +323,6 @@ namespace WinFormsApp1
             label9.Size = new Size(172, 20);
             label9.TabIndex = 17;
             label9.Text = "  gündür programdasınız";
-            // 
-            // btnParola
-            // 
-            btnParola.BackColor = Color.Silver;
-            btnParola.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnParola.ForeColor = SystemColors.ButtonHighlight;
-            btnParola.Location = new Point(29, 470);
-            btnParola.Name = "btnParola";
-            btnParola.Size = new Size(206, 48);
-            btnParola.TabIndex = 15;
-            btnParola.Text = "Parola Değiştir";
-            btnParola.UseVisualStyleBackColor = false;
-            btnParola.Click += btnParola_Click;
-            // 
-            // btnGüncelle
-            // 
-            btnGüncelle.BackColor = Color.Silver;
-            btnGüncelle.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnGüncelle.ForeColor = SystemColors.ButtonHighlight;
-            btnGüncelle.Location = new Point(29, 416);
-            btnGüncelle.Name = "btnGüncelle";
-            btnGüncelle.Size = new Size(206, 48);
-            btnGüncelle.TabIndex = 14;
-            btnGüncelle.Text = "Bilgileri Güncelle";
-            btnGüncelle.UseVisualStyleBackColor = false;
-            btnGüncelle.Click += btnGuncelle_Click;
             // 
             // middlePanel1
             // 
@@ -466,75 +520,32 @@ namespace WinFormsApp1
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.BackColor = Color.FromArgb(216, 232, 227);
             flowLayoutPanel1.Dock = DockStyle.Right;
-            flowLayoutPanel1.Location = new Point(850, 0);
+            flowLayoutPanel1.Location = new Point(851, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(260, 641);
+            flowLayoutPanel1.Size = new Size(285, 641);
             flowLayoutPanel1.TabIndex = 6;
             // 
-            // btnCikis
+            // cstmbtnsil
             // 
-            btnCikis.BackColor = Color.Silver;
-            btnCikis.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCikis.ForeColor = SystemColors.ButtonHighlight;
-            btnCikis.Location = new Point(29, 578);
-            btnCikis.Name = "btnCikis";
-            btnCikis.Size = new Size(206, 48);
-            btnCikis.TabIndex = 50;
-            btnCikis.Text = "Çıkış Yap";
-            btnCikis.UseVisualStyleBackColor = false;
-            btnCikis.Click += btnCikis_Click;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.Black;
-            panel2.Location = new Point(12, 154);
-            panel2.Margin = new Padding(3, 4, 3, 4);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(243, 3);
-            panel2.TabIndex = 51;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.Black;
-            panel1.Location = new Point(12, 209);
-            panel1.Margin = new Padding(3, 4, 3, 4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(243, 3);
-            panel1.TabIndex = 52;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.Black;
-            panel3.Location = new Point(12, 242);
-            panel3.Margin = new Padding(3, 4, 3, 4);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(243, 3);
-            panel3.TabIndex = 53;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.Black;
-            panel4.Location = new Point(12, 286);
-            panel4.Margin = new Padding(3, 4, 3, 4);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(243, 3);
-            panel4.TabIndex = 54;
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.Black;
-            panel5.Location = new Point(12, 394);
-            panel5.Margin = new Padding(3, 4, 3, 4);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(243, 3);
-            panel5.TabIndex = 55;
+            cstmbtnsil.BackColor = Color.Gray;
+            cstmbtnsil.FlatAppearance.BorderSize = 0;
+            cstmbtnsil.FlatStyle = FlatStyle.Flat;
+            cstmbtnsil.ForeColor = Color.White;
+            cstmbtnsil.Location = new Point(153, 363);
+            cstmbtnsil.Margin = new Padding(3, 4, 3, 4);
+            cstmbtnsil.Name = "cstmbtnsil";
+            cstmbtnsil.Size = new Size(90, 26);
+            cstmbtnsil.TabIndex = 60;
+            cstmbtnsil.Text = "Sil";
+            cstmbtnsil.UseVisualStyleBackColor = false;
+            cstmbtnsil.Click += cstmbtnsil_Click;
             // 
             // DanisanPanel
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(165, 215, 198);
-            ClientSize = new Size(1110, 641);
+            ClientSize = new Size(1136, 641);
             Controls.Add(middlePanel1);
             Controls.Add(leftPanel);
             Controls.Add(flowLayoutPanel1);
@@ -553,8 +564,6 @@ namespace WinFormsApp1
             ResumeLayout(false);
         }
 
-
-
         #endregion
 
         private Panel leftPanel;
@@ -564,7 +573,6 @@ namespace WinFormsApp1
         private Panel grafikPanel1;
         private Label label2;
         private Label label1;
-        private Button btnGüncelle;
         private Panel grafikPanel4;
         private Panel grafikPanel3;
         private Panel grafikPanel2;
@@ -575,10 +583,8 @@ namespace WinFormsApp1
         private Label label3;
         private PictureBox pictureBox1;
         private CircularPictureBox circularPictureBox;
-        private Button btnParola;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private CircularPictureBox circularPictureBox1;
-
         private Label label9;
         private Label label12;
         private Label diyetisyenLbl;
@@ -588,9 +594,7 @@ namespace WinFormsApp1
         private Label lblKalca;
         private Label lblBel;
         private Label lblBoy;
-        private Button btnSayfaYenile;
         private LinkLabel diyetisyenMailLbl;
-
         private Label kilolbl;
         private Label lblGun;
         private Label lblUser;
@@ -598,13 +602,16 @@ namespace WinFormsApp1
         private Label lblMail;
         private FlowLayoutPanel flowLayoutPanel1;
         private Label lblBmi;
-        private Button btnSil;
         private System.ComponentModel.BackgroundWorker backgroundWorker3;
-        private Button btnCikis;
         private Panel panel5;
         private Panel panel4;
         private Panel panel3;
         private Panel panel1;
         private Panel panel2;
+        private CustomButton btnResetPassword;
+        private CustomButton btnGuncelle;
+        private CustomButton btnRefresh;
+        private CustomButton btnCikisYap;
+        private CustomButton cstmbtnsil;
     }
 }

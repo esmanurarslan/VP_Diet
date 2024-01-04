@@ -191,20 +191,7 @@ namespace WinFormsApp1
                 baglanti.Close();
             }
         }
-        private void btnGuncelle_Click(object sender, EventArgs e)
-        {
-            UpdateKg frm = new UpdateKg(Id);
-            this.Opacity = 0.5;
-            frm.FormClosed += (s, args) =>
-            {
-                // Guncelle formu kapatıldığında ana formun saydamlığını 1.0 olarak ayarla
-                //this.Update();
-                this.Opacity = 1.0;
 
-            };
-            frm.Show();
-
-        }
 
         // Veritabanından diyetisyen kullanıcı adlarını getiren bir metod
         private List<string> GetDietitianUsernames()
@@ -270,17 +257,7 @@ namespace WinFormsApp1
             }
 
         }
-        private void btnParola_Click(object sender, EventArgs e)
-        {
-            PassUpdate frm = new PassUpdate(Id);
-            this.Opacity = 0.5;
-            frm.FormClosed += (s, args) =>
-            {
-                // Guncelle formu kapatıldığında ana formun saydamlığını 1.0 olarak ayarla
-                this.Opacity = 1.0;
-            };
-            frm.Show();
-        }
+
 
         private void label17_Click(object sender, EventArgs e)
         {
@@ -299,12 +276,7 @@ namespace WinFormsApp1
             this.Close();
         }
 
-        private void btnSayfaYenile_Click(object sender, EventArgs e)
-        {
-            DanisanPanel form = new DanisanPanel(Id);
-            form.Show();
-            this.Close();
-        }
+
 
         private void DanisanPanel_Load(object sender, EventArgs e)
         {
@@ -341,43 +313,6 @@ namespace WinFormsApp1
             else
             {
                 lblBmi.Text += " (Obez)";
-            }
-        }
-
-        private void btnSil_Click(object sender, EventArgs e)
-        {
-            // Kullanıcıya silme işlemini onaylamasını isteyen bir onay kutusu göster
-            DialogResult result = MessageBox.Show("Kaydı silmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            // Kullanıcı Evet'i seçerse silme işlemine devam et
-            if (result == DialogResult.Yes)
-            {
-                try
-                {
-                    using (SqlConnection connection = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True"))
-                    {
-                        connection.Open();
-
-                        // Partner tablosundan kaydı silen SQL sorgusu
-                        string deleteQuery = "DELETE FROM Partner WHERE consultant = @id";
-
-                        using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
-                        {
-                            deleteCommand.Parameters.AddWithValue("@id", Id);
-                            deleteCommand.ExecuteNonQuery();
-                        }
-
-                        connection.Close();
-                    }
-
-                    // Partner tablosundan kaydı sildikten sonra danışan panelini yeniden yükle
-                    LoadConsultantData(Id);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error deleting record: " + ex.Message);
-                }
-
             }
         }
 
@@ -498,7 +433,47 @@ namespace WinFormsApp1
 
         }
 
-        private void btnCikis_Click(object sender, EventArgs e)
+
+
+        private void btnResetPassword_Click(object sender, EventArgs e)
+        {
+
+            PassUpdate frm = new PassUpdate(Id);
+            this.Opacity = 0.5;
+            frm.FormClosed += (s, args) =>
+            {
+                // Guncelle formu kapatıldığında ana formun saydamlığını 1.0 olarak ayarla
+                this.Opacity = 1.0;
+            };
+            frm.Show();
+
+        }
+
+        private void btnGuncelle_Click_1(object sender, EventArgs e)
+        {
+            UpdateKg frm = new UpdateKg(Id);
+            this.Opacity = 0.5;
+            frm.FormClosed += (s, args) =>
+            {
+                // Guncelle formu kapatıldığında ana formun saydamlığını 1.0 olarak ayarla
+                //this.Update();
+                this.Opacity = 1.0;
+
+            };
+            frm.Show();
+
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+
+            DanisanPanel form = new DanisanPanel(Id);
+            form.Show();
+            this.Close();
+
+        }
+
+        private void btnCikisYap_Click(object sender, EventArgs e)
         {
 
             FormGiris frm = new FormGiris();
@@ -506,7 +481,43 @@ namespace WinFormsApp1
             this.Close();
 
             frm.Show();
+        }
 
+        private void cstmbtnsil_Click(object sender, EventArgs e)
+        {
+            // Kullanıcıya silme işlemini onaylamasını isteyen bir onay kutusu göster
+            DialogResult result = MessageBox.Show("Kaydı silmek istediğinize emin misiniz?", "Onay", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Kullanıcı Evet'i seçerse silme işlemine devam et
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    using (SqlConnection connection = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True"))
+                    {
+                        connection.Open();
+
+                        // Partner tablosundan kaydı silen SQL sorgusu
+                        string deleteQuery = "DELETE FROM Partner WHERE consultant = @id";
+
+                        using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
+                        {
+                            deleteCommand.Parameters.AddWithValue("@id", Id);
+                            deleteCommand.ExecuteNonQuery();
+                        }
+
+                        connection.Close();
+                    }
+
+                    // Partner tablosundan kaydı sildikten sonra danışan panelini yeniden yükle
+                    LoadConsultantData(Id);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error deleting record: " + ex.Message);
+                }
+
+            }
         }
     }
 }
