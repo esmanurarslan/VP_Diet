@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 using System.Linq.Expressions;
 using System.Reflection.Emit;
 using System.Windows.Forms.DataVisualization.Charting;
-using MindFusion.Charting.WinForms;
+
 
 
 namespace WinFormsApp1

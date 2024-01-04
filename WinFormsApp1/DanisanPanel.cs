@@ -17,7 +17,7 @@ using WinFormsApp1.Properties;
 using static System.ComponentModel.Design.ObjectSelectorEditor;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Security.Cryptography;
-using MindFusion.Charting;
+
 
 
 

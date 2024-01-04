@@ -29,12 +29,12 @@ namespace WinFormsApp1
             string email = txtMail.Text.Trim();
 
             // SqlConnection nesnesini using bloğu içine al
-            using (SqlConnection baglanti = new SqlConnection(@"Data Source = LAPTOP-9HENLSU2; Initial Catalog = VP_diet; Integrated Security = True; Encrypt = True; TrustServerCertificate=True"))
+            using (SqlConnection baglanti = new SqlConnection(@" Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True"))
             {
                 baglanti.Open();
 
                 // Users tablosundan şifreyi al
-                using (SqlCommand komut = new SqlCommand("SELECT password FROM Users WHERE email = @p1", baglanti))
+                using (SqlCommand komut = new SqlCommand("SELECT userName,password FROM Users WHERE email = @p1", baglanti))
                 {
                     komut.Parameters.AddWithValue("@p1", email);
 
@@ -42,10 +42,11 @@ namespace WinFormsApp1
                     {
                         if (dataReader.Read())
                         {
-                            string password = dataReader.GetString(0);
+                            string password = dataReader.GetString(1);
+                            string userName = dataReader.GetString(0);
 
                             // E-posta gönderme işlemini gerçekleştir
-                            SendEmail(email, "Şifre Hatırlatma", $"Kullanıcı Adı: {email}\nŞifre: {password}");
+                            SendEmail(email, "Şifre Hatırlatma", $"Merhaba\nGaliba şifreni unuttun!\nSisteme kayıtlı kullanıcı adın:{userName}\nBuna göre Şifren: {password}\nSisteme giriş yaptıktan sonra şifreni güncellemeni tavsiye ederiz:)");
 
                             MessageBox.Show("Şifre e-posta ile gönderildi.");
                         }
@@ -82,7 +83,7 @@ namespace WinFormsApp1
                     }
                 }
 
-                MessageBox.Show("E-posta başarıyla gönderildi.");
+                
             }
             catch (Exception ex)
             {
