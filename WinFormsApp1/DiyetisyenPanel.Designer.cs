@@ -106,10 +106,11 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.ForeColor = SystemColors.ControlDark;
+            label5.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = SystemColors.ControlText;
             label5.Location = new Point(55, 220);
             label5.Name = "label5";
-            label5.Size = new Size(99, 20);
+            label5.Size = new Size(102, 20);
             label5.TabIndex = 11;
             label5.Text = "danışan sayısı";
             // 
@@ -145,30 +146,32 @@
             // lblDietSchool
             // 
             lblDietSchool.AutoSize = true;
-            lblDietSchool.ForeColor = SystemColors.ControlDark;
+            lblDietSchool.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblDietSchool.ForeColor = SystemColors.ControlText;
             lblDietSchool.Location = new Point(17, 169);
             lblDietSchool.Name = "lblDietSchool";
-            lblDietSchool.Size = new Size(148, 20);
+            lblDietSchool.Size = new Size(154, 20);
             lblDietSchool.TabIndex = 4;
             lblDietSchool.Text = "Example Mezun Okul";
             // 
             // lblDietMail
             // 
             lblDietMail.AutoSize = true;
-            lblDietMail.ForeColor = SystemColors.ControlDark;
+            lblDietMail.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblDietMail.ForeColor = SystemColors.ControlText;
             lblDietMail.Location = new Point(17, 140);
             lblDietMail.Name = "lblDietMail";
-            lblDietMail.Size = new Size(163, 20);
+            lblDietMail.Size = new Size(166, 20);
             lblDietMail.TabIndex = 3;
             lblDietMail.Text = "example@hotmail.com";
             // 
             // lblDietUserName
             // 
             lblDietUserName.AutoSize = true;
-            lblDietUserName.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lblDietUserName.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             lblDietUserName.Location = new Point(17, 110);
             lblDietUserName.Name = "lblDietUserName";
-            lblDietUserName.Size = new Size(122, 25);
+            lblDietUserName.Size = new Size(94, 20);
             lblDietUserName.TabIndex = 1;
             lblDietUserName.Text = "Kullanıcı Adı";
             // 
@@ -179,7 +182,7 @@
             circularPictureBox1.Location = new Point(12, 25);
             circularPictureBox1.Margin = new Padding(3, 4, 3, 4);
             circularPictureBox1.Name = "circularPictureBox1";
-            circularPictureBox1.Size = new Size(63, 62);
+            circularPictureBox1.Size = new Size(75, 72);
             circularPictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             circularPictureBox1.TabIndex = 0;
             circularPictureBox1.TabStop = false;
@@ -193,7 +196,7 @@
             panel3.Controls.Add(pnlKilo);
             panel3.Controls.Add(flowLPnlCon);
             panel3.Controls.Add(label1);
-            panel3.Location = new Point(357, 39);
+            panel3.Location = new Point(280, 25);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
             panel3.Size = new Size(678, 589);
@@ -247,21 +250,23 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(32, 21);
+            label1.Font = new Font("Segoe UI Semibold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(32, 15);
             label1.Name = "label1";
-            label1.Size = new Size(137, 28);
+            label1.Size = new Size(182, 38);
             label1.TabIndex = 13;
             label1.Text = "Danışanlarım";
+            label1.Click += label1_Click;
             // 
             // DiyetisyenPanel
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(165, 215, 198);
-            ClientSize = new Size(1137, 641);
+            ClientSize = new Size(996, 641);
             Controls.Add(panel3);
             Controls.Add(pnlDietInfo);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "DiyetisyenPanel";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DiyetisyenPanel";

@@ -31,6 +31,7 @@ namespace WinFormsApp1
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DanisanPanel));
             leftPanel = new Panel();
+            cstmbtnsil = new CustomButton();
             btnCikisYap = new CustomButton();
             btnRefresh = new CustomButton();
             btnGuncelle = new CustomButton();
@@ -74,7 +75,6 @@ namespace WinFormsApp1
             backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             flowLayoutPanel1 = new FlowLayoutPanel();
             backgroundWorker3 = new System.ComponentModel.BackgroundWorker();
-            cstmbtnsil = new CustomButton();
             leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)circularPictureBox1).BeginInit();
             middlePanel1.SuspendLayout();
@@ -111,6 +111,21 @@ namespace WinFormsApp1
             leftPanel.Size = new Size(260, 640);
             leftPanel.TabIndex = 0;
             leftPanel.Paint += leftPanel_Paint;
+            // 
+            // cstmbtnsil
+            // 
+            cstmbtnsil.BackColor = Color.Gray;
+            cstmbtnsil.FlatAppearance.BorderSize = 0;
+            cstmbtnsil.FlatStyle = FlatStyle.Flat;
+            cstmbtnsil.ForeColor = Color.White;
+            cstmbtnsil.Location = new Point(153, 363);
+            cstmbtnsil.Margin = new Padding(3, 4, 3, 4);
+            cstmbtnsil.Name = "cstmbtnsil";
+            cstmbtnsil.Size = new Size(90, 26);
+            cstmbtnsil.TabIndex = 60;
+            cstmbtnsil.Text = "Sil";
+            cstmbtnsil.UseVisualStyleBackColor = false;
+            cstmbtnsil.Click += cstmbtnsil_Click;
             // 
             // btnCikisYap
             // 
@@ -226,7 +241,6 @@ namespace WinFormsApp1
             circularPictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             circularPictureBox1.TabIndex = 49;
             circularPictureBox1.TabStop = false;
-           
             // 
             // lblBmi
             // 
@@ -240,7 +254,7 @@ namespace WinFormsApp1
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(29, 218);
+            label10.Location = new Point(20, 218);
             label10.Name = "label10";
             label10.Size = new Size(80, 20);
             label10.TabIndex = 42;
@@ -250,7 +264,7 @@ namespace WinFormsApp1
             // 
             lblTarget.AutoSize = true;
             lblTarget.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTarget.Location = new Point(113, 218);
+            lblTarget.Location = new Point(106, 218);
             lblTarget.Name = "lblTarget";
             lblTarget.Size = new Size(17, 20);
             lblTarget.TabIndex = 41;
@@ -279,7 +293,7 @@ namespace WinFormsApp1
             // 
             lblGun.AutoSize = true;
             lblGun.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblGun.Location = new Point(34, 172);
+            lblGun.Location = new Point(20, 172);
             lblGun.Name = "lblGun";
             lblGun.Size = new Size(17, 20);
             lblGun.TabIndex = 37;
@@ -318,7 +332,7 @@ namespace WinFormsApp1
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(52, 172);
+            label9.Location = new Point(43, 172);
             label9.Name = "label9";
             label9.Size = new Size(172, 20);
             label9.TabIndex = 17;
@@ -386,6 +400,7 @@ namespace WinFormsApp1
             // grafikPanel1
             // 
             grafikPanel1.BackColor = Color.White;
+            grafikPanel1.BorderStyle = BorderStyle.FixedSingle;
             grafikPanel1.Location = new Point(195, 67);
             grafikPanel1.Name = "grafikPanel1";
             grafikPanel1.Size = new Size(342, 120);
@@ -525,21 +540,6 @@ namespace WinFormsApp1
             flowLayoutPanel1.Size = new Size(285, 641);
             flowLayoutPanel1.TabIndex = 6;
             // 
-            // cstmbtnsil
-            // 
-            cstmbtnsil.BackColor = Color.Gray;
-            cstmbtnsil.FlatAppearance.BorderSize = 0;
-            cstmbtnsil.FlatStyle = FlatStyle.Flat;
-            cstmbtnsil.ForeColor = Color.White;
-            cstmbtnsil.Location = new Point(153, 363);
-            cstmbtnsil.Margin = new Padding(3, 4, 3, 4);
-            cstmbtnsil.Name = "cstmbtnsil";
-            cstmbtnsil.Size = new Size(90, 26);
-            cstmbtnsil.TabIndex = 60;
-            cstmbtnsil.Text = "Sil";
-            cstmbtnsil.UseVisualStyleBackColor = false;
-            cstmbtnsil.Click += cstmbtnsil_Click;
-            // 
             // DanisanPanel
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -549,6 +549,7 @@ namespace WinFormsApp1
             Controls.Add(middlePanel1);
             Controls.Add(leftPanel);
             Controls.Add(flowLayoutPanel1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "DanisanPanel";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DanisanPanel";

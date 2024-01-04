@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 using System.Linq.Expressions;
 using System.Reflection.Emit;
 using System.Windows.Forms.DataVisualization.Charting;
-
+0
 
 
 namespace WinFormsApp1
@@ -209,7 +209,7 @@ namespace WinFormsApp1
 
         private void Load_Graphics(int id, string columnName, Panel panel)
         {
-          
+
 
             Random random = new Random();
 
@@ -226,7 +226,7 @@ namespace WinFormsApp1
             chart.ChartAreas.Add(chartArea);
 
             System.Windows.Forms.DataVisualization.Charting.Series series = new System.Windows.Forms.DataVisualization.Charting.Series("MySeries");
-            series.ChartType = SeriesChartType.Line; 
+            series.ChartType = SeriesChartType.Line;
 
             series.Color = randomColor;
             chart.Series.Add(series);
@@ -303,6 +303,9 @@ namespace WinFormsApp1
 
         }
 
-      
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
