@@ -59,8 +59,8 @@ namespace WinFormsApp1
 
 
         }
-        SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
-        // SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+        //SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
+         SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
 
         private void UpdateKgForm_UpdateCompleted(object sender, EventArgs e)
         {
@@ -69,6 +69,8 @@ namespace WinFormsApp1
         }
         private void LoadConsultantData(int id)
         {
+            SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+
             using (baglanti) // connectionString'i uygun şekilde değiştirin
             {
                 baglanti.Open();
@@ -257,6 +259,35 @@ namespace WinFormsApp1
             }
 
         }
+        public void UpdateDietitianInfo(int dietitianId)
+
+        {
+            SqlConnection baglanti = new SqlConnection("Data Source=localhost; Initial Catalog=VP_diet; Integrated Security=True");
+            using (SqlCommand komut4 = new SqlCommand("SELECT D.nameSurname AS DietitianNameSurname, D.email AS DietitianEmail FROM Partner P JOIN Dietitian D ON P.dietitian = D.dietitianId WHERE P.consultant = @id ", baglanti))
+            {
+                baglanti.Open();
+                komut4.Parameters.AddWithValue("@id", Id);
+
+                using (SqlDataReader dataReader4 = komut4.ExecuteReader())
+                {
+                    if (dataReader4.Read())
+                    {
+                        string dietitianNameSurname = dataReader4["DietitianNameSurname"].ToString();
+                        string dietitianEmail = dataReader4["DietitianEmail"].ToString();
+
+                        // Elde edilen değerleri kullanabilirsiniz
+                        diyetisyenLbl.Text = dietitianNameSurname;
+                        diyetisyenMailLbl.Text = dietitianEmail;
+                    }
+                    else
+                    {
+                        // Belirtilen consultantId ile eşleşen bir kayıt bulunamadı
+                        diyetisyenLbl.Text = "Eşleşen diyetisyen bulunamadı";
+                        diyetisyenMailLbl.Text = "";
+                    }
+                }
+            }
+        }
 
 
         private void label17_Click(object sender, EventArgs e)
@@ -375,8 +406,9 @@ namespace WinFormsApp1
 
             // Seriyi grafiğe ekleyin
             chart1.Series.Add(series);
-
-            SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
+            //Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True
+            //Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True
+            SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
 
             using (baglanti)
             {
@@ -491,9 +523,10 @@ namespace WinFormsApp1
             // Kullanıcı Evet'i seçerse silme işlemine devam et
             if (result == DialogResult.Yes)
             {
-                try
-                {
-                    using (SqlConnection connection = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True"))
+               
+                    //Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True
+                    //Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True
+                    using (SqlConnection connection = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True"))
                     {
                         connection.Open();
 
@@ -511,11 +544,7 @@ namespace WinFormsApp1
 
                     // Partner tablosundan kaydı sildikten sonra danışan panelini yeniden yükle
                     LoadConsultantData(Id);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error deleting record: " + ex.Message);
-                }
+              
 
             }
         }

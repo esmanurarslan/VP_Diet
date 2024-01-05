@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 using System.Linq.Expressions;
 using System.Reflection.Emit;
 using System.Windows.Forms.DataVisualization.Charting;
-0
+
 
 
 namespace WinFormsApp1
@@ -35,9 +35,8 @@ namespace WinFormsApp1
             populateItems(this.Id = Id);
 
         }
-        SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
-
-        //SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+        //SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
+        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
 
         private void LoadDietitianData(int id)
         {
@@ -139,8 +138,9 @@ namespace WinFormsApp1
         private void populateItems(int id)
         {
             using (baglanti)
-            {
-                SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
+            {   //Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True
+                //Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True
+                SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
 
                 baglanti.Open();
                 string query = "SELECT * FROM Users INNER JOIN Consultant ON Users.Id = Consultant.consultantId INNER JOIN Partner ON Consultant.consultantId = Partner.consultant WHERE Partner.dietitian = @id";

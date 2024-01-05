@@ -72,16 +72,46 @@ namespace WinFormsApp1
                 int consultantId = danisanPanelForm.Id;
                 int dietitianId = this.Id; // infoFrm'nin dietitianId'si
 
-                // Partner tablosuna giriş yap
-                AddToPartnerTable(consultantId, dietitianId);
+                // Check if a record already exists for the specified consultant in the Partner table
+                if (RecordExistsInPartnerTable(consultantId))
+                {
+                    // If a record exists, display a warning message
+                    MessageBox.Show("Bu danışan zaten bir diyetisyene atanmış.");
+                }
+                else
+                {
+                    // If no record exists, add a new record to the Partner table
+                    AddToPartnerTable(consultantId, dietitianId);
+                    danisanPanelForm.UpdateDietitianInfo(dietitianId);
 
-                // İşlem başarılı mesajı
-                MessageBox.Show("Partner tablosuna giriş yapıldı.");
+                    // İşlem başarılı mesajı
+
+                }
             }
             else
             {
                 // DanisanPanel formu kapalı ise uyarı ver
                 MessageBox.Show("DanisanPanel formu bulunamadı.");
+            }
+        }
+
+        // Helper method to check if a record already exists for the specified consultant in the Partner table
+        private bool RecordExistsInPartnerTable(int consultantId)
+        {
+            using (SqlConnection connection = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True"))
+            {
+                connection.Open();
+
+                // Check if a record already exists for the specified consultant in the Partner table
+                string query = "SELECT COUNT(*) FROM Partner WHERE consultant = @consultantId";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@consultantId", consultantId);
+
+                    int count = (int)command.ExecuteScalar();
+
+                    return count > 0;
+                }
             }
         }
 
@@ -102,5 +132,6 @@ namespace WinFormsApp1
                 }
             }
         }
+
     }
 }
