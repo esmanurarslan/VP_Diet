@@ -34,8 +34,8 @@ namespace WinFormsApp1
             lblUsername = new Label();
             panel1 = new Panel();
             circularPictureBox1 = new CircularPictureBox();
-            lblPuan = new Label();
             btnIncele = new Button();
+            lblPuan = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)circularPictureBox1).BeginInit();
             SuspendLayout();
@@ -71,17 +71,6 @@ namespace WinFormsApp1
             circularPictureBox1.TabIndex = 0;
             circularPictureBox1.TabStop = false;
             // 
-            // lblPuan
-            // 
-            lblPuan.AutoSize = true;
-            lblPuan.BackColor = SystemColors.ControlLightLight;
-            lblPuan.Font = new Font("Segoe UI", 7.8F, FontStyle.Regular, GraphicsUnit.Point);
-            lblPuan.Location = new Point(99, 36);
-            lblPuan.Name = "lblPuan";
-            lblPuan.Size = new Size(36, 17);
-            lblPuan.TabIndex = 3;
-            lblPuan.Text = "Puan";
-            // 
             // btnIncele
             // 
             btnIncele.BackColor = Color.FromArgb(165, 215, 198);
@@ -93,13 +82,23 @@ namespace WinFormsApp1
             btnIncele.Text = "İncele";
             btnIncele.UseVisualStyleBackColor = false;
             // 
+            // lblPuan
+            // 
+            lblPuan.AutoSize = true;
+            lblPuan.BackColor = SystemColors.ControlLightLight;
+            lblPuan.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            lblPuan.Location = new Point(99, 36);
+            lblPuan.Name = "lblPuan";
+            lblPuan.Size = new Size(0, 20);
+            lblPuan.TabIndex = 5;
+            // 
             // listItem
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            Controls.Add(btnIncele);
             Controls.Add(lblPuan);
+            Controls.Add(btnIncele);
             Controls.Add(panel1);
             Controls.Add(lblUsername);
             Name = "listItem";
@@ -114,7 +113,7 @@ namespace WinFormsApp1
         private Label lblUsername;
         private Panel panel1;
         private CircularPictureBox circularPictureBox1;
-        private Label lblPuan;
         private Button btnIncele;
+        private Label lblPuan;
     }
 }

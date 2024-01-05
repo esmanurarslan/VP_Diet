@@ -21,8 +21,8 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
-        SqlConnection baglanti = new SqlConnection(@"Data Source = LAPTOP-9HENLSU2; Initial Catalog = VP_diet; Integrated Security = True; Encrypt = True; TrustServerCertificate=True");
-        // SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+        //SqlConnection baglanti = new SqlConnection(@"Data Source = LAPTOP-9HENLSU2; Initial Catalog = VP_diet; Integrated Security = True; Encrypt = True; TrustServerCertificate=True");
+         SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
@@ -95,7 +95,7 @@ namespace WinFormsApp1
             }
 
             // Veritabanı bağlantısı
-            using (SqlConnection connection = new SqlConnection("Data Source = LAPTOP - 9HENLSU2; Initial Catalog = VP_diet; Integrated Security = True; Encrypt = True; Trust Server Certificate=True"))
+            using (SqlConnection connection = new SqlConnection("Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True"))
             {
                 connection.Open();
 

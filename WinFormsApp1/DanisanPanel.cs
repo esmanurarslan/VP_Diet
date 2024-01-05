@@ -60,7 +60,7 @@ namespace WinFormsApp1
 
         }
         //SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
-         SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
 
         private void UpdateKgForm_UpdateCompleted(object sender, EventArgs e)
         {
@@ -250,7 +250,7 @@ namespace WinFormsApp1
                             listItem listItem = new listItem(Convert.ToInt32(reader["dietitianId"]));
                             listItem.DietitianId = Convert.ToInt32(reader["dietitianId"]); // Bu satırın eklenmiş olması önemli
                             listItem.Name = reader["nameSurname"].ToString();
-                            listItem.Puan = "süper";
+                            listItem.Puan = "";
                             listItem.InceleClicked += ListItem_InceleClicked;
                             flowLayoutPanel1.Controls.Add(listItem);
                         }
@@ -523,30 +523,32 @@ namespace WinFormsApp1
             // Kullanıcı Evet'i seçerse silme işlemine devam et
             if (result == DialogResult.Yes)
             {
-               
-                    //Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True
-                    //Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True
-                    using (SqlConnection connection = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True"))
+
+                //Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True
+                //Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True
+                using (SqlConnection connection = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True"))
+                {
+                    connection.Open();
+
+                    // Partner tablosundan kaydı silen SQL sorgusu
+                    string deleteQuery = "DELETE FROM Partner WHERE consultant = @id";
+
+                    using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
                     {
-                        connection.Open();
-
-                        // Partner tablosundan kaydı silen SQL sorgusu
-                        string deleteQuery = "DELETE FROM Partner WHERE consultant = @id";
-
-                        using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
-                        {
-                            deleteCommand.Parameters.AddWithValue("@id", Id);
-                            deleteCommand.ExecuteNonQuery();
-                        }
-
-                        connection.Close();
+                        deleteCommand.Parameters.AddWithValue("@id", Id);
+                        deleteCommand.ExecuteNonQuery();
                     }
 
-                    // Partner tablosundan kaydı sildikten sonra danışan panelini yeniden yükle
-                    LoadConsultantData(Id);
-              
+                    connection.Close();
+                }
+
+                // Partner tablosundan kaydı sildikten sonra danışan panelini yeniden yükle
+                LoadConsultantData(Id);
+
 
             }
         }
+
+       
     }
 }

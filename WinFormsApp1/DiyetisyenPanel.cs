@@ -231,7 +231,7 @@ namespace WinFormsApp1
             series.Color = randomColor;
             chart.Series.Add(series);
 
-            using (SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True"))
+            using (SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True"))
             {
                 baglanti.Open();
 

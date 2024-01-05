@@ -33,7 +33,6 @@ namespace WinFormsApp1
             leftPanel = new Panel();
             cstmbtnsil = new CustomButton();
             btnCikisYap = new CustomButton();
-            btnRefresh = new CustomButton();
             btnGuncelle = new CustomButton();
             btnResetPassword = new CustomButton();
             panel5 = new Panel();
@@ -52,6 +51,7 @@ namespace WinFormsApp1
             label12 = new Label();
             diyetisyenLbl = new Label();
             label9 = new Label();
+            btnRefresh = new CustomButton();
             middlePanel1 = new Panel();
             grafikPanel4 = new Panel();
             grafikPanel3 = new Panel();
@@ -87,7 +87,6 @@ namespace WinFormsApp1
             leftPanel.BackColor = Color.FromArgb(216, 232, 227);
             leftPanel.Controls.Add(cstmbtnsil);
             leftPanel.Controls.Add(btnCikisYap);
-            leftPanel.Controls.Add(btnRefresh);
             leftPanel.Controls.Add(btnGuncelle);
             leftPanel.Controls.Add(btnResetPassword);
             leftPanel.Controls.Add(panel5);
@@ -118,7 +117,7 @@ namespace WinFormsApp1
             cstmbtnsil.FlatAppearance.BorderSize = 0;
             cstmbtnsil.FlatStyle = FlatStyle.Flat;
             cstmbtnsil.ForeColor = Color.White;
-            cstmbtnsil.Location = new Point(153, 363);
+            cstmbtnsil.Location = new Point(156, 404);
             cstmbtnsil.Margin = new Padding(3, 4, 3, 4);
             cstmbtnsil.Name = "cstmbtnsil";
             cstmbtnsil.Size = new Size(90, 26);
@@ -142,28 +141,13 @@ namespace WinFormsApp1
             btnCikisYap.UseVisualStyleBackColor = false;
             btnCikisYap.Click += btnCikisYap_Click;
             // 
-            // btnRefresh
-            // 
-            btnRefresh.BackColor = Color.Gray;
-            btnRefresh.FlatAppearance.BorderSize = 0;
-            btnRefresh.FlatStyle = FlatStyle.Flat;
-            btnRefresh.ForeColor = Color.White;
-            btnRefresh.Location = new Point(48, 518);
-            btnRefresh.Margin = new Padding(3, 4, 3, 4);
-            btnRefresh.Name = "btnRefresh";
-            btnRefresh.Size = new Size(176, 46);
-            btnRefresh.TabIndex = 58;
-            btnRefresh.Text = "Sayfayı Yenile";
-            btnRefresh.UseVisualStyleBackColor = false;
-            btnRefresh.Click += btnRefresh_Click;
-            // 
             // btnGuncelle
             // 
             btnGuncelle.BackColor = Color.Gray;
             btnGuncelle.FlatAppearance.BorderSize = 0;
             btnGuncelle.FlatStyle = FlatStyle.Flat;
             btnGuncelle.ForeColor = Color.White;
-            btnGuncelle.Location = new Point(48, 410);
+            btnGuncelle.Location = new Point(48, 464);
             btnGuncelle.Margin = new Padding(3, 4, 3, 4);
             btnGuncelle.Name = "btnGuncelle";
             btnGuncelle.Size = new Size(176, 46);
@@ -178,7 +162,7 @@ namespace WinFormsApp1
             btnResetPassword.FlatAppearance.BorderSize = 0;
             btnResetPassword.FlatStyle = FlatStyle.Flat;
             btnResetPassword.ForeColor = Color.White;
-            btnResetPassword.Location = new Point(48, 464);
+            btnResetPassword.Location = new Point(48, 518);
             btnResetPassword.Margin = new Padding(3, 4, 3, 4);
             btnResetPassword.Name = "btnResetPassword";
             btnResetPassword.Size = new Size(176, 46);
@@ -190,7 +174,7 @@ namespace WinFormsApp1
             // panel5
             // 
             panel5.BackColor = Color.Black;
-            panel5.Location = new Point(12, 394);
+            panel5.Location = new Point(12, 441);
             panel5.Margin = new Padding(3, 4, 3, 4);
             panel5.Name = "panel5";
             panel5.Size = new Size(243, 3);
@@ -199,7 +183,7 @@ namespace WinFormsApp1
             // panel4
             // 
             panel4.BackColor = Color.Black;
-            panel4.Location = new Point(12, 286);
+            panel4.Location = new Point(12, 298);
             panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
             panel4.Size = new Size(243, 3);
@@ -208,7 +192,7 @@ namespace WinFormsApp1
             // panel3
             // 
             panel3.BackColor = Color.Black;
-            panel3.Location = new Point(12, 242);
+            panel3.Location = new Point(12, 255);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
             panel3.Size = new Size(243, 3);
@@ -245,7 +229,7 @@ namespace WinFormsApp1
             // lblBmi
             // 
             lblBmi.AutoSize = true;
-            lblBmi.Location = new Point(17, 262);
+            lblBmi.Location = new Point(22, 274);
             lblBmi.Name = "lblBmi";
             lblBmi.Size = new Size(22, 20);
             lblBmi.TabIndex = 47;
@@ -254,7 +238,7 @@ namespace WinFormsApp1
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(20, 218);
+            label10.Location = new Point(22, 218);
             label10.Name = "label10";
             label10.Size = new Size(80, 20);
             label10.TabIndex = 42;
@@ -273,7 +257,7 @@ namespace WinFormsApp1
             // lblMail
             // 
             lblMail.AutoSize = true;
-            lblMail.Location = new Point(17, 130);
+            lblMail.Location = new Point(22, 130);
             lblMail.Name = "lblMail";
             lblMail.Size = new Size(22, 20);
             lblMail.TabIndex = 39;
@@ -283,7 +267,7 @@ namespace WinFormsApp1
             // 
             lblUser.AutoSize = true;
             lblUser.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblUser.Location = new Point(17, 110);
+            lblUser.Location = new Point(22, 110);
             lblUser.Name = "lblUser";
             lblUser.Size = new Size(20, 20);
             lblUser.TabIndex = 38;
@@ -293,7 +277,7 @@ namespace WinFormsApp1
             // 
             lblGun.AutoSize = true;
             lblGun.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblGun.Location = new Point(20, 172);
+            lblGun.Location = new Point(22, 172);
             lblGun.Name = "lblGun";
             lblGun.Size = new Size(17, 20);
             lblGun.TabIndex = 37;
@@ -303,7 +287,7 @@ namespace WinFormsApp1
             // 
             diyetisyenMailLbl.AutoSize = true;
             diyetisyenMailLbl.LinkColor = Color.Black;
-            diyetisyenMailLbl.Location = new Point(17, 338);
+            diyetisyenMailLbl.Location = new Point(22, 365);
             diyetisyenMailLbl.Name = "diyetisyenMailLbl";
             diyetisyenMailLbl.Size = new Size(188, 20);
             diyetisyenMailLbl.TabIndex = 23;
@@ -314,7 +298,7 @@ namespace WinFormsApp1
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Segoe UI Semibold", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label12.Location = new Point(17, 293);
+            label12.Location = new Point(22, 315);
             label12.Name = "label12";
             label12.Size = new Size(108, 23);
             label12.TabIndex = 22;
@@ -323,7 +307,7 @@ namespace WinFormsApp1
             // diyetisyenLbl
             // 
             diyetisyenLbl.AutoSize = true;
-            diyetisyenLbl.Location = new Point(17, 318);
+            diyetisyenLbl.Location = new Point(22, 340);
             diyetisyenLbl.Name = "diyetisyenLbl";
             diyetisyenLbl.Size = new Size(113, 20);
             diyetisyenLbl.TabIndex = 21;
@@ -338,11 +322,27 @@ namespace WinFormsApp1
             label9.TabIndex = 17;
             label9.Text = "  gündür programdasınız";
             // 
+            // btnRefresh
+            // 
+            btnRefresh.BackColor = Color.Gray;
+            btnRefresh.FlatAppearance.BorderSize = 0;
+            btnRefresh.FlatStyle = FlatStyle.Flat;
+            btnRefresh.ForeColor = Color.White;
+            btnRefresh.Location = new Point(426, 14);
+            btnRefresh.Margin = new Padding(3, 4, 3, 4);
+            btnRefresh.Name = "btnRefresh";
+            btnRefresh.Size = new Size(111, 46);
+            btnRefresh.TabIndex = 58;
+            btnRefresh.Text = "Sayfayı Yenile";
+            btnRefresh.UseVisualStyleBackColor = false;
+            btnRefresh.Click += btnRefresh_Click;
+            // 
             // middlePanel1
             // 
             middlePanel1.BackColor = Color.FromArgb(216, 232, 227);
             middlePanel1.Controls.Add(grafikPanel4);
             middlePanel1.Controls.Add(grafikPanel3);
+            middlePanel1.Controls.Add(btnRefresh);
             middlePanel1.Controls.Add(grafikPanel2);
             middlePanel1.Controls.Add(label2);
             middlePanel1.Controls.Add(label1);
