@@ -19,7 +19,7 @@ namespace WinFormsApp1
             InitializeComponent();
             LoadDietitianData(this.Id = id);
         }
-        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+        SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
         private object id;
 
         private void dietitianInfoFromAdmin_Load(object sender, EventArgs e)
@@ -101,7 +101,7 @@ namespace WinFormsApp1
             {
                 try
                 {
-                    using (SqlConnection connection = new SqlConnection("Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True"))
+                    using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
                     {
                         connection.Open();
 

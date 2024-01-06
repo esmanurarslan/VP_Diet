@@ -20,7 +20,7 @@ namespace WinFormsApp1
             InitializeComponent();
             LoadDietitianData(this.Id = id);
         }
-        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+        SqlConnection baglanti = new SqlConnection(@"       ");
 
         private void infoFrm_Load(object sender, EventArgs e)
         {
@@ -28,6 +28,8 @@ namespace WinFormsApp1
         }
         private void LoadDietitianData(int id)
         {
+            SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
+
             using (baglanti) // connectionString'i uygun şekilde değiştirin
             {
                 baglanti.Open();
@@ -98,7 +100,7 @@ namespace WinFormsApp1
         // Helper method to check if a record already exists for the specified consultant in the Partner table
         private bool RecordExistsInPartnerTable(int consultantId)
         {
-            using (SqlConnection connection = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True"))
+            using (SqlConnection connection = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
             {
                 connection.Open();
 
@@ -117,7 +119,7 @@ namespace WinFormsApp1
 
         private void AddToPartnerTable(int consultantId, int dietitianId)
         {
-            using (SqlConnection connection = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True"))
+            using (SqlConnection connection = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
             {
                 connection.Open();
 

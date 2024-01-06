@@ -28,7 +28,7 @@ namespace WinFormsApp1
 
             // Eski şifre, kullanıcının mevcut şifresini Users tablosundan kontrol et
             string checkOldPasswordQuery = "SELECT COUNT(*) FROM Users WHERE Id = @id AND Password = @password";
-            using (SqlConnection connection = new SqlConnection("Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True"))
+            using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
             {
                 connection.Open();
                 using (SqlCommand checkOldPasswordCommand = new SqlCommand(checkOldPasswordQuery, connection))
@@ -55,7 +55,7 @@ namespace WinFormsApp1
 
             // Yeni şifreyi Users tablosunda güncelle
             string updatePasswordQuery = "UPDATE Users SET Password = @newPassword WHERE Id = @id";
-            using (SqlConnection connection = new SqlConnection("Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True"))
+            using (SqlConnection connection = new SqlConnection("Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
             {
                 connection.Open();
                 using (SqlCommand updatePasswordCommand = new SqlCommand(updatePasswordQuery, connection))

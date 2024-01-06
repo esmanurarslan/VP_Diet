@@ -23,7 +23,7 @@ using System.Security.Cryptography;
 
 
 // Şevval's database
-//Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;Trust Server Certificate=True
+//Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;TrustServerCertificate=True
 //esma db   Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True
 
 
@@ -60,7 +60,7 @@ namespace WinFormsApp1
 
         }
         //SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
-        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+        SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
 
         private void UpdateKgForm_UpdateCompleted(object sender, EventArgs e)
         {
@@ -69,7 +69,7 @@ namespace WinFormsApp1
         }
         private void LoadConsultantData(int id)
         {
-            SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+            SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
 
             using (baglanti) // connectionString'i uygun şekilde değiştirin
             {
@@ -235,7 +235,7 @@ namespace WinFormsApp1
 
         private void populateItems()
         {
-            SqlConnection connection = new SqlConnection("Data Source=localhost; Initial Catalog=VP_diet; Integrated Security=True");
+            SqlConnection connection = new SqlConnection("Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
             using (connection)
             {
                 connection.Open();
@@ -262,7 +262,7 @@ namespace WinFormsApp1
         public void UpdateDietitianInfo(int dietitianId)
 
         {
-            SqlConnection baglanti = new SqlConnection("Data Source=localhost; Initial Catalog=VP_diet; Integrated Security=True");
+            SqlConnection baglanti = new SqlConnection("Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
             using (SqlCommand komut4 = new SqlCommand("SELECT D.nameSurname AS DietitianNameSurname, D.email AS DietitianEmail FROM Partner P JOIN Dietitian D ON P.dietitian = D.dietitianId WHERE P.consultant = @id ", baglanti))
             {
                 baglanti.Open();
@@ -408,7 +408,7 @@ namespace WinFormsApp1
             chart1.Series.Add(series);
             //Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True
             //Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True
-            SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+            SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
 
             using (baglanti)
             {
@@ -526,7 +526,7 @@ namespace WinFormsApp1
 
                 //Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True
                 //Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True
-                using (SqlConnection connection = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;TrustServerCertificate=True"))
                 {
                     connection.Open();
 

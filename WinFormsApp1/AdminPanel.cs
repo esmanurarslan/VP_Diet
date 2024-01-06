@@ -19,8 +19,8 @@ namespace WinFormsApp1
             InitializeComponent();
             LoadUserStatistics(this.Id = id);
         }
-        SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
-        //SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
+        //SqlConnection baglanti = new SqlConnection(@"Data Source=localhost;Initial Catalog=VP_diet;Integrated Security=True");
+        SqlConnection baglanti = new SqlConnection(@"Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;TrustServerCertificate=True");
         private void AdminPanel_Load(object sender, EventArgs e)
         {
 
@@ -209,7 +209,7 @@ namespace WinFormsApp1
 
         private void populateDietitiansItems()
         {
-            SqlConnection connection = new SqlConnection("Data Source=localhost; Initial Catalog=VP_diet;Integrated Security=True");
+            SqlConnection connection = new SqlConnection("Data Source=LAPTOP-9HENLSU2;Initial Catalog=VP_diet;Integrated Security=True;Encrypt=True;TrustServerCertificate=True");
             using (connection)
             {
                 connection.Open();
@@ -244,7 +244,7 @@ namespace WinFormsApp1
 
         private void populateConsultantItems()
         {
-            SqlConnection connection = new SqlConnection("Data Source=localhost; Initial Catalog=VP_diet;Integrated Security=True");
+            SqlConnection connection = new SqlConnection("Data Source = LAPTOP-9HENLSU2; Initial Catalog = VP_diet; Integrated Security = True; Encrypt = True; TrustServerCertificate = True");
             using (connection)
             {
                 connection.Open();
