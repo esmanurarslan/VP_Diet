@@ -33,7 +33,7 @@
             btnInspect = new CustomButton();
             lblNameSurname = new Label();
             panel1 = new Panel();
-            lblCity = new Label();
+            lblMail = new Label();
             lblGender = new Label();
             ((System.ComponentModel.ISupportInitialize)pcbConsultant).BeginInit();
             panel1.SuspendLayout();
@@ -82,7 +82,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(lblCity);
+            panel1.Controls.Add(lblMail);
             panel1.Controls.Add(lblGender);
             panel1.Location = new Point(82, 33);
             panel1.Margin = new Padding(2);
@@ -90,17 +90,17 @@
             panel1.Size = new Size(161, 48);
             panel1.TabIndex = 3;
             // 
-            // lblCity
+            // lblMail
             // 
-            lblCity.AutoSize = true;
-            lblCity.Font = new Font("Segoe UI", 7.125F, FontStyle.Regular, GraphicsUnit.Point);
-            lblCity.ForeColor = Color.Black;
-            lblCity.Location = new Point(10, 22);
-            lblCity.Margin = new Padding(2, 0, 2, 0);
-            lblCity.Name = "lblCity";
-            lblCity.Size = new Size(28, 15);
-            lblCity.TabIndex = 1;
-            lblCity.Text = "City";
+            lblMail.AutoSize = true;
+            lblMail.Font = new Font("Segoe UI", 7.125F, FontStyle.Regular, GraphicsUnit.Point);
+            lblMail.ForeColor = Color.Black;
+            lblMail.Location = new Point(10, 22);
+            lblMail.Margin = new Padding(2, 0, 2, 0);
+            lblMail.Name = "lblMail";
+            lblMail.Size = new Size(30, 15);
+            lblMail.TabIndex = 1;
+            lblMail.Text = "Mail";
             // 
             // lblGender
             // 
@@ -126,7 +126,6 @@
             Margin = new Padding(2);
             Name = "DietitianItem";
             Size = new Size(252, 116);
-       
             ((System.ComponentModel.ISupportInitialize)pcbConsultant).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -140,7 +139,7 @@
         private CustomButton btnInspect;
         private Label lblNameSurname;
         private Panel panel1;
-        private Label lblCity;
+        private Label lblMail;
         private Label lblGender;
     }
 }

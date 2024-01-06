@@ -173,7 +173,8 @@ namespace WinFormsApp1
             // 
             // panel5
             // 
-            panel5.BackColor = Color.Black;
+            panel5.BackColor = SystemColors.ControlDark;
+            panel5.ForeColor = SystemColors.ControlDark;
             panel5.Location = new Point(12, 441);
             panel5.Margin = new Padding(3, 4, 3, 4);
             panel5.Name = "panel5";
@@ -182,7 +183,8 @@ namespace WinFormsApp1
             // 
             // panel4
             // 
-            panel4.BackColor = Color.Black;
+            panel4.BackColor = SystemColors.ControlDark;
+            panel4.ForeColor = SystemColors.ControlDark;
             panel4.Location = new Point(12, 298);
             panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
@@ -191,7 +193,8 @@ namespace WinFormsApp1
             // 
             // panel3
             // 
-            panel3.BackColor = Color.Black;
+            panel3.BackColor = SystemColors.ControlDark;
+            panel3.ForeColor = SystemColors.ControlDark;
             panel3.Location = new Point(12, 255);
             panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
@@ -200,7 +203,8 @@ namespace WinFormsApp1
             // 
             // panel1
             // 
-            panel1.BackColor = Color.Black;
+            panel1.BackColor = SystemColors.ControlDark;
+            panel1.ForeColor = SystemColors.ControlDark;
             panel1.Location = new Point(12, 209);
             panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
@@ -209,7 +213,7 @@ namespace WinFormsApp1
             // 
             // panel2
             // 
-            panel2.BackColor = Color.Black;
+            panel2.BackColor = SystemColors.ControlDark;
             panel2.Location = new Point(12, 154);
             panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";

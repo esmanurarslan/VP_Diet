@@ -30,10 +30,9 @@ namespace WinFormsApp1
         private int consultantId;
         private string userName;
         private string gender;
-        private string city;
+        private string mail;
         private Image photo;
 
-       
 
         public string Username
         {
@@ -51,10 +50,10 @@ namespace WinFormsApp1
 
 
 
-        public string City
+        public string Mail
         {
-            get { return city; }
-            set { city = value; lblCity.Text = value; }
+            get { return mail; }
+            set { mail = value; lblMail.Text = value; }
         }
 
         public Image Photo

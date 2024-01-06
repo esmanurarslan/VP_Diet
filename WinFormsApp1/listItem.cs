@@ -33,6 +33,8 @@ namespace WinFormsApp1
         private int dietitianId;
         private string name;
         private string puan;
+
+
         public event EventHandler<int> btnInceleClicked;
 
 

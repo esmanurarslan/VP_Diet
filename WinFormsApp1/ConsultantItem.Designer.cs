@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConsultantItem));
             lblUsername = new Label();
             lblGun = new Label();
             btnIncele = new Button();
@@ -41,7 +42,7 @@
             // 
             lblUsername.AutoSize = true;
             lblUsername.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblUsername.Location = new Point(99, 10);
+            lblUsername.Location = new Point(90, 16);
             lblUsername.Name = "lblUsername";
             lblUsername.Size = new Size(51, 20);
             lblUsername.TabIndex = 0;
@@ -51,7 +52,7 @@
             // 
             lblGun.AutoSize = true;
             lblGun.Font = new Font("Segoe UI", 7.20000029F, FontStyle.Regular, GraphicsUnit.Point);
-            lblGun.Location = new Point(99, 30);
+            lblGun.Location = new Point(90, 36);
             lblGun.Name = "lblGun";
             lblGun.Size = new Size(43, 17);
             lblGun.TabIndex = 1;
@@ -60,7 +61,7 @@
             // btnIncele
             // 
             btnIncele.BackColor = Color.FromArgb(165, 215, 198);
-            btnIncele.Location = new Point(155, 50);
+            btnIncele.Location = new Point(155, 61);
             btnIncele.Name = "btnIncele";
             btnIncele.Size = new Size(94, 29);
             btnIncele.TabIndex = 2;
@@ -73,17 +74,18 @@
             panel1.Controls.Add(circularPictureBox1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(84, 89);
+            panel1.Size = new Size(84, 93);
             panel1.TabIndex = 3;
             // 
             // circularPictureBox1
             // 
             circularPictureBox1.BackColor = Color.White;
+            circularPictureBox1.Image = (Image)resources.GetObject("circularPictureBox1.Image");
             circularPictureBox1.Location = new Point(12, 16);
             circularPictureBox1.Name = "circularPictureBox1";
-            circularPictureBox1.Size = new Size(53, 52);
+            circularPictureBox1.Size = new Size(60, 63);
             circularPictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            circularPictureBox1.TabIndex = 0;
+            circularPictureBox1.TabIndex = 1;
             circularPictureBox1.TabStop = false;
             // 
             // ConsultantItem
@@ -96,7 +98,7 @@
             Controls.Add(lblGun);
             Controls.Add(lblUsername);
             Name = "ConsultantItem";
-            Size = new Size(252, 82);
+            Size = new Size(252, 93);
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)circularPictureBox1).EndInit();
             ResumeLayout(false);

@@ -45,7 +45,7 @@ namespace WinFormsApp1
             lblUsername.AutoSize = true;
             lblUsername.BackColor = SystemColors.ControlLightLight;
             lblUsername.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblUsername.Location = new Point(99, 16);
+            lblUsername.Location = new Point(90, 16);
             lblUsername.Name = "lblUsername";
             lblUsername.Size = new Size(84, 20);
             lblUsername.TabIndex = 1;
@@ -57,7 +57,7 @@ namespace WinFormsApp1
             panel1.Controls.Add(circularPictureBox1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(84, 86);
+            panel1.Size = new Size(84, 93);
             panel1.TabIndex = 2;
             // 
             // circularPictureBox1
@@ -66,7 +66,7 @@ namespace WinFormsApp1
             circularPictureBox1.Image = (Image)resources.GetObject("circularPictureBox1.Image");
             circularPictureBox1.Location = new Point(12, 16);
             circularPictureBox1.Name = "circularPictureBox1";
-            circularPictureBox1.Size = new Size(53, 52);
+            circularPictureBox1.Size = new Size(60, 63);
             circularPictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             circularPictureBox1.TabIndex = 0;
             circularPictureBox1.TabStop = false;
@@ -75,9 +75,9 @@ namespace WinFormsApp1
             // 
             btnIncele.BackColor = Color.FromArgb(165, 215, 198);
             btnIncele.Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnIncele.Location = new Point(169, 53);
+            btnIncele.Location = new Point(155, 61);
             btnIncele.Name = "btnIncele";
-            btnIncele.Size = new Size(80, 26);
+            btnIncele.Size = new Size(94, 29);
             btnIncele.TabIndex = 4;
             btnIncele.Text = "İncele";
             btnIncele.UseVisualStyleBackColor = false;
@@ -86,11 +86,12 @@ namespace WinFormsApp1
             // 
             lblPuan.AutoSize = true;
             lblPuan.BackColor = SystemColors.ControlLightLight;
-            lblPuan.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            lblPuan.Location = new Point(99, 36);
+            lblPuan.Font = new Font("Segoe UI", 7.20000029F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPuan.Location = new Point(90, 36);
             lblPuan.Name = "lblPuan";
-            lblPuan.Size = new Size(0, 20);
+            lblPuan.Size = new Size(15, 17);
             lblPuan.TabIndex = 5;
+            lblPuan.Text = "a";
             // 
             // listItem
             // 
@@ -102,7 +103,7 @@ namespace WinFormsApp1
             Controls.Add(panel1);
             Controls.Add(lblUsername);
             Name = "listItem";
-            Size = new Size(252, 82);
+            Size = new Size(252, 93);
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)circularPictureBox1).EndInit();
             ResumeLayout(false);
