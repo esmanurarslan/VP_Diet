@@ -68,6 +68,7 @@
             // 
             txtNewPTekrar.Location = new Point(84, 167);
             txtNewPTekrar.Name = "txtNewPTekrar";
+            txtNewPTekrar.PasswordChar = '*';
             txtNewPTekrar.PlaceholderText = "Yeni Parola Tekrar";
             txtNewPTekrar.Size = new Size(156, 27);
             txtNewPTekrar.TabIndex = 7;
@@ -76,6 +77,7 @@
             // 
             txtNewP.Location = new Point(84, 134);
             txtNewP.Name = "txtNewP";
+            txtNewP.PasswordChar = '*';
             txtNewP.PlaceholderText = "Yeni Parola";
             txtNewP.Size = new Size(156, 27);
             txtNewP.TabIndex = 5;
@@ -93,6 +95,7 @@
             // 
             txtOldP.Location = new Point(84, 101);
             txtOldP.Name = "txtOldP";
+            txtOldP.PasswordChar = '*';
             txtOldP.PlaceholderText = "Eski Parola";
             txtOldP.Size = new Size(156, 27);
             txtOldP.TabIndex = 2;
