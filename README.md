@@ -1,5 +1,5 @@
 # VP_Diet
-# VP_Diet 
+
 
 ***
 
@@ -11,11 +11,11 @@
 
 The purpose of the Diet mentor application, which we developed as a team, is to make diet management and data tracking easy by uniting dietitians and clients on a common platform. With the app, clients will be able to easily update their data and see their progress on a time graph with their dietitians.
 
-<img width="300" alt="Ekran Resmi 2024-01-07 21 25 03" src="https://github.com/esmanurarslan/VP_Diet/assets/109535172/16f46277-7847-4b03-a467-ccd916e13e08">
+<img width="400" alt="Ekran Resmi 2024-01-07 21 25 03" src="https://github.com/esmanurarslan/VP_Diet/assets/109535172/16f46277-7847-4b03-a467-ccd916e13e08">
 
-<img width="315" alt="Ekran Resmi 2024-01-07 21 26 23" src="https://github.com/esmanurarslan/VP_Diet/assets/109535172/8ddc5ad5-054d-487f-9394-6c6005b78af3">
+<img width="415" alt="Ekran Resmi 2024-01-07 21 26 23" src="https://github.com/esmanurarslan/VP_Diet/assets/109535172/8ddc5ad5-054d-487f-9394-6c6005b78af3">
 
-<img width="267" alt="Ekran Resmi 2024-01-07 21 24 27" src="https://github.com/esmanurarslan/VP_Diet/assets/109535172/5d3aa098-8330-45f5-b0e5-855762649ffb">
+<img width="300" alt="Ekran Resmi 2024-01-07 21 24 27" src="https://github.com/esmanurarslan/VP_Diet/assets/109535172/5d3aa098-8330-45f5-b0e5-855762649ffb">
 
 ***
 
@@ -59,6 +59,4 @@ https://vp-diet-project.atlassian.net/jira/software/projects/VDP/boards/1/timeli
 Figma Design Template
 ---
 https://www.figma.com/file/HBzgAfPMqOvsY2OqfEJTsW/Untitled?type=design&node-id=0-1&mode=design
-![temp1](https://github.com/esmanurarslan/VP_Diet/assets/96125581/0d0cfd27-a920-4a3b-8c3e-941b8528e763)
-![Temp2](https://github.com/esmanurarslan/VP_Diet/assets/96125581/79494733-74ef-49d0-81c3-8a0cc1c54d93)
-![Temp3](https://github.com/esmanurarslan/VP_Diet/assets/96125581/9e7a7b73-3bfd-4660-8ca3-fbacd3df88ee)
+
