@@ -13,7 +13,7 @@ The purpose of the Diet mentor application, which we developed as a team, is to 
 
 <img width="400" alt="Ekran Resmi 2024-01-07 21 25 03" src="https://github.com/esmanurarslan/VP_Diet/assets/109535172/16f46277-7847-4b03-a467-ccd916e13e08">
 
-<img width="300" alt="Ekran Resmi 2024-01-07 21 24 27" src="https://github.com/esmanurarslan/VP_Diet/assets/109535172/5d3aa098-8330-45f5-b0e5-855762649ffb">
+<img width="380" alt="Ekran Resmi 2024-01-07 21 24 27" src="https://github.com/esmanurarslan/VP_Diet/assets/109535172/5d3aa098-8330-45f5-b0e5-855762649ffb">
 
 <img width="415" alt="Ekran Resmi 2024-01-07 21 26 23" src="https://github.com/esmanurarslan/VP_Diet/assets/109535172/8ddc5ad5-054d-487f-9394-6c6005b78af3">
 
